@@ -1,0 +1,27 @@
+# IDEs & Code Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.qodo/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Environment / Local Credentials
+.env
+.env.local
+
+# Uploads (Giữ file .gitkeep, không push ảnh test lên Git)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Temporary / Log files
+*.log
+*.tmp
