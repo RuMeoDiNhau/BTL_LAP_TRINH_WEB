@@ -1,4 +1,6 @@
+# ============================================================
 # IDEs & Code Editors
+# ============================================================
 .vscode/
 .idea/
 *.suo
@@ -7,21 +9,46 @@
 *.sln
 *.sw?
 .qodo/
+.history/
 
+# ============================================================
 # Operating System Files
+# ============================================================
 .DS_Store
 Thumbs.db
 ehthumbs.db
 desktop.ini
 
+# ============================================================
 # Environment / Local Credentials
-.env
-.env.local
+# ============================================================
+# Không commit file chứa mật khẩu CSDL thật.
+# File mẫu: config/database.example.php
+config/database.php
+config/*.local.php
 
-# Uploads (Giữ file .gitkeep, không push ảnh test lên Git)
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# Uploads (giữ .gitkeep, không push ảnh test)
+# ============================================================
 public/uploads/*
 !public/uploads/.gitkeep
 
-# Temporary / Log files
+# ============================================================
+# Database dumps / backups
+# ============================================================
+database/*.dump
+database/*.sql.gz
+database/backup/
+
+# ============================================================
+# Temporary / Log / Backup files
+# ============================================================
 *.log
 *.tmp
+*.bak
+*.orig
+*.rej
