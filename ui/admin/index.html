@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bảng điều khiển quản trị hệ thống Decor E-Commerce.">
+  <title>Tổng quan Quản trị | Decor Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+  <div class="ta-shell">
+    <aside class="ta-sidebar" aria-label="Menu quản trị Decor">
+      <div>
+        <a href="index.html" class="ta-logo">
+          <img src="../assets/images/brand/logo.svg" alt="Logo Decor" width="34" height="34">
+          <span>Decor</span>
+        </a>
+
+        <div class="ta-workspace-switcher">
+          <span class="ta-workspace-badge">D</span>
+          <div class="ta-workspace-info">
+            <div class="ta-workspace-name">Không gian Decor</div>
+            <div class="ta-workspace-sub">Quản trị &amp; Phân quyền</div>
+          </div>
+        </div>
+
+        <div class="ta-nav-section-label">Quản trị &amp; Phân quyền</div>
+        <ul class="ta-nav-list">
+          <li><a href="index.html" class="ta-nav-link is-active" aria-current="page"><span>Tổng quan</span></a></li>
+          <li><a href="roles.html" class="ta-nav-link"><span>Vai trò &amp; quyền hạn</span></a></li>
+        </ul>
+
+        <div class="ta-nav-section-label">Nội dung (Phần #4)</div>
+        <ul class="ta-nav-list">
+          <li><a href="posts.html" class="ta-nav-link"><span>Bài viết / Tin tức</span></a></li>
+          <li><a href="comments.html" class="ta-nav-link"><span>Bình luận bài viết</span><span class="ta-nav-badge">3</span></a></li>
+        </ul>
+      </div>
+
+      <div class="ta-sidebar-bottom">
+        <div class="ta-current-user">
+          <div class="ta-current-user-info">
+            <span class="ta-avatar">MA</span>
+            <div>
+              <div class="ta-workspace-name">Nguyễn Minh Anh</div>
+              <div class="ta-workspace-sub">Quản trị viên</div>
+            </div>
+          </div>
+          <a href="../login.html?logout=1">Thoát</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="ta-main">
+      <header class="ta-topbar">
+        <nav class="ta-breadcrumb" aria-label="Breadcrumb">
+          <span class="ta-breadcrumb-current">Tổng quan Quản trị</span>
+        </nav>
+        <div class="ta-topbar-actions">
+          <a href="../login.html" class="ta-btn ta-btn--outline ta-btn--sm">Trang Đăng nhập</a>
+          <span class="ta-avatar">MA</span>
+        </div>
+      </header>
+
+      <main class="ta-content">
+        <div class="ta-page-header">
+          <div>
+            <h1 class="ta-page-title">Bảng điều khiển Decor Admin</h1>
+            <p class="ta-page-subtitle">Truy cập nhanh các phân hệ xác thực, phân quyền người dùng và quản lý tin tức / bình luận (Phần #4).</p>
+          </div>
+        </div>
+
+        <section class="ta-stats-grid" aria-label="Liên kết nhanh">
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Vai trò &amp; quyền hạn</div>
+              <div class="ta-stat-value">02</div>
+              <div class="ta-stat-caption"><a href="roles.html">Xem ma trận phân quyền &rarr;</a></div>
+            </div>
+            <span class="ta-stat-icon">&#128737;</span>
+          </div>
+
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Giao diện Xác thực (Client)</div>
+              <div class="ta-stat-value">04</div>
+              <div class="ta-stat-caption">
+                <a href="../login.html">Đăng nhập</a> &bull;
+                <a href="../register.html">Đăng ký</a> &bull;
+                <a href="../forgot-password.html">Quên MK</a>
+              </div>
+            </div>
+            <span class="ta-stat-icon">&#128274;</span>
+          </div>
+
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Tin tức &amp; Bình luận (Phần #4)</div>
+              <div class="ta-stat-value">02</div>
+              <div class="ta-stat-caption">
+                <a href="posts.html">Quản lý bài viết</a> &bull;
+                <a href="comments.html">Bình luận</a>
+              </div>
+            </div>
+            <span class="ta-stat-icon">&#128240;</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

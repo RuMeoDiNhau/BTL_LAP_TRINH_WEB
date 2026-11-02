@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quản lý vai trò Quản trị viên và Thành viên cùng ma trận phân quyền trên hệ thống Decor E-Commerce.">
+  <title>Vai trò &amp; quyền hạn | Decor Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+  <div class="ta-shell">
+    <!-- Sidebar Quản trị -->
+    <aside class="ta-sidebar" aria-label="Menu quản trị Decor">
+      <div>
+        <a href="index.html" class="ta-logo">
+          <img src="../assets/images/brand/logo.svg" alt="Logo Decor" width="34" height="34">
+          <span>Decor</span>
+        </a>
+
+        <div class="ta-workspace-switcher">
+          <span class="ta-workspace-badge">D</span>
+          <div class="ta-workspace-info">
+            <div class="ta-workspace-name">Không gian Decor</div>
+            <div class="ta-workspace-sub">Quản trị &amp; Phân quyền</div>
+          </div>
+        </div>
+
+        <div class="ta-nav-section-label">Quản trị &amp; Phân quyền</div>
+        <ul class="ta-nav-list">
+          <li>
+            <a href="index.html" class="ta-nav-link">
+              <span class="ta-nav-link-left"><span>Tổng quan</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="roles.html" class="ta-nav-link is-active" aria-current="page">
+              <span class="ta-nav-link-left"><span>Vai trò &amp; quyền hạn</span></span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="ta-nav-section-label">Nội dung (Phần #4)</div>
+        <ul class="ta-nav-list">
+          <li>
+            <a href="posts.html" class="ta-nav-link">
+              <span class="ta-nav-link-left"><span>Bài viết / Tin tức</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="comments.html" class="ta-nav-link">
+              <span class="ta-nav-link-left"><span>Bình luận bài viết</span></span>
+              <span class="ta-nav-badge">3</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ta-sidebar-bottom">
+        <div class="ta-help-card">
+          <div class="ta-help-icon">?</div>
+          <div class="ta-help-title">Bạn cần hướng dẫn?</div>
+          <p class="ta-help-desc">Tìm hiểu cách phân quyền truy cập theo vai trò.</p>
+          <a href="../login.html" class="ta-help-link">Đổi tài khoản đăng nhập &#8599;</a>
+        </div>
+
+        <div class="ta-current-user">
+          <div class="ta-current-user-info">
+            <span class="ta-avatar" id="sidebarUserAvatar">MA</span>
+            <div>
+              <div class="ta-workspace-name" id="sidebarUserName">Nguyễn Minh Anh</div>
+              <div class="ta-workspace-sub" id="sidebarUserRole">Quản trị viên</div>
+            </div>
+          </div>
+          <a href="../login.html?logout=1" title="Đăng xuất">Thoát</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Nội dung chính -->
+    <div class="ta-main">
+      <header class="ta-topbar">
+        <nav class="ta-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Quản trị</a>
+          <span>&rsaquo;</span>
+          <span class="ta-breadcrumb-current">Vai trò &amp; quyền hạn</span>
+        </nav>
+        <div class="ta-topbar-actions">
+          <!-- Bộ chuyển nhanh phiên mô phỏng để kiểm thử phân quyền ngay trên trang -->
+          <div class="ta-row-actions" role="group" aria-label="Chuyển phiên kiểm thử phân quyền">
+            <button type="button" class="ta-btn ta-btn--outline ta-btn--sm" data-sim-session="admin">
+              Phiên: Quản trị viên
+            </button>
+            <button type="button" class="ta-btn ta-btn--outline ta-btn--sm" data-sim-session="member">
+              Phiên: Thành viên
+            </button>
+            <button type="button" class="ta-btn ta-btn--outline ta-btn--sm" data-sim-session="guest">
+              Phiên: Khách
+            </button>
+          </div>
+          <span class="ta-avatar" id="topbarUserAvatar">MA</span>
+        </div>
+      </header>
+
+      <main class="ta-content">
+        <div class="ta-page-header">
+          <div>
+            <h1 class="ta-page-title">Vai trò &amp; quyền hạn</h1>
+            <p class="ta-page-subtitle">Thiết lập quyền truy cập phù hợp với trách nhiệm của từng vai trò trong cơ sở dữ liệu Decor (<code>users.role</code>).</p>
+          </div>
+          <div class="ta-header-buttons">
+            <span id="currentSessionRoleBadge" class="ta-badge ta-badge--admin">
+              Đang đăng nhập: Quản trị viên (admin)
+            </span>
+          </div>
+        </div>
+
+        <!-- Thông báo kết quả kiểm tra phân quyền của phiên hiện tại -->
+        <div id="rbacGuardNotice" class="ta-card" style="padding:14px 20px;margin-bottom:20px;border-left:4px solid #4640de;">
+          <div id="rbacGuardText" style="font-size:13.5px;color:#344054;">
+            <strong>Trạng thái phân quyền:</strong> Bạn đang đăng nhập với vai trò <strong>Quản trị viên (admin)</strong> – có toàn quyền truy cập bảng điều khiển và các module quản trị.
+          </div>
+        </div>
+
+        <div class="ta-section-head">
+          <span class="ta-section-label">Vai trò trong hệ thống Decor (2 vai trò theo schema.sql)</span>
+          <span class="ta-section-hint">Chọn một vai trò để xem chi tiết ma trận quyền hạn</span>
+        </div>
+
+        <!-- 2 Thẻ Vai trò: Quản trị viên (admin) & Thành viên (member) -->
+        <section class="ta-role-cards-grid" aria-label="Danh sách vai trò">
+          <button
+            type="button"
+            class="ta-role-card is-selected"
+            data-role-card="admin"
+            aria-pressed="true"
+          >
+            <div class="ta-role-card-top">
+              <div class="ta-role-card-title-wrap">
+                <span class="ta-stat-icon" aria-hidden="true">&#128737;</span>
+                <div>
+                  <div class="ta-role-name">Quản trị viên (admin)</div>
+                  <div class="ta-role-user-count">Toàn quyền hệ thống</div>
+                </div>
+              </div>
+              <span class="ta-role-radio" aria-hidden="true"></span>
+            </div>
+            <p class="ta-role-desc">
+              Toàn quyền quản trị người dùng, sản phẩm, đơn hàng, tin tức, bình luận và cấu hình website.
+            </p>
+            <div class="ta-role-perm-summary">20/20 quyền được cấp</div>
+          </button>
+
+          <button
+            type="button"
+            class="ta-role-card"
+            data-role-card="member"
+            aria-pressed="false"
+          >
+            <div class="ta-role-card-top">
+              <div class="ta-role-card-title-wrap">
+                <span class="ta-stat-icon" aria-hidden="true">&#128100;</span>
+                <div>
+                  <div class="ta-role-name">Thành viên (member)</div>
+                  <div class="ta-role-user-count">Vai trò mặc định khi đăng ký</div>
+                </div>
+              </div>
+              <span class="ta-role-radio" aria-hidden="true"></span>
+            </div>
+            <p class="ta-role-desc">
+              Xem nội dung công khai, quản lý hồ sơ cá nhân, đặt mua sản phẩm và gửi bình luận bài viết.
+            </p>
+            <div class="ta-role-perm-summary">6/20 quyền được cấp</div>
+          </button>
+        </section>
+
+        <!-- Bảng Ma trận quyền hạn (Chỉ-xem theo QĐ đã chốt) -->
+        <section class="ta-card" aria-label="Ma trận quyền hạn theo nhóm chức năng">
+          <div class="ta-card-header">
+            <div>
+              <div class="ta-card-title-group">
+                <h2 class="ta-card-title" id="matrixRoleTitle">Quyền của vai trò Quản trị viên</h2>
+                <span class="ta-count-pill" id="matrixModeBadge">Chế độ chỉ xem</span>
+              </div>
+              <p class="ta-page-subtitle" style="margin-top:4px;">
+                Bảng tổng hợp quyền truy cập theo từng module của hệ thống Decor E-Commerce.
+              </p>
+            </div>
+
+            <div class="ta-perm-legend">
+              <span class="ta-perm-legend-item">
+                <span class="ta-perm-box ta-perm-box--allowed">&#10003;</span>
+                <span>Được phép</span>
+              </span>
+              <span class="ta-perm-legend-item">
+                <span class="ta-perm-box ta-perm-box--denied">&minus;</span>
+                <span>Bị giới hạn</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="ta-table-wrap">
+            <table class="ta-table">
+              <thead>
+                <tr>
+                  <th>Nhóm chức năng</th>
+                  <th class="ta-center" style="width:120px;">Xem</th>
+                  <th class="ta-center" style="width:120px;">Tạo</th>
+                  <th class="ta-center" style="width:120px;">Sửa</th>
+                  <th class="ta-center" style="width:120px;">Xóa</th>
+                </tr>
+              </thead>
+              <tbody id="permissionMatrixBody">
+                <!-- Được render bởi admin-roles.js khi chọn vai trò -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ta-card-footer">
+            <span>
+              &#9432; Quyền bị giới hạn sẽ không hiển thị thao tác tương ứng trên giao diện. Chỉ tài khoản có <code>role = 'admin'</code> mới được phép thực thi các route <code>/admin/*</code>.
+            </span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/pages/admin-roles.js"></script>
+</body>
+</html>
