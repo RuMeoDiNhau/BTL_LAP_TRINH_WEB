@@ -113,4 +113,86 @@ class Post
         return $stmt->execute();
     }
 
+    public function adminCount(string $keyword = '', ?string $status = null): int
+    {
+        $keyword = trim($keyword);
+        $sql = "SELECT COUNT(*) FROM `posts` p WHERE 1 = 1";
+
+        if ($keyword !== '') {
+            $sql .= " AND (p.`title` LIKE :kw_title OR p.`slug` LIKE :kw_slug)";
+        }
+
+        if ($status !== null && in_array($status, self::ALLOWED_STATUSES, true)) {
+            $sql .= " AND p.`status` = :status";
+        }
+
+        $stmt = $this->db->prepare($sql);
+
+        if ($keyword !== '') {
+            $like = '%' . $keyword . '%';
+            $stmt->bindValue(':kw_title', $like, PDO::PARAM_STR);
+            $stmt->bindValue(':kw_slug', $like, PDO::PARAM_STR);
+        }
+
+        if ($status !== null && in_array($status, self::ALLOWED_STATUSES, true)) {
+            $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+        }
+
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
+
+    public function adminPaginate(
+        string $keyword = '',
+        ?string $status = null,
+        int $limit = 10,
+        int $offset = 0
+    ): array {
+        $keyword = trim($keyword);
+        $limit = max(1, $limit);
+        $offset = max(0, $offset);
+
+        $sql = "SELECT
+                    p.`id`,
+                    p.`author_id`,
+                    p.`title`,
+                    p.`slug`,
+                    p.`thumbnail`,
+                    p.`status`,
+                    p.`views`,
+                    p.`created_at`,
+                    u.`full_name` AS `author_name`
+                FROM `posts` p
+                INNER JOIN `users` u ON u.`id` = p.`author_id`
+                WHERE 1 = 1";
+
+        if ($keyword !== '') {
+            $sql .= " AND (p.`title` LIKE :kw_title OR p.`slug` LIKE :kw_slug)";
+        }
+
+        if ($status !== null && in_array($status, self::ALLOWED_STATUSES, true)) {
+            $sql .= " AND p.`status` = :status";
+        }
+
+        $sql .= " ORDER BY p.`created_at` DESC, p.`id` DESC
+                  LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->db->prepare($sql);
+
+        if ($keyword !== '') {
+            $like = '%' . $keyword . '%';
+            $stmt->bindValue(':kw_title', $like, PDO::PARAM_STR);
+            $stmt->bindValue(':kw_slug', $like, PDO::PARAM_STR);
+        }
+
+        if ($status !== null && in_array($status, self::ALLOWED_STATUSES, true)) {
+            $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+        }
+
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
     }
