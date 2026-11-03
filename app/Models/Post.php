@@ -269,4 +269,75 @@ class Post
         $stmt->execute();
         return (int) $this->db->lastInsertId();
     }
+
+    public function update(int $id, array $data): bool
+    {
+        $status = in_array($data['status'] ?? 'draft', self::ALLOWED_STATUSES, true)
+            ? (string) $data['status']
+            : 'draft';
+
+        $sql = "UPDATE `posts`
+                SET `title`            = :title,
+                    `slug`             = :slug,
+                    `summary`          = :summary,
+                    `content`          = :content,
+                    `thumbnail`        = :thumbnail,
+                    `meta_title`       = :meta_title,
+                    `meta_description` = :meta_description,
+                    `meta_keywords`    = :meta_keywords,
+                    `status`           = :status
+                WHERE `id` = :id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':title', trim((string) $data['title']), PDO::PARAM_STR);
+        $stmt->bindValue(':slug', trim((string) $data['slug']), PDO::PARAM_STR);
+        $stmt->bindValue(':summary', self::nullableString($data['summary'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':content', (string) $data['content'], PDO::PARAM_STR);
+        $stmt->bindValue(':thumbnail', self::nullableString($data['thumbnail'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_title', self::nullableString($data['meta_title'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_description', self::nullableString($data['meta_description'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_keywords', self::nullableString($data['meta_keywords'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    public function delete(int $id): bool
+    {
+        $sql = "DELETE FROM `posts` WHERE `id` = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    public static function generateSlug(string $title): string
+    {
+        $str = mb_strtolower(trim($title), 'UTF-8');
+
+        $vietnameseMap = [
+            '/[àáạảãâầấậẩẫăằắặẳẵ]/u' => 'a',
+            '/[èéẹẻẽêềếệểễ]/u'       => 'e',
+            '/[ìíịỉĩ]/u'             => 'i',
+            '/[òóọỏõôồốộổỗơờớợởỡ]/u' => 'o',
+            '/[ùúụủũưừứựửữ]/u'       => 'u',
+            '/[ỳýỵỷỹ]/u'             => 'y',
+            '/đ/u'                   => 'd',
+        ];
+
+        $str = preg_replace(array_keys($vietnameseMap), array_values($vietnameseMap), $str) ?? $str;
+        $str = preg_replace('/[^a-z0-9\s-]/', '', $str) ?? $str;
+        $str = preg_replace('/[\s-]+/', '-', $str) ?? $str;
+
+        return trim($str, '-');
+    }
+
+    private static function nullableString(mixed $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+        $trimmed = trim((string) $value);
+        return $trimmed === '' ? null : $trimmed;
+    }
     }
