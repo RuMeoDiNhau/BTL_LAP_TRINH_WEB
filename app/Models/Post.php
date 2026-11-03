@@ -195,4 +195,32 @@ class Post
 
         return $stmt->fetchAll();
     }
+
+    public function findById(int $id): ?array
+    {
+        $sql = "SELECT * FROM `posts` WHERE `id` = :id LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $row = $stmt->fetch();
+        return $row !== false ? $row : null;
+    }
+
+    public function slugExists(string $slug, ?int $ignoreId = null): bool
+    {
+        $sql = "SELECT COUNT(*) FROM `posts` WHERE `slug` = :slug";
+        if ($ignoreId !== null) {
+            $sql .= " AND `id` != :ignore_id";
+        }
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':slug', trim($slug), PDO::PARAM_STR);
+        if ($ignoreId !== null) {
+            $stmt->bindValue(':ignore_id', $ignoreId, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+        return (int) $stmt->fetchColumn() > 0;
+    }
     }
