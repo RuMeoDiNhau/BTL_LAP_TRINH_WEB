@@ -223,4 +223,50 @@ class Post
         $stmt->execute();
         return (int) $stmt->fetchColumn() > 0;
     }
+
+    public function create(array $data): int
+    {
+        $status = in_array($data['status'] ?? 'draft', self::ALLOWED_STATUSES, true)
+            ? (string) $data['status']
+            : 'draft';
+
+        $sql = "INSERT INTO `posts` (
+                    `author_id`,
+                    `title`,
+                    `slug`,
+                    `summary`,
+                    `content`,
+                    `thumbnail`,
+                    `meta_title`,
+                    `meta_description`,
+                    `meta_keywords`,
+                    `status`
+                ) VALUES (
+                    :author_id,
+                    :title,
+                    :slug,
+                    :summary,
+                    :content,
+                    :thumbnail,
+                    :meta_title,
+                    :meta_description,
+                    :meta_keywords,
+                    :status
+                )";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':author_id', (int) $data['author_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':title', trim((string) $data['title']), PDO::PARAM_STR);
+        $stmt->bindValue(':slug', trim((string) $data['slug']), PDO::PARAM_STR);
+        $stmt->bindValue(':summary', self::nullableString($data['summary'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':content', (string) $data['content'], PDO::PARAM_STR);
+        $stmt->bindValue(':thumbnail', self::nullableString($data['thumbnail'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_title', self::nullableString($data['meta_title'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_description', self::nullableString($data['meta_description'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':meta_keywords', self::nullableString($data['meta_keywords'] ?? null), PDO::PARAM_STR);
+        $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+
+        $stmt->execute();
+        return (int) $this->db->lastInsertId();
+    }
     }
