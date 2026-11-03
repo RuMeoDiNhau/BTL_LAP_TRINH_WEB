@@ -80,4 +80,37 @@ class Post
 
         return $stmt->fetchAll();
     }
+    public function findPublishedBySlug(string $slug): ?array
+    {
+        $slug = trim($slug);
+        if ($slug === '') {
+            return null;
+        }
+
+        $sql = "SELECT
+                    p.*,
+                    u.`full_name` AS `author_name`,
+                    u.`avatar` AS `author_avatar`
+                FROM `posts` p
+                INNER JOIN `users` u ON u.`id` = p.`author_id`
+                WHERE p.`slug` = :slug
+                  AND p.`status` = 'published'
+                LIMIT 1";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':slug', $slug, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $row = $stmt->fetch();
+        return $row !== false ? $row : null;
+    }
+
+    public function incrementViews(int $id): bool
+    {
+        $sql = "UPDATE `posts` SET `views` = `views` + 1 WHERE `id` = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
     }
