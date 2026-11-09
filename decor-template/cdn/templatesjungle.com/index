@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+	<!-- Title and Meta
+	================================================== -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+	<!-- /* Favicons */ -->
+	<link rel="shortcut icon" href="https://templatesjungle.com/wp-content/themes/freebies/favicon.ico">
+
+	<!-- /* Stylesheets */ -->
+	<link rel="pingback" href="https://templatesjungle.com/xmlrpc.php" />
+	
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>500+ Free HTML Templates [Download Source Code]</title>
+	<meta name="description" content="Give Your Project a Kick Start with these Free HTML Templates! Easily download and use it for personal or commercial purposes." />
+	<link rel="canonical" href="https://templatesjungle.com/" />
+	<link rel="next" href="https://templatesjungle.com/page/2/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="500+ Free HTML Templates [Download Source Code]" />
+	<meta property="og:description" content="Give Your Project a Kick Start with these Free HTML Templates! Easily download and use it for personal or commercial purposes." />
+	<meta property="og:url" content="https://templatesjungle.com/" />
+	<meta property="og:site_name" content="TemplatesJungle.com" />
+	<meta property="og:image" content="https://templatesjungle.com/wp-content/uploads/2022/01/free-figma-website-templates-download.jpg" />
+	<meta property="og:image:width" content="1280" />
+	<meta property="og:image:height" content="960" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@TemplatesJungle" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//pagead2.googlesyndication.com' />
+<link rel='dns-prefetch' href='//fundingchoicesmessages.google.com' />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='vendor-css' href='https://templatesjungle.com/wp-content/themes/freebies/css/vendor.css?ver=1' media='' />
+<link rel='stylesheet' id='style-css' href='https://templatesjungle.com/wp-content/themes/freebies/style.css?ver=1' media='' />
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://templatesjungle.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://templatesjungle.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-preformatted-inline-css">
+.wp-block-preformatted{box-sizing:border-box;white-space:pre-wrap}:where(.wp-block-preformatted.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://templatesjungle.com/wp-includes/blocks/preformatted/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=https://templatesjungle.com/wp-includes/blocks/quote/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:transparent;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:transparent}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:currentColor}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:currentColor}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://templatesjungle.com/wp-includes/blocks/table/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='edd-blocks-css' href='https://templatesjungle.com/wp-content/plugins/easy-digital-downloads/includes/blocks/assets/css/edd-blocks.css?ver=3.3.9' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='edd-free-downloads-css' href='https://templatesjungle.com/wp-content/plugins/edd-free-downloads/assets/css/style.min.css?ver=2.3.10' media='all' />
+<link rel='stylesheet' id='megamenu-css' href='https://templatesjungle.com/wp-content/uploads/maxmegamenu/style.css?ver=b62c4e' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://templatesjungle.com/wp-includes/css/dashicons.min.css?ver=7.1.4' media='all' />
+<script id="jquery-core-js" src="https://templatesjungle.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://templatesjungle.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="plugins-js" src="https://templatesjungle.com/wp-content/themes/freebies/assets/js/plugins.js?ver=1"></script>
+<script id="script-js" src="https://templatesjungle.com/wp-content/themes/freebies/assets/js/script.js?ver=1"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+<script id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=G-LNL7938ZLV" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["templatesjungle.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-LNL7938ZLV");
+//# sourceURL=google_gtagjs-js-after
+</script>
+<meta name="generator" content="Site Kit by Google 1.164.0" /><meta name="generator" content="Easy Digital Downloads v3.3.9" />
+
+<!-- Google AdSense meta tags added by Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<!-- End Google AdSense meta tags added by Site Kit -->
+
+
+<script type="application/ld+json" class="saswp-schema-markup-output">
+[{"@context":"https://schema.org/","@graph":[{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"Bootstrap 5","url":"https://templatesjungle.com/bootstrap-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"Tailwind CSS","url":"https://templatesjungle.com/tailwind-css-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"portfolio","url":"https://templatesjungle.com/portfolio-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"ecommerce","url":"https://templatesjungle.com/ecommerce-html-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"Figma","url":"https://templatesjungle.com/figma-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"PSD","url":"https://templatesjungle.com/psd-website-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"ecommerce","url":"https://templatesjungle.com/ecommerce-html-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"Jewellery Shop","url":"https://templatesjungle.com/jewellery-shop/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"cafe and restaurant","url":"https://templatesjungle.com/cafe-restaurant/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"hotel and resort","url":"https://templatesjungle.com/hotel-resort/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"clothing","url":"https://templatesjungle.com/clothing/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"cosmetics","url":"https://templatesjungle.com/cosmetics/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"grocery","url":"https://templatesjungle.com/grocery/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"kids","url":"https://templatesjungle.com/kids/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"nft","url":"https://templatesjungle.com/nft/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"cryptocurrency","url":"https://templatesjungle.com/cryptocurrency/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"portfolio","url":"https://templatesjungle.com/portfolio-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"personal","url":"https://templatesjungle.com/personal/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"resume cv","url":"https://templatesjungle.com/resume-cv-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"agency","url":"https://templatesjungle.com/agency/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"business","url":"https://templatesjungle.com/business/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"digital marketing","url":"https://templatesjungle.com/digital-marketing/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"non proft","url":"https://templatesjungle.com/non-proft/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"small business","url":"https://templatesjungle.com/small-business/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"photography","url":"https://templatesjungle.com/photography/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"hvac","url":"https://templatesjungle.com/hvac-website-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"handyman","url":"https://templatesjungle.com/handyman-website-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"cleaning service","url":"https://templatesjungle.com/cleaning-service-website-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"gardening","url":"https://templatesjungle.com/gardening/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"Blog &amp; Magazines","url":"https://templatesjungle.com/blog-magazines/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"feminine","url":"https://templatesjungle.com/feminine/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"affiliate marketing","url":"https://templatesjungle.com/affiliate-marketing/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"education","url":"https://templatesjungle.com/education/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"life coach","url":"https://templatesjungle.com/life-coach/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"health","url":"https://templatesjungle.com/health/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"fitness","url":"https://templatesjungle.com/fitness/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"medical","url":"https://templatesjungle.com/medical/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"dark","url":"https://templatesjungle.com/dark/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"modern","url":"https://templatesjungle.com/modern/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"retro","url":"https://templatesjungle.com/retro/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"black and white","url":"https://templatesjungle.com/black-and-white/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"green","url":"https://templatesjungle.com/green/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"dashboard","url":"https://templatesjungle.com/dashboard-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"landing page","url":"https://templatesjungle.com/landing-page-templates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"one page","url":"https://templatesjungle.com/one-page/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://templatesjungle.com#main","name":"mobile ui kit","url":"https://templatesjungle.com/mobile-ui-kit/"}]},
+
+{"@context":"https://schema.org/","@type":"WebSite","@id":"https://templatesjungle.com#website","headline":"TemplatesJungle.com","name":"TemplatesJungle.com","description":"Give Your Project a Kick Start with these Free HTML Templates! Easily download and use it for personal or commercial purposes.","url":"https://templatesjungle.com"},
+
+{"@context":"https://schema.org/","@type":"Organization","@id":"https://templatesjungle.com#Organization","name":"TemplatesJungle.com","url":"https://templatesjungle.com","sameAs":[]}]
+</script>
+
+
+<!-- Google AdSense snippet added by Site Kit -->
+<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8838798108023780&#038;host=ca-host-pub-2644536267352236"></script>
+
+<!-- End Google AdSense snippet added by Site Kit -->
+
+<!-- Google AdSense Ad Blocking Recovery snippet added by Site Kit -->
+<script async src="https://fundingchoicesmessages.google.com/i/pub-8838798108023780?ers=1" nonce="FG5HZMyVskQ7Fmqrg_Q_cA"></script><script nonce="FG5HZMyVskQ7Fmqrg_Q_cA">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+<!-- End Google AdSense Ad Blocking Recovery snippet added by Site Kit -->
+
+<!-- Google AdSense Ad Blocking Recovery Error Protection snippet added by Site Kit -->
+<script>(function(){'use strict';function aa(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}var ba="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
+function ea(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var fa=ea(this);function ha(a,b){if(b)a:{var c=fa;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&ba(c,a,{configurable:!0,writable:!0,value:b})}}
+var ia="function"==typeof Object.create?Object.create:function(a){function b(){}b.prototype=a;return new b},l;if("function"==typeof Object.setPrototypeOf)l=Object.setPrototypeOf;else{var m;a:{var ja={a:!0},ka={};try{ka.__proto__=ja;m=ka.a;break a}catch(a){}m=!1}l=m?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var la=l;
+function n(a,b){a.prototype=ia(b.prototype);a.prototype.constructor=a;if(la)la(a,b);else for(var c in b)if("prototype"!=c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.A=b.prototype}function ma(){for(var a=Number(this),b=[],c=a;c<arguments.length;c++)b[c-a]=arguments[c];return b}
+var na="function"==typeof Object.assign?Object.assign:function(a,b){for(var c=1;c<arguments.length;c++){var d=arguments[c];if(d)for(var e in d)Object.prototype.hasOwnProperty.call(d,e)&&(a[e]=d[e])}return a};ha("Object.assign",function(a){return a||na});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+var p=this||self;function q(a){return a};var t,u;a:{for(var oa=["CLOSURE_FLAGS"],v=p,x=0;x<oa.length;x++)if(v=v[oa[x]],null==v){u=null;break a}u=v}var pa=u&&u[610401301];t=null!=pa?pa:!1;var z,qa=p.navigator;z=qa?qa.userAgentData||null:null;function A(a){return t?z?z.brands.some(function(b){return(b=b.brand)&&-1!=b.indexOf(a)}):!1:!1}function B(a){var b;a:{if(b=p.navigator)if(b=b.userAgent)break a;b=""}return-1!=b.indexOf(a)};function C(){return t?!!z&&0<z.brands.length:!1}function D(){return C()?A("Chromium"):(B("Chrome")||B("CriOS"))&&!(C()?0:B("Edge"))||B("Silk")};var ra=C()?!1:B("Trident")||B("MSIE");!B("Android")||D();D();B("Safari")&&(D()||(C()?0:B("Coast"))||(C()?0:B("Opera"))||(C()?0:B("Edge"))||(C()?A("Microsoft Edge"):B("Edg/"))||C()&&A("Opera"));var sa={},E=null;var ta="undefined"!==typeof Uint8Array,ua=!ra&&"function"===typeof btoa;var F="function"===typeof Symbol&&"symbol"===typeof Symbol()?Symbol():void 0,G=F?function(a,b){a[F]|=b}:function(a,b){void 0!==a.g?a.g|=b:Object.defineProperties(a,{g:{value:b,configurable:!0,writable:!0,enumerable:!1}})};function va(a){var b=H(a);1!==(b&1)&&(Object.isFrozen(a)&&(a=Array.prototype.slice.call(a)),I(a,b|1))}
+var H=F?function(a){return a[F]|0}:function(a){return a.g|0},J=F?function(a){return a[F]}:function(a){return a.g},I=F?function(a,b){a[F]=b}:function(a,b){void 0!==a.g?a.g=b:Object.defineProperties(a,{g:{value:b,configurable:!0,writable:!0,enumerable:!1}})};function wa(){var a=[];G(a,1);return a}function xa(a,b){I(b,(a|0)&-99)}function K(a,b){I(b,(a|34)&-73)}function L(a){a=a>>11&1023;return 0===a?536870912:a};var M={};function N(a){return null!==a&&"object"===typeof a&&!Array.isArray(a)&&a.constructor===Object}var O,ya=[];I(ya,39);O=Object.freeze(ya);var P;function Q(a,b){P=b;a=new a(b);P=void 0;return a}
+function R(a,b,c){null==a&&(a=P);P=void 0;if(null==a){var d=96;c?(a=[c],d|=512):a=[];b&&(d=d&-2095105|(b&1023)<<11)}else{if(!Array.isArray(a))throw Error();d=H(a);if(d&64)return a;d|=64;if(c&&(d|=512,c!==a[0]))throw Error();a:{c=a;var e=c.length;if(e){var f=e-1,g=c[f];if(N(g)){d|=256;b=(d>>9&1)-1;e=f-b;1024<=e&&(za(c,b,g),e=1023);d=d&-2095105|(e&1023)<<11;break a}}b&&(g=(d>>9&1)-1,b=Math.max(b,e-g),1024<b&&(za(c,g,{}),d|=256,b=1023),d=d&-2095105|(b&1023)<<11)}}I(a,d);return a}
+function za(a,b,c){for(var d=1023+b,e=a.length,f=d;f<e;f++){var g=a[f];null!=g&&g!==c&&(c[f-b]=g)}a.length=d+1;a[d]=c};function Aa(a){switch(typeof a){case "number":return isFinite(a)?a:String(a);case "boolean":return a?1:0;case "object":if(a&&!Array.isArray(a)&&ta&&null!=a&&a instanceof Uint8Array){if(ua){for(var b="",c=0,d=a.length-10240;c<d;)b+=String.fromCharCode.apply(null,a.subarray(c,c+=10240));b+=String.fromCharCode.apply(null,c?a.subarray(c):a);a=btoa(b)}else{void 0===b&&(b=0);if(!E){E={};c="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");d=["+/=","+/","-_=","-_.","-_"];for(var e=
+0;5>e;e++){var f=c.concat(d[e].split(""));sa[e]=f;for(var g=0;g<f.length;g++){var h=f[g];void 0===E[h]&&(E[h]=g)}}}b=sa[b];c=Array(Math.floor(a.length/3));d=b[64]||"";for(e=f=0;f<a.length-2;f+=3){var k=a[f],w=a[f+1];h=a[f+2];g=b[k>>2];k=b[(k&3)<<4|w>>4];w=b[(w&15)<<2|h>>6];h=b[h&63];c[e++]=g+k+w+h}g=0;h=d;switch(a.length-f){case 2:g=a[f+1],h=b[(g&15)<<2]||d;case 1:a=a[f],c[e]=b[a>>2]+b[(a&3)<<4|g>>4]+h+d}a=c.join("")}return a}}return a};function Ba(a,b,c){a=Array.prototype.slice.call(a);var d=a.length,e=b&256?a[d-1]:void 0;d+=e?-1:0;for(b=b&512?1:0;b<d;b++)a[b]=c(a[b]);if(e){b=a[b]={};for(var f in e)Object.prototype.hasOwnProperty.call(e,f)&&(b[f]=c(e[f]))}return a}function Da(a,b,c,d,e,f){if(null!=a){if(Array.isArray(a))a=e&&0==a.length&&H(a)&1?void 0:f&&H(a)&2?a:Ea(a,b,c,void 0!==d,e,f);else if(N(a)){var g={},h;for(h in a)Object.prototype.hasOwnProperty.call(a,h)&&(g[h]=Da(a[h],b,c,d,e,f));a=g}else a=b(a,d);return a}}
+function Ea(a,b,c,d,e,f){var g=d||c?H(a):0;d=d?!!(g&32):void 0;a=Array.prototype.slice.call(a);for(var h=0;h<a.length;h++)a[h]=Da(a[h],b,c,d,e,f);c&&c(g,a);return a}function Fa(a){return a.s===M?a.toJSON():Aa(a)};function Ga(a,b,c){c=void 0===c?K:c;if(null!=a){if(ta&&a instanceof Uint8Array)return b?a:new Uint8Array(a);if(Array.isArray(a)){var d=H(a);if(d&2)return a;if(b&&!(d&64)&&(d&32||0===d))return I(a,d|34),a;a=Ea(a,Ga,d&4?K:c,!0,!1,!0);b=H(a);b&4&&b&2&&Object.freeze(a);return a}a.s===M&&(b=a.h,c=J(b),a=c&2?a:Q(a.constructor,Ha(b,c,!0)));return a}}function Ha(a,b,c){var d=c||b&2?K:xa,e=!!(b&32);a=Ba(a,b,function(f){return Ga(f,e,d)});G(a,32|(c?2:0));return a};function Ia(a,b){a=a.h;return Ja(a,J(a),b)}function Ja(a,b,c,d){if(-1===c)return null;if(c>=L(b)){if(b&256)return a[a.length-1][c]}else{var e=a.length;if(d&&b&256&&(d=a[e-1][c],null!=d))return d;b=c+((b>>9&1)-1);if(b<e)return a[b]}}function Ka(a,b,c,d,e){var f=L(b);if(c>=f||e){e=b;if(b&256)f=a[a.length-1];else{if(null==d)return;f=a[f+((b>>9&1)-1)]={};e|=256}f[c]=d;e&=-1025;e!==b&&I(a,e)}else a[c+((b>>9&1)-1)]=d,b&256&&(d=a[a.length-1],c in d&&delete d[c]),b&1024&&I(a,b&-1025)}
+function La(a,b){var c=Ma;var d=void 0===d?!1:d;var e=a.h;var f=J(e),g=Ja(e,f,b,d);var h=!1;if(null==g||"object"!==typeof g||(h=Array.isArray(g))||g.s!==M)if(h){var k=h=H(g);0===k&&(k|=f&32);k|=f&2;k!==h&&I(g,k);c=new c(g)}else c=void 0;else c=g;c!==g&&null!=c&&Ka(e,f,b,c,d);e=c;if(null==e)return e;a=a.h;f=J(a);f&2||(g=e,c=g.h,h=J(c),g=h&2?Q(g.constructor,Ha(c,h,!1)):g,g!==e&&(e=g,Ka(a,f,b,e,d)));return e}function Na(a,b){a=Ia(a,b);return null==a||"string"===typeof a?a:void 0}
+function Oa(a,b){a=Ia(a,b);return null!=a?a:0}function S(a,b){a=Na(a,b);return null!=a?a:""};function T(a,b,c){this.h=R(a,b,c)}T.prototype.toJSON=function(){var a=Ea(this.h,Fa,void 0,void 0,!1,!1);return Pa(this,a,!0)};T.prototype.s=M;T.prototype.toString=function(){return Pa(this,this.h,!1).toString()};
+function Pa(a,b,c){var d=a.constructor.v,e=L(J(c?a.h:b)),f=!1;if(d){if(!c){b=Array.prototype.slice.call(b);var g;if(b.length&&N(g=b[b.length-1]))for(f=0;f<d.length;f++)if(d[f]>=e){Object.assign(b[b.length-1]={},g);break}f=!0}e=b;c=!c;g=J(a.h);a=L(g);g=(g>>9&1)-1;for(var h,k,w=0;w<d.length;w++)if(k=d[w],k<a){k+=g;var r=e[k];null==r?e[k]=c?O:wa():c&&r!==O&&va(r)}else h||(r=void 0,e.length&&N(r=e[e.length-1])?h=r:e.push(h={})),r=h[k],null==h[k]?h[k]=c?O:wa():c&&r!==O&&va(r)}d=b.length;if(!d)return b;
+var Ca;if(N(h=b[d-1])){a:{var y=h;e={};c=!1;for(var ca in y)Object.prototype.hasOwnProperty.call(y,ca)&&(a=y[ca],Array.isArray(a)&&a!=a&&(c=!0),null!=a?e[ca]=a:c=!0);if(c){for(var rb in e){y=e;break a}y=null}}y!=h&&(Ca=!0);d--}for(;0<d;d--){h=b[d-1];if(null!=h)break;var cb=!0}if(!Ca&&!cb)return b;var da;f?da=b:da=Array.prototype.slice.call(b,0,d);b=da;f&&(b.length=d);y&&b.push(y);return b};function Qa(a){return function(b){if(null==b||""==b)b=new a;else{b=JSON.parse(b);if(!Array.isArray(b))throw Error(void 0);G(b,32);b=Q(a,b)}return b}};function Ra(a){this.h=R(a)}n(Ra,T);var Sa=Qa(Ra);var U;function V(a){this.g=a}V.prototype.toString=function(){return this.g+""};var Ta={};function Ua(){return Math.floor(2147483648*Math.random()).toString(36)+Math.abs(Math.floor(2147483648*Math.random())^Date.now()).toString(36)};function Va(a,b){b=String(b);"application/xhtml+xml"===a.contentType&&(b=b.toLowerCase());return a.createElement(b)}function Wa(a){this.g=a||p.document||document}Wa.prototype.appendChild=function(a,b){a.appendChild(b)};/*
+
+ SPDX-License-Identifier: Apache-2.0
+*/
+function Xa(a,b){a.src=b instanceof V&&b.constructor===V?b.g:"type_error:TrustedResourceUrl";var c,d;(c=(b=null==(d=(c=(a.ownerDocument&&a.ownerDocument.defaultView||window).document).querySelector)?void 0:d.call(c,"script[nonce]"))?b.nonce||b.getAttribute("nonce")||"":"")&&a.setAttribute("nonce",c)};function Ya(a){a=void 0===a?document:a;return a.createElement("script")};function Za(a,b,c,d,e,f){try{var g=a.g,h=Ya(g);h.async=!0;Xa(h,b);g.head.appendChild(h);h.addEventListener("load",function(){e();d&&g.head.removeChild(h)});h.addEventListener("error",function(){0<c?Za(a,b,c-1,d,e,f):(d&&g.head.removeChild(h),f())})}catch(k){f()}};var $a=p.atob("aHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vaW1hZ2VzL2ljb25zL21hdGVyaWFsL3N5c3RlbS8xeC93YXJuaW5nX2FtYmVyXzI0ZHAucG5n"),ab=p.atob("WW91IGFyZSBzZWVpbmcgdGhpcyBtZXNzYWdlIGJlY2F1c2UgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlIGlzIGludGVyZmVyaW5nIHdpdGggdGhpcyBwYWdlLg=="),bb=p.atob("RGlzYWJsZSBhbnkgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlLCB0aGVuIHJlbG9hZCB0aGlzIHBhZ2Uu");function db(a,b,c){this.i=a;this.l=new Wa(this.i);this.g=null;this.j=[];this.m=!1;this.u=b;this.o=c}
+function eb(a){if(a.i.body&&!a.m){var b=function(){fb(a);p.setTimeout(function(){return gb(a,3)},50)};Za(a.l,a.u,2,!0,function(){p[a.o]||b()},b);a.m=!0}}
+function fb(a){for(var b=W(1,5),c=0;c<b;c++){var d=X(a);a.i.body.appendChild(d);a.j.push(d)}b=X(a);b.style.bottom="0";b.style.left="0";b.style.position="fixed";b.style.width=W(100,110).toString()+"%";b.style.zIndex=W(2147483544,2147483644).toString();b.style["background-color"]=hb(249,259,242,252,219,229);b.style["box-shadow"]="0 0 12px #888";b.style.color=hb(0,10,0,10,0,10);b.style.display="flex";b.style["justify-content"]="center";b.style["font-family"]="Roboto, Arial";c=X(a);c.style.width=W(80,
+85).toString()+"%";c.style.maxWidth=W(750,775).toString()+"px";c.style.margin="24px";c.style.display="flex";c.style["align-items"]="flex-start";c.style["justify-content"]="center";d=Va(a.l.g,"IMG");d.className=Ua();d.src=$a;d.alt="Warning icon";d.style.height="24px";d.style.width="24px";d.style["padding-right"]="16px";var e=X(a),f=X(a);f.style["font-weight"]="bold";f.textContent=ab;var g=X(a);g.textContent=bb;Y(a,e,f);Y(a,e,g);Y(a,c,d);Y(a,c,e);Y(a,b,c);a.g=b;a.i.body.appendChild(a.g);b=W(1,5);for(c=
+0;c<b;c++)d=X(a),a.i.body.appendChild(d),a.j.push(d)}function Y(a,b,c){for(var d=W(1,5),e=0;e<d;e++){var f=X(a);b.appendChild(f)}b.appendChild(c);c=W(1,5);for(d=0;d<c;d++)e=X(a),b.appendChild(e)}function W(a,b){return Math.floor(a+Math.random()*(b-a))}function hb(a,b,c,d,e,f){return"rgb("+W(Math.max(a,0),Math.min(b,255)).toString()+","+W(Math.max(c,0),Math.min(d,255)).toString()+","+W(Math.max(e,0),Math.min(f,255)).toString()+")"}function X(a){a=Va(a.l.g,"DIV");a.className=Ua();return a}
+function gb(a,b){0>=b||null!=a.g&&0!=a.g.offsetHeight&&0!=a.g.offsetWidth||(ib(a),fb(a),p.setTimeout(function(){return gb(a,b-1)},50))}
+function ib(a){var b=a.j;var c="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];if(c)b=c.call(b);else if("number"==typeof b.length)b={next:aa(b)};else throw Error(String(b)+" is not an iterable or ArrayLike");for(c=b.next();!c.done;c=b.next())(c=c.value)&&c.parentNode&&c.parentNode.removeChild(c);a.j=[];(b=a.g)&&b.parentNode&&b.parentNode.removeChild(b);a.g=null};function jb(a,b,c,d,e){function f(k){document.body?g(document.body):0<k?p.setTimeout(function(){f(k-1)},e):b()}function g(k){k.appendChild(h);p.setTimeout(function(){h?(0!==h.offsetHeight&&0!==h.offsetWidth?b():a(),h.parentNode&&h.parentNode.removeChild(h)):a()},d)}var h=kb(c);f(3)}function kb(a){var b=document.createElement("div");b.className=a;b.style.width="1px";b.style.height="1px";b.style.position="absolute";b.style.left="-10000px";b.style.top="-10000px";b.style.zIndex="-10000";return b};function Ma(a){this.h=R(a)}n(Ma,T);function lb(a){this.h=R(a)}n(lb,T);var mb=Qa(lb);function nb(a){a=Na(a,4)||"";if(void 0===U){var b=null;var c=p.trustedTypes;if(c&&c.createPolicy){try{b=c.createPolicy("goog#html",{createHTML:q,createScript:q,createScriptURL:q})}catch(d){p.console&&p.console.error(d.message)}U=b}else U=b}a=(b=U)?b.createScriptURL(a):a;return new V(a,Ta)};function ob(a,b){this.m=a;this.o=new Wa(a.document);this.g=b;this.j=S(this.g,1);this.u=nb(La(this.g,2));this.i=!1;b=nb(La(this.g,13));this.l=new db(a.document,b,S(this.g,12))}ob.prototype.start=function(){pb(this)};
+function pb(a){qb(a);Za(a.o,a.u,3,!1,function(){a:{var b=a.j;var c=p.btoa(b);if(c=p[c]){try{var d=Sa(p.atob(c))}catch(e){b=!1;break a}b=b===Na(d,1)}else b=!1}b?Z(a,S(a.g,14)):(Z(a,S(a.g,8)),eb(a.l))},function(){jb(function(){Z(a,S(a.g,7));eb(a.l)},function(){return Z(a,S(a.g,6))},S(a.g,9),Oa(a.g,10),Oa(a.g,11))})}function Z(a,b){a.i||(a.i=!0,a=new a.m.XMLHttpRequest,a.open("GET",b,!0),a.send())}function qb(a){var b=p.btoa(a.j);a.m[b]&&Z(a,S(a.g,5))};(function(a,b){p[a]=function(){var c=ma.apply(0,arguments);p[a]=function(){};b.apply(null,c)}})("__h82AlnkH6D91__",function(a){"function"===typeof window.atob&&(new ob(window,mb(window.atob(a)))).start()});}).call(this);
+
+window.__h82AlnkH6D91__("WyJwdWItODgzODc5ODEwODAyMzc4MCIsW251bGwsbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9iL3B1Yi04ODM4Nzk4MTA4MDIzNzgwIl0sbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9lbC9BR1NLV3hYeV9TYTlmV1F6VFpwUXRfMEdzVFl4bFVzcVlYUDdZdTBKeEF0ZFhzYmR6UDlDQnlVV2xkTkFoSDFNUUdNQTB0M1JqOHlqTnZ0dE10NTlGZy1mUUF2WV9RXHUwMDNkXHUwMDNkP3RlXHUwMDNkVE9LRU5fRVhQT1NFRCIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFZZbzBkSy1qbWNFVXpobDB2MGxsbERxR1hfbnNoMHEzak54VmNTTEFHelhPbUVxUjNVWmVBUC14eUJvZ0xxY1dyOUhOTzFrTThlUGpCcDZmLTJsbVI5QUFcdTAwM2RcdTAwM2Q/YWJcdTAwM2QxXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFUzTTJLWnhkMUxzdlZ3ZmFoSVZENUpXZ1NxUVlZR04yZWJUSmFLUU1CYk84bk1LRVBtaVVmMnh6X214SVRadkh4NTJGX21Hc3BjOXhXVzBkQWp6enV5R3dcdTAwM2RcdTAwM2Q/YWJcdTAwM2QyXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFdIYUtMTkQxSWxMWXJ2Mjl6WVNUNWgxTnFmRm5ZeEp1Q1ljMTc5Um44cmFETk4yOGdXbTBpRW1xd1Bua2NidE9OY3ZjTmt4akFkOVRFMmJHMDZqU3FQSmdcdTAwM2RcdTAwM2Q/c2JmXHUwMDNkMiIsImRpdi1ncHQtYWQiLDIwLDEwMCwiY0hWaUxUZzRNemczT1RneE1EZ3dNak0zT0RBXHUwMDNkIixbbnVsbCxudWxsLG51bGwsImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tLzBlbW4vZi9wL3B1Yi04ODM4Nzk4MTA4MDIzNzgwLmpzP3VzcXBcdTAwM2RDQVUiXSwiaHR0cHM6Ly9mdW5kaW5nY2hvaWNlc21lc3NhZ2VzLmdvb2dsZS5jb20vZWwvQUdTS1d4VzFnSnU3M3ZNUjBOUHZTUTRHTTFadUZXQklJZmF6Zk1sYzdVeXR1YnFHLVE3dDhiSUJqWFpqa3RNbzhnZDdkVzBsLTNUWTBVd0RTZld1VGdCMTBHeWVqZ1x1MDAzZFx1MDAzZCJd");</script>
+<!-- End Google AdSense Ad Blocking Recovery Error Protection snippet added by Site Kit -->
+<style id="kirki-inline-styles"></style>	
+
+</head>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+	<symbol id="icon-responsive" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.25" y="3" width="19.5" height="13.5" rx="1.5" /><path d="M7.5 21h9M12 16.5V21" /></g></symbol>
+	<symbol id="icon-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="m8.25 6-4.5 6 4.5 6m7.5-12 4.5 6-4.5 6M13.5 3l-3 18" /></symbol>
+	<symbol id="icon-search" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39M11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7" /></symbol>
+	<symbol id="icon-close" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="m13.41 12l6.3-6.29a1 1 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1 1 0 0 0-1.42 1.42l6.3 6.29l-6.3 6.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l6.29-6.3l6.29 6.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42Z" /></symbol>
+	<symbol id="icon-shopping-bag" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 4 0v1h-4Zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2Z" /></symbol>
+	<symbol id="icon-user" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19M12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4" /></symbol>
+	<symbol id="icon-download-cloud" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M14.29 17.29L13 18.59V13a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3a1 1 0 0 0 .33.21a.94.94 0 0 0 .76 0a1 1 0 0 0 .33-.21l3-3a1 1 0 0 0-1.42-1.42m4.13-11.07A7 7 0 0 0 5.06 8.11A4 4 0 0 0 6 16a1 1 0 0 0 0-2a2 2 0 0 1 0-4a1 1 0 0 0 1-1a5 5 0 0 1 9.73-1.61a1 1 0 0 0 .78.67a3 3 0 0 1 .24 5.84a1 1 0 1 0 .5 1.94a5 5 0 0 0 .17-9.62" /></symbol>
+	<symbol id="icon-creative-commons" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M20.354 6.479a10.02 10.02 0 0 0-7.421-4.429c-3.108-.294-6.031.771-8.123 2.963C3.533 6.35 2.699 7.839 2.21 9.66c-.217.805-.247 1.104-.244 2.396c.002 1.293.034 1.599.255 2.432a10.23 10.23 0 0 0 7.451 7.332c.315.078.702.16.859.182c.696.097 2.381.056 3.131-.075c3.088-.538 5.832-2.531 7.24-5.258c1.644-3.181 1.426-7.222-.548-10.19m-.41 7.688c-.808 2.99-3.263 5.272-6.361 5.912c-4.831.997-9.538-2.658-9.839-7.641c-.194-3.217 1.755-6.446 4.745-7.863c1.133-.536 2.045-.733 3.425-.738c1.327-.004 2.064.132 3.223.596c2.324.931 4.146 3.04 4.816 5.573c.281 1.06.276 3.103-.009 4.161" /><path fill="currentColor" d="M8.042 14.955c-.915-.324-1.616-1.275-1.74-2.36c-.183-1.607.422-2.856 1.654-3.415c.669-.303 1.882-.296 2.603.016c.438.19 1.261.933 1.261 1.139c0 .033-.284.201-.631.372l-.632.312l-.337-.337c-.187-.188-.475-.363-.649-.396c-.433-.082-.952.111-1.187.44c-.389.546-.415 1.972-.048 2.533c.191.291.512.494.813.518c.635.05.796-.006 1.172-.401l.379-.398l.488.269c.269.148.527.305.575.347c.164.148-.592.92-1.199 1.224c-.517.259-.679.293-1.358.286c-.425-.006-.949-.074-1.164-.149m5.816 0c-.901-.32-1.591-1.241-1.739-2.325c-.215-1.569.419-2.888 1.654-3.45c.717-.324 1.934-.3 2.661.056c.45.221 1.201.911 1.201 1.104c0 .034-.295.203-.654.377l-.654.317l-.341-.37c-.304-.332-.385-.369-.802-.369c-.576 0-.945.225-1.145.698c-.18.423-.201 1.461-.043 1.934c.324.961 1.505 1.188 2.175.419l.304-.346l.58.294c.32.161.582.319.582.352c0 .219-.75.918-1.256 1.17c-.517.259-.679.293-1.358.287c-.425-.005-.949-.073-1.165-.148" /></symbol>
+	<symbol id="icon-file-edit" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="m20.71 16.71l-2.42-2.42a1 1 0 0 0-1.42 0l-3.58 3.58a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h2.42a1 1 0 0 0 .71-.29l3.58-3.58a1 1 0 0 0 0-1.42M16 20h-1v-1l2.58-2.58l1 1Zm-6 0H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5v3a3 3 0 0 0 3 3h3v1a1 1 0 0 0 2 0V8.94a1.3 1.3 0 0 0-.06-.27v-.09a1 1 0 0 0-.19-.28l-6-6a1 1 0 0 0-.28-.19a.3.3 0 0 0-.09 0L12.06 2H6a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h4a1 1 0 0 0 0-2m3-14.59L15.59 8H14a1 1 0 0 1-1-1ZM8 14h6a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2m0-4h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2m2 6H8a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2" /></symbol>
+	<symbol id="icon-shopping-cart" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19M19 16H7a1 1 0 0 1 0-2h8.491a3.01 3.01 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74a3.01 3.01 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2m-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5" /></symbol>
+</svg>
+
+<body class="home blog wp-theme-freebies edd-js-none mega-menu-primary" >
+
+<div class="search-overlay">
+	<a class="btn-close-search" href="#">
+		<svg width="24" height="24"><use xlink:href="#icon-close"></use></svg>
+	</a>
+
+   	<div class="search-wrapper">
+   		<form class="searchbar d-flex" action="https://templatesjungle.com/" method="get">
+	<input type="text" id="search-text" name="s" placeholder="What are you looking for?" value="">
+	<input type="hidden" name="ptype" value="download">
+	<button class="btn btn-common btn-medium btn-rounded-right" type="submit"><i class="icon icon-search"></i></button>
+</form>   		<span>Ex. Agency, Creative portfolio, Music Shop etc.</span>
+   		
+   			<div id="popular-tags" class="popular-tags">
+		<h4>Popular Tags</h4>
+    	<ul>
+    				<li>
+				<a href="https://templatesjungle.com/landing-page-templates/">landing page (111)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/ecommerce-html-templates/">ecommerce (110)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/small-business/">small business (92)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/portfolio-templates/">portfolio (67)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/feminine/">feminine (65)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/modern/">modern (56)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/dark/">dark (36)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/agency/">agency (33)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/one-page-website-templates/">one page (27)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/clothing/">clothing (21)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/business/">business (18)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/blog-magazines/">Blog &amp; Magazines (17)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/personal/">personal (17)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/photography/">photography (16)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/health/">health (15)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/handyman-website-templates/">handyman (13)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/cafe-restaurant/">cafe and restaurant (12)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/cosmetics/">cosmetics (10)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/education/">education (10)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/resume-cv-templates/">resume cv (10)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/kids/">kids (9)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/jewellery-shop/">Jewellery Shop (8)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/hvac-website-templates/">hvac (8)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/green/">green (8)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/fitness/">fitness (8)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/grocery/">grocery (7)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/cleaning-service-website-templates/">cleaning service (6)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/hotel-resort/">hotel and resort (6)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/digital-marketing/">digital marketing (6)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/retro/">retro (6)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/mobile-ui-kit/">mobile ui kit (6)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/life-coach/">life coach (5)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/gardening/">gardening (5)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/affiliate-marketing/">affiliate marketing (5)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/dashboard-templates/">dashboard (5)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/medical/">medical (4)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/nft/">nft (4)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/cryptocurrency/">cryptocurrency (3)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/black-and-white/">black and white (2)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/under-construction/">under construction (2)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/non-profit/">non profit (2)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/gaming/">gaming (1)</a>
+			</li>
+						<li>
+				<a href="https://templatesjungle.com/music/">music (1)</a>
+			</li>
+			      	</ul>
+      </div>
+
+  		   	</div>
+</div>
+
+<div id="body-wrapper">
+			<div id="ribbon" class="text-white" style="background-color:#111111;background-image:url(https://templatesjungle.com/wp-content/themes/freebies/assets/images/bg-halloween.png);">
+			<div class="container">
+				<div class="row justify-content-center align-items-center p-2">
+					<div class="col-md-5 text-white text-center text-md-end">
+						<h2 class="text-white display-5 fw-bold m-0 lh-1">95% OFF FLASH SALE</h2>
+						<span class="m-0 text-subtle text-white lh-1">Don't miss this limited time offer to grab all our PRO templates</span>
+					</div>
+					<div class="col-md-3 text-center py-3 py-md-0">
+						<a href="https://templatesjungle.gumroad.com/l/ultimate-html-website-template-bundle/" target="_blank" class="btn btn-warning text-dark rounded-pill text-uppercase fw-bold py-2 px-4">
+							<h3 class="fs-4 lh-1 m-0">Get the Bundle</h3>
+							<span class="fs-6 fw-normal">190+ Templates at just $99</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+  
+	<header id="header">
+		<nav class="navbar navbar-expand-lg col-md-12 flex-container">
+			<div class="nav-brand">
+				<a href="https://templatesjungle.com/" title="TemplatesJungle.com">
+					<img src="https://templatesjungle.com/wp-content/themes/freebies/assets/images/logo.svg" alt="TemplatesJungle.com" />
+				</a>
+			</div>
+
+			<div id="mega-menu-wrap-primary" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-1' id='mega-toggle-block-1'><button aria-controls="mega-menu-primary" aria-expanded="false" aria-haspopup="true" aria-label="" class="mega-toggle-animated mega-toggle-animated-slider" type="button">
+                  <span class="mega-toggle-animated-box">
+                    <span class="mega-toggle-animated-inner"></span>
+                  </span>
+                </button></div></div></div><ul id="mega-menu-primary" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="click" data-effect="fade" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="0" data-panel-width=".container" data-mobile-force-width="body" data-second-click="go" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="768" data-unbind="true" data-mobile-state="collapse_all" data-mobile-direction="vertical"><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_category mega-menu-item-20335" id="mega-menu-item-20335"><a class="mega-menu-link" href="https://templatesjungle.com/bootstrap-templates/">Bootstrap 5</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_category mega-menu-item-20336" id="mega-menu-item-20336"><a class="mega-menu-link" href="https://templatesjungle.com/tailwind-css-templates/">Tailwind CSS</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20377" id="mega-menu-item-20377"><a class="mega-menu-link" href="https://templatesjungle.com/portfolio-templates/">portfolio</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20200" id="mega-menu-item-20200"><a class="mega-menu-link" href="https://templatesjungle.com/ecommerce-html-templates/">ecommerce</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_category mega-menu-item-20333" id="mega-menu-item-20333"><a class="mega-menu-link" href="https://templatesjungle.com/figma-templates/">Figma</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_category mega-menu-item-20337" id="mega-menu-item-20337"><a class="mega-menu-link" href="https://templatesjungle.com/psd-website-templates/">PSD</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-item-20379" id="mega-menu-item-20379"><a class="mega-menu-link" href="#" aria-expanded="false" aria-controls="mega-sub-menu-20379">Popular<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-20379'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20394" style="--columns:6; --span:1" id="mega-menu-item-20394"><a class="mega-menu-link" href="https://templatesjungle.com/ecommerce-html-templates/">ecommerce<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20394'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20406" id="mega-menu-item-20406"><a class="mega-menu-link" href="https://templatesjungle.com/jewellery-shop/">Jewellery Shop</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20384" id="mega-menu-item-20384"><a class="mega-menu-link" href="https://templatesjungle.com/cafe-restaurant/">cafe and restaurant</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20404" id="mega-menu-item-20404"><a class="mega-menu-link" href="https://templatesjungle.com/hotel-resort/">hotel and resort</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20386" id="mega-menu-item-20386"><a class="mega-menu-link" href="https://templatesjungle.com/clothing/">clothing</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20388" id="mega-menu-item-20388"><a class="mega-menu-link" href="https://templatesjungle.com/cosmetics/">cosmetics</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20401" id="mega-menu-item-20401"><a class="mega-menu-link" href="https://templatesjungle.com/grocery/">grocery</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20407" id="mega-menu-item-20407"><a class="mega-menu-link" href="https://templatesjungle.com/kids/">kids</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20413" id="mega-menu-item-20413"><a class="mega-menu-link" href="https://templatesjungle.com/nft/">nft</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20389" id="mega-menu-item-20389"><a class="mega-menu-link" href="https://templatesjungle.com/cryptocurrency/">cryptocurrency</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20417" style="--columns:6; --span:1" id="mega-menu-item-20417"><a class="mega-menu-link" href="https://templatesjungle.com/portfolio-templates/">portfolio<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20417'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20415" id="mega-menu-item-20415"><a class="mega-menu-link" href="https://templatesjungle.com/personal/">personal</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20390" id="mega-menu-item-20390"><a class="mega-menu-link" href="https://templatesjungle.com/resume-cv-templates/">resume cv</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20381" id="mega-menu-item-20381"><a class="mega-menu-link" href="https://templatesjungle.com/agency/">agency</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20383" id="mega-menu-item-20383"><a class="mega-menu-link" href="https://templatesjungle.com/business/">business</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20393" id="mega-menu-item-20393"><a class="mega-menu-link" href="https://templatesjungle.com/digital-marketing/">digital marketing</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20561" id="mega-menu-item-20561"><a class="mega-menu-link" href="https://templatesjungle.com/non-profit/">non profit</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20419" style="--columns:6; --span:1" id="mega-menu-item-20419"><a class="mega-menu-link" href="https://templatesjungle.com/small-business/">small business<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20419'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20416" id="mega-menu-item-20416"><a class="mega-menu-link" href="https://templatesjungle.com/photography/">photography</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20405" id="mega-menu-item-20405"><a class="mega-menu-link" href="https://templatesjungle.com/hvac-website-templates/">hvac</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20402" id="mega-menu-item-20402"><a class="mega-menu-link" href="https://templatesjungle.com/handyman-website-templates/">handyman</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20385" id="mega-menu-item-20385"><a class="mega-menu-link" href="https://templatesjungle.com/cleaning-service-website-templates/">cleaning service</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20400" id="mega-menu-item-20400"><a class="mega-menu-link" href="https://templatesjungle.com/gardening/">gardening</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20382" style="--columns:6; --span:1" id="mega-menu-item-20382"><a class="mega-menu-link" href="https://templatesjungle.com/blog-magazines/">Blog &amp; Magazines<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20382'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20397" id="mega-menu-item-20397"><a class="mega-menu-link" href="https://templatesjungle.com/feminine/">feminine</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20380" id="mega-menu-item-20380"><a class="mega-menu-link" href="https://templatesjungle.com/affiliate-marketing/">affiliate marketing</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20396" id="mega-menu-item-20396"><a class="mega-menu-link" href="https://templatesjungle.com/education/">education</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20409" id="mega-menu-item-20409"><a class="mega-menu-link" href="https://templatesjungle.com/life-coach/">life coach</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20403" id="mega-menu-item-20403"><a class="mega-menu-link" href="https://templatesjungle.com/health/">health</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20398" id="mega-menu-item-20398"><a class="mega-menu-link" href="https://templatesjungle.com/fitness/">fitness</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20410" id="mega-menu-item-20410"><a class="mega-menu-link" href="https://templatesjungle.com/medical/">medical</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20420" style="--columns:6; --span:1" id="mega-menu-item-20420"><a class="mega-menu-link" href="#">Styles<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20420'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20391" id="mega-menu-item-20391"><a class="mega-menu-link" href="https://templatesjungle.com/dark/">dark</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20412" id="mega-menu-item-20412"><a class="mega-menu-link" href="https://templatesjungle.com/modern/">modern</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20418" id="mega-menu-item-20418"><a class="mega-menu-link" href="https://templatesjungle.com/retro/">retro</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20439" id="mega-menu-item-20439"><a class="mega-menu-link" href="https://templatesjungle.com/black-and-white/">black and white</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20440" id="mega-menu-item-20440"><a class="mega-menu-link" href="https://templatesjungle.com/green/">green</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-6 mega-menu-item-20421" style="--columns:6; --span:1" id="mega-menu-item-20421"><a class="mega-menu-link" href="#">Layouts<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-20421'>
+<li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20392" id="mega-menu-item-20392"><a class="mega-menu-link" href="https://templatesjungle.com/dashboard-templates/">dashboard</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20408" id="mega-menu-item-20408"><a class="mega-menu-link" href="https://templatesjungle.com/landing-page-templates/">landing page</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20414" id="mega-menu-item-20414"><a class="mega-menu-link" href="https://templatesjungle.com/one-page-website-templates/">one page</a></li><li class="mega-menu-item mega-menu-item-type-taxonomy mega-menu-item-object-download_tag mega-menu-item-20411" id="mega-menu-item-20411"><a class="mega-menu-link" href="https://templatesjungle.com/mobile-ui-kit/">mobile ui kit</a></li>	</ul>
+</li></ul>
+</li></ul></div>			
+			
+            	<div id="freebie-actions">
+					<ul>
+						<li>
+							<a href="#" class="btn-search d-flex align-items-center justify-content-center">
+								<svg width="24" height="24"><use xlink:href="#icon-search"></use></svg>
+							</a>
+						</li>
+					</ul>
+	            </div>
+
+	        		</nav>
+	</header>
+
+	<div class="banner-ads">
+		<div class="container py-5">
+			<div class="row text-center" style="height:280px;">
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8838798108023780"
+     crossorigin="anonymous"></script>
+	<!-- header_ad_common -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-8838798108023780"
+		data-ad-slot="7822261104"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	
+				</div>
+		</div>
+  </div>
+
+<section id="billboard">
+  <div class="container">
+    <div class="row">
+      <div class="text-content text-center col-md-7 padding-small">
+        
+          <h1>Free HTML <span class="color-primary">Website Templates</span> for Every Project</h1>
+          <p class="lead">Download 500+ free HTML website templates — responsive designs, clean source code, ready to customize. Browse by category and find the perfect template for your next project.</p>
+          
+          <div class="row mt-30">
+            <div class="col-md-4">
+                <div class="icon-box align-left">
+                  <div class="icon-wrap color-primary">
+                    <svg width="60" height="60"><use xlink:href="#icon-download-cloud"></use></svg>
+                  </div>
+                  <h5>Download Free Templates</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box align-left">
+                  <div class="icon-wrap color-primary">
+                    <svg width="60" height="60"><use xlink:href="#icon-file-edit"></use></svg>
+                  </div>
+                  <h5>Customize & Personalize</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box align-left">
+                  <div class="icon-wrap color-primary">
+                    <svg width="60" height="60"><use xlink:href="#icon-creative-commons"></use></svg>
+                  </div>
+                  <h5>Personal & Commercial Use</h5>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div><!--container-->
+</section><!--billboard-->
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Popular Free HTML Templates</h2>
+          <a href="https://templatesjungle.com/portfolio-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Portfolio Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates ecommerce-html-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/waggy-pet-shop-ecommerce-html-website-template/" title="Waggy &#8211; Free Pet Shop eCommerce HTML Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Waggy - Pet Shop Free eCommerce Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2023/06/waggy-pet-shop-free-ecommerce-figma-website-design-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/waggy-pet-shop-ecommerce-html-website-template/" title="Waggy &#8211; Free Pet Shop eCommerce HTML Website Template">Waggy &#8211; Free Pet Shop eCommerce HTML Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates agency feminine one-page-website-templates personal portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/julia-free-one-page-portfolio-html-template/" title="Julia &#8211; Free One Page Portfolio HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Julia - Free One Page Portfolio HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2023/08/julia-onepage-portfolio.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/julia-free-one-page-portfolio-html-template/" title="Julia &#8211; Free One Page Portfolio HTML Template">Julia &#8211; Free One Page Portfolio HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates clothing ecommerce-html-templates feminine portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/kaira-bootstrap-5-fashion-store-ecommerce-html-css-template/" title="Kaira &#8211; Bootstrap 5 Fashion Store eCommerce HTML CSS Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Kaira – Bootstrap 5 Fashion Store eCommerce HTML CSS Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2023/07/kaira-fashion-store-bootstrap-ecommerce-template-3-1.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/kaira-bootstrap-5-fashion-store-ecommerce-html-css-template/" title="Kaira &#8211; Bootstrap 5 Fashion Store eCommerce HTML CSS Template">Kaira &#8211; Bootstrap 5 Fashion Store eCommerce HTML CSS Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates cafe-restaurant hotel-resort small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/telly-hotel-and-resort-html-website-template/" title="Telly &#8211; Free Hotel And Resort Bootstrap 5 HTML Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Telly – Free Hotel And Resort Bootstrap 5 HTML Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2023/11/telly-hotel-resort-html-template.jpg 1280w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/telly-hotel-and-resort-html-website-template/" title="Telly &#8211; Free Hotel And Resort Bootstrap 5 HTML Website Template">Telly &#8211; Free Hotel And Resort Bootstrap 5 HTML Website Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Bootstrap 5 Templates</h2>
+          <a href="https://templatesjungle.com/bootstrap-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Bootstrap 5 Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates landing-page-templates one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="BridgePoint | Insurance Broker Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template">BridgePoint &#8211; Insurance Broker Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates fitness landing-page-templates one-page-website-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/summit-sports-club-website-template/" title="Summit Sports Club Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="responsive Bootstrap 5 template for sports clubs" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/summit-sports-club-website-template/" title="Summit Sports Club Website Template">Summit Sports Club Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates cosmetics feminine small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/bloom-beauty-salon-html-template/" title="Bloom &amp; Glow &#8211; Beauty Salon HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Bloom &amp; Glow | Beauty Salon HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover.jpg 1534w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/bloom-beauty-salon-html-template/" title="Bloom &amp; Glow &#8211; Beauty Salon HTML Template">Bloom &amp; Glow &#8211; Beauty Salon HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates feminine one-page-website-templates photography portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/everafter-wedding-photography-website-template/" title="EverAfter &#8211; Wedding Photography Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Ever After | Wedding Photography Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/everafter-wedding-photography-website-template/" title="EverAfter &#8211; Wedding Photography Website Template">EverAfter &#8211; Wedding Photography Website Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Tailwind CSS Templates</h2>
+          <a href="https://templatesjungle.com/tailwind-css-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Tailwind CSS Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates dark gaming landing-page-templates modern  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/novashift-gaming-html-website-template/" title="NovaShift – Futuristic Gaming &amp; Esports HTML Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Futuristic Gaming &amp; Esports Tailwind CSS Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/NovaShift-cover.jpg 1440w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/novashift-gaming-html-website-template/" title="NovaShift – Futuristic Gaming &amp; Esports HTML Website Template">NovaShift – Futuristic Gaming &amp; Esports HTML Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates dark landing-page-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/aerovision-tailwind-css-landing-page-for-tech-product-launch/" title="Aerovision – Tailwind CSS Landing Page for Tech Product Launch" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Aerovision – Modern Gadget Launch Landing Page Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/aerovision-cover.jpg 1532w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/aerovision-tailwind-css-landing-page-for-tech-product-launch/" title="Aerovision – Tailwind CSS Landing Page for Tech Product Launch">Aerovision – Tailwind CSS Landing Page for Tech Product Launch</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates dashboard-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/board-admin-dashboard-tailwind-css-template/" title="Board &#8211; Admin Dashboard Tailwind CSS Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Board - Admin Dashboard Tailwind CSS Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/07/board-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/board-admin-dashboard-tailwind-css-template/" title="Board &#8211; Admin Dashboard Tailwind CSS Template">Board &#8211; Admin Dashboard Tailwind CSS Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates agency modern portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/exhibit-creative-portfolio-html-template/" title="EXHIBIT – Creative Portfolio HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="EXHIBIT – A modern portfolio template for creatives" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/exhibit-creative-portfolio-html-template/" title="EXHIBIT – Creative Portfolio HTML Template">EXHIBIT – Creative Portfolio HTML Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Ecommerce HTML Templates</h2>
+          <a href="https://templatesjungle.com/ecommerce-html-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Ecommerce HTML Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates ecommerce-html-templates feminine jewellery-shop one-page-website-templates retro  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/poppy-pearl-handmade-jewellery-store-template/" title="Poppy &amp; Pearl — Handmade Jewellery Store HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Poppy &amp; Pearl | Handmade Jewellery Store Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/poppy-cover.jpg 1440w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/poppy-pearl-handmade-jewellery-store-template/" title="Poppy &amp; Pearl — Handmade Jewellery Store HTML Template">Poppy &amp; Pearl — Handmade Jewellery Store HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates clothing ecommerce-html-templates feminine modern  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/ourfit-clothing-fashion-store-bootstrap-5-html-template/" title="Ourfit &#8211; Clothing &amp; Fashion Store Bootstrap 5 HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Ourfit — Clothing &amp; Fashion Store Bootstrap 5 HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Ourfit-cover.jpg 1500w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/ourfit-clothing-fashion-store-bootstrap-5-html-template/" title="Ourfit &#8211; Clothing &amp; Fashion Store Bootstrap 5 HTML Template">Ourfit &#8211; Clothing &amp; Fashion Store Bootstrap 5 HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates cafe-restaurant ecommerce-html-templates modern small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/beanie-coffee-shop-bootstrap-5-html-template/" title="Beanie — Coffee Shop &amp; Café Bootstrap 5 HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Beanie | Coffee Shop &amp; Café Bootstrap 5 HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/Beanie-cover.jpg 1500w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/beanie-coffee-shop-bootstrap-5-html-template/" title="Beanie — Coffee Shop &amp; Café Bootstrap 5 HTML Template">Beanie — Coffee Shop &amp; Café Bootstrap 5 HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates ecommerce-html-templates green grocery  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/growcery-organic-food-store-bootstrap-template/" title="Growcery — Organic Food Store Bootstrap 5 HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Organic Food Store Bootstrap 5 Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/09/growcery-cover.jpg 1500w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/growcery-organic-food-store-bootstrap-template/" title="Growcery — Organic Food Store Bootstrap 5 HTML Template">Growcery — Organic Food Store Bootstrap 5 HTML Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="padding-small">
+    	
+	</section>
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Portfolio HTML Templates</h2>
+          <a href="https://templatesjungle.com/portfolio-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Portfolio Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates feminine one-page-website-templates photography portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/everafter-wedding-photography-website-template/" title="EverAfter &#8211; Wedding Photography Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Ever After | Wedding Photography Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/EverAfter-Wedding-Photography-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/everafter-wedding-photography-website-template/" title="EverAfter &#8211; Wedding Photography Website Template">EverAfter &#8211; Wedding Photography Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates feminine landing-page-templates modern photography portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/sonder-fashion-photography-portfolio-html-template/" title="Sonder &#8211; Fashion Photography Portfolio HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Sonder | Fashion Photography Portfolio Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/sonder-portfolio-for-photographers-cover.jpg 1413w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/sonder-fashion-photography-portfolio-html-template/" title="Sonder &#8211; Fashion Photography Portfolio HTML Template">Sonder &#8211; Fashion Photography Portfolio HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates agency modern portfolio-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/exhibit-creative-portfolio-html-template/" title="EXHIBIT – Creative Portfolio HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="EXHIBIT – A modern portfolio template for creatives" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/exhibit-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/exhibit-creative-portfolio-html-template/" title="EXHIBIT – Creative Portfolio HTML Template">EXHIBIT – Creative Portfolio HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item tailwind-css-templates agency modern one-page-website-templates portfolio-templates resume-cv-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/devflow-modern-cv-resume-html-template/" title="DevFlow – Modern CV &amp; Resume HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="DevFlow – Modern CV &amp; Resume HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/06/devflow-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/devflow-modern-cv-resume-html-template/" title="DevFlow – Modern CV &amp; Resume HTML Template">DevFlow – Modern CV &amp; Resume HTML Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Landing Page Templates</h2>
+          <a href="https://templatesjungle.com/landing-page-templates/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Landing Page Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates landing-page-templates one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="BridgePoint | Insurance Broker Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template">BridgePoint &#8211; Insurance Broker Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates fitness landing-page-templates one-page-website-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/summit-sports-club-website-template/" title="Summit Sports Club Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="responsive Bootstrap 5 template for sports clubs" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Summit-Sports-Club-template-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/summit-sports-club-website-template/" title="Summit Sports Club Website Template">Summit Sports Club Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates dark fitness landing-page-templates one-page-website-templates  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/ironcore-gym-fitness-center-website-template/" title="IronCore Fitness — Gym &amp; Fitness Center Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="IronCore | Gym &amp; Fitness Center Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/IronCore-Fitness-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/ironcore-gym-fitness-center-website-template/" title="IronCore Fitness — Gym &amp; Fitness Center Website Template">IronCore Fitness — Gym &amp; Fitness Center Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates green landing-page-templates one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/surewise-insurance-agency-html-website-template/" title="Surewise — Insurance Agency Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Surewise | Insurance Agency Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/surewise-insurance-agency-html-website-template/" title="Surewise — Insurance Agency Website Template">Surewise — Insurance Agency Website Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="theme-items-wrap padding-small no-padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Small Business Templates</h2>
+          <a href="https://templatesjungle.com/small-business/" class="btn btn-small btn-primary btn-rounded btn-outline-dark">View all Free Small Business Templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+        		
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates landing-page-templates one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="BridgePoint | Insurance Broker Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/11/BridgePoint-Insurance-broker-website-template-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/bridgepoint-insurance-broker-website-template/" title="BridgePoint &#8211; Insurance Broker Website Template">BridgePoint &#8211; Insurance Broker Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates cosmetics feminine small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/bloom-beauty-salon-html-template/" title="Bloom &amp; Glow &#8211; Beauty Salon HTML Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Bloom &amp; Glow | Beauty Salon HTML Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Bloom-Glow-Beauty-Salon-Spa-cover.jpg 1534w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/bloom-beauty-salon-html-template/" title="Bloom &amp; Glow &#8211; Beauty Salon HTML Template">Bloom &amp; Glow &#8211; Beauty Salon HTML Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates green landing-page-templates one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/surewise-insurance-agency-html-website-template/" title="Surewise — Insurance Agency Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Surewise | Insurance Agency Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Surewise-Insurance-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/surewise-insurance-agency-html-website-template/" title="Surewise — Insurance Agency Website Template">Surewise — Insurance Agency Website Template</a></h3>
+
+</div>				</div>
+
+							
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="theme-item bootstrap-templates dark fitness health landing-page-templates modern one-page-website-templates small-business  mb-5">
+  
+    <div class="theme-image">
+
+    <a href="https://templatesjungle.com/downloads/ironpulse-gym-fitness-center-html-website-template/" title="Iron Pulse &#8211; Gym &amp; Fitness Center Website Template" rel="bookmark">
+      <img width="640" height="480" src="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-640x480.jpg" class="attachment-download-thumbnail size-download-thumbnail wp-post-image" alt="Iron Pulse | Gym &amp; Fitness Center Website Template" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/edd/2026/10/Iron-Pulse-Gym-cover.jpg 1600w" sizes="auto, (max-width: 640px) 100vw, 640px" />    </a>
+
+  </div><!--theme-image-->
+    
+  <h3 class="theme-title"><a href="https://templatesjungle.com/downloads/ironpulse-gym-fitness-center-html-website-template/" title="Iron Pulse &#8211; Gym &amp; Fitness Center Website Template">Iron Pulse &#8211; Gym &amp; Fitness Center Website Template</a></h3>
+
+</div>				</div>
+
+			
+		
+	  	    </div>
+  </div>
+</section>
+
+<section class="latest-blogs padding-large">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="element-title">
+          <h2>Our Blog</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+
+           		<div class="posts-grid">
+   			<div class="row">
+   		
+	   						<div class="col-md-3">
+					<article id="post-20612" class="post-item pb-5 post-20612 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorials tag-editorials">
+	
+  	<figure>
+    	<a href="https://templatesjungle.com/how-to-make-netlify-website/"><img width="1400" height="1050" src="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-1400x1050.jpg" class="attachment-medium-thumbnail size-medium-thumbnail wp-post-image" alt="How to Make a Website with Netlify: A Complete Beginner&#039;s Guide" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-make-netlify-website.jpg 1600w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></a>
+  	</figure>
+	
+  <div class="content">
+    
+    <div class="category">
+    		<div class="post-meta">
+				<span class="post-cat-link">
+			<a href="https://templatesjungle.com/tutorials/" rel="category tag">Tutorials</a>		</span>
+			</div>
+
+	    </div>
+    
+    <h3 class="post-title m-0"><a href="https://templatesjungle.com/how-to-make-netlify-website/" title="Permalink to How to Make a Website with Netlify: A Complete Beginner&#8217;s Guide" rel="bookmark">How to Make a Website with Netlify: A Complete Beginner&#8217;s Guide</a></h3>
+    
+    <p>Getting a website online used to mean wrestling with servers, FTP clients, and complex configurations. Netlify changed all that. In this guide, I&#8217;ll show you how to find the perfect<a href="https://templatesjungle.com/how-to-make-netlify-website/" class="btn btn-large btn-accent btn-pill btn-more" title="read more">Read more <span>→</span></a></p>
+
+  </div>
+
+</article><!--post-item-->				</div>
+							<div class="col-md-3">
+					<article id="post-20608" class="post-item pb-5 post-20608 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorials tag-bootstrap-5">
+	
+  	<figure>
+    	<a href="https://templatesjungle.com/how-to-edit-a-bootstrap-template-a-step-by-step-guide/"><img width="1400" height="1050" src="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-1400x1050.jpg" class="attachment-medium-thumbnail size-medium-thumbnail wp-post-image" alt="How to Edit a Bootstrap Template: A Step-by-Step Guide" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-edit-a-bootstrap-template.jpg 1600w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></a>
+  	</figure>
+	
+  <div class="content">
+    
+    <div class="category">
+    		<div class="post-meta">
+				<span class="post-cat-link">
+			<a href="https://templatesjungle.com/tutorials/" rel="category tag">Tutorials</a>		</span>
+			</div>
+
+	    </div>
+    
+    <h3 class="post-title m-0"><a href="https://templatesjungle.com/how-to-edit-a-bootstrap-template-a-step-by-step-guide/" title="Permalink to How to Edit a Bootstrap Template: A Step-by-Step Guide" rel="bookmark">How to Edit a Bootstrap Template: A Step-by-Step Guide</a></h3>
+    
+    <p>So you&#8217;ve downloaded a stunning Bootstrap template from TemplatesJungle, and now you&#8217;re staring at a folder full of files wondering, &#8220;Where do I even start?&#8221; Don&#8217;t worry—editing a Bootstrap template<a href="https://templatesjungle.com/how-to-edit-a-bootstrap-template-a-step-by-step-guide/" class="btn btn-large btn-accent btn-pill btn-more" title="read more">Read more <span>→</span></a></p>
+
+  </div>
+
+</article><!--post-item-->				</div>
+							<div class="col-md-3">
+					<article id="post-20616" class="post-item pb-5 post-20616 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorials tag-editorials">
+	
+  	<figure>
+    	<a href="https://templatesjungle.com/how-to-host-a-website-on-github-for-free/"><img width="1400" height="1050" src="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-1400x1050.jpg" class="attachment-medium-thumbnail size-medium-thumbnail wp-post-image" alt="How to Host a Website on GitHub for Free" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-host-a-website-on-github-for-free.jpg 1600w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></a>
+  	</figure>
+	
+  <div class="content">
+    
+    <div class="category">
+    		<div class="post-meta">
+				<span class="post-cat-link">
+			<a href="https://templatesjungle.com/tutorials/" rel="category tag">Tutorials</a>		</span>
+			</div>
+
+	    </div>
+    
+    <h3 class="post-title m-0"><a href="https://templatesjungle.com/how-to-host-a-website-on-github-for-free/" title="Permalink to How to Host a Website on GitHub for Free" rel="bookmark">How to Host a Website on GitHub for Free</a></h3>
+    
+    <p>Did you know you can host a complete, professional-looking website on GitHub without spending a single dollar? It&#8217;s true. GitHub Pages is a free hosting service that turns any repository<a href="https://templatesjungle.com/how-to-host-a-website-on-github-for-free/" class="btn btn-large btn-accent btn-pill btn-more" title="read more">Read more <span>→</span></a></p>
+
+  </div>
+
+</article><!--post-item-->				</div>
+							<div class="col-md-3">
+					<article id="post-20604" class="post-item pb-5 post-20604 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorials tag-agency tag-business tag-free">
+	
+  	<figure>
+    	<a href="https://templatesjungle.com/how-to-build-a-landing-page-from-scratch/"><img width="1400" height="1050" src="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-1400x1050.jpg" class="attachment-medium-thumbnail size-medium-thumbnail wp-post-image" alt="How to Build a Landing Page from Scratch Using Free HTML Templates" decoding="async" loading="lazy" srcset="https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-1400x1050.jpg 1400w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-300x225.jpg 300w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-1024x768.jpg 1024w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-768x576.jpg 768w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-1536x1152.jpg 1536w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch-640x480.jpg 640w, https://templatesjungle.com/wp-content/uploads/2026/09/how-to-build-a-landing-page-from-scratch.jpg 1600w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></a>
+  	</figure>
+	
+  <div class="content">
+    
+    <div class="category">
+    		<div class="post-meta">
+				<span class="post-cat-link">
+			<a href="https://templatesjungle.com/tutorials/" rel="category tag">Tutorials</a>		</span>
+			</div>
+
+	    </div>
+    
+    <h3 class="post-title m-0"><a href="https://templatesjungle.com/how-to-build-a-landing-page-from-scratch/" title="Permalink to How to Build a Landing Page from Scratch Using Free HTML Templates" rel="bookmark">How to Build a Landing Page from Scratch Using Free HTML Templates</a></h3>
+    
+    <p>Building a landing page from scratch might sound intimidating, but it&#8217;s actually a straightforward process if you break it down step by step. Unlike a full website, a landing page<a href="https://templatesjungle.com/how-to-build-a-landing-page-from-scratch/" class="btn btn-large btn-accent btn-pill btn-more" title="read more">Read more <span>→</span></a></p>
+
+  </div>
+
+</article><!--post-item-->				</div>
+						
+			</div>
+		</div>
+		
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+	
+
+<footer id="footer" class="bg-grey">
+  <div class="container">
+    <div class="row">
+
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-4" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Quick Links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88"><a href="https://templatesjungle.com/about-us/">About us</a></li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://templatesjungle.com/contact-us/">Contact</a></li>
+<li id="menu-item-13386" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13386"><a href="https://templatesjungle.com/advertise-with-us/">Advertise with us</a></li>
+<li id="menu-item-19900" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19900"><a href="https://templatesjungle.com/our-blog/">Our Blog</a></li>
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89"><a href="https://templatesjungle.com/free-license/">License</a></li>
+<li id="menu-item-169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-169"><a rel="privacy-policy" href="https://templatesjungle.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-11513" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11513"><a href="https://templatesjungle.com/terms-and-conditions/">Terms and Conditions</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-7" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Follow Us</h3><div class="menu-social-links-container"><ul id="menu-social-links" class="menu"><li id="menu-item-332" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-332"><a target="_blank" href="https://dribbble.com/templatesjungle">Dribbble</a></li>
+<li id="menu-item-333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-333"><a target="_blank" href="https://www.facebook.com/TemplatesJungle/">Facebook</a></li>
+<li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a target="_blank" href="https://www.instagram.com/templatesjungle/">Instagram</a></li>
+<li id="menu-item-335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-335"><a target="_blank" href="https://www.behance.net/templatesjungle">Behance</a></li>
+<li id="menu-item-336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-336"><a target="_blank" href="https://twitter.com/TemplatesJungle">Twitter</a></li>
+<li id="menu-item-2060" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2060"><a href="https://www.pinterest.com/templatesjungle">Pinterest</a></li>
+<li id="menu-item-13717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13717"><a href="https://codepen.io/TemplatesJungle">Codepen</a></li>
+<li id="menu-item-14812" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14812"><a href="https://templatesjungle.gumroad.com/">Gumroad</a></li>
+<li id="menu-item-16735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16735"><a href="https://www.patreon.com/templatesjungle">Patreon</a></li>
+<li id="menu-item-20315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20315"><a target="_blank" href="https://github.com/templatesjungle">GitHub</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-15" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Layouts</h3><div class="menu-layouts-container"><ul id="menu-layouts" class="menu"><li id="menu-item-20187" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20187"><a href="https://templatesjungle.com/landing-page-templates/">landing page</a></li>
+<li id="menu-item-20191" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20191"><a href="https://templatesjungle.com/blog-magazines/">Blog &amp; Magazines</a></li>
+<li id="menu-item-20195" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20195"><a href="https://templatesjungle.com/dashboard-templates/">dashboard</a></li>
+<li id="menu-item-20196" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20196"><a href="https://templatesjungle.com/resume-cv-templates/">resume cv</a></li>
+<li id="menu-item-20197" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20197"><a href="https://templatesjungle.com/one-page-website-templates/">one page</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-16" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Popular Categories</h3><div class="menu-popular-categories-container"><ul id="menu-popular-categories" class="menu"><li id="menu-item-20170" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20170"><a href="https://templatesjungle.com/small-business/">small business</a></li>
+<li id="menu-item-20174" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20174"><a href="https://templatesjungle.com/agency/">agency</a></li>
+<li id="menu-item-20175" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20175"><a href="https://templatesjungle.com/feminine/">feminine</a></li>
+<li id="menu-item-20176" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20176"><a href="https://templatesjungle.com/blog-magazines/">Blog &amp; Magazines</a></li>
+<li id="menu-item-20178" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20178"><a href="https://templatesjungle.com/one-page-website-templates/">one page</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-17" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Popular Tags</h3><div class="menu-popular-tags-container"><ul id="menu-popular-tags" class="menu"><li id="menu-item-20165" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20165"><a href="https://templatesjungle.com/small-business/">small business</a></li>
+<li id="menu-item-20168" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20168"><a href="https://templatesjungle.com/feminine/">feminine</a></li>
+<li id="menu-item-20169" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20169"><a href="https://templatesjungle.com/ecommerce-html-templates/">ecommerce</a></li>
+<li id="menu-item-20311" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20311"><a href="https://templatesjungle.com/cafe-restaurant/">cafe and restaurant</a></li>
+<li id="menu-item-20312" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20312"><a href="https://templatesjungle.com/cosmetics/">cosmetics</a></li>
+<li id="menu-item-20313" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20313"><a href="https://templatesjungle.com/hotel-resort/">hotel and resort</a></li>
+<li id="menu-item-20314" class="menu-item menu-item-type-taxonomy menu-item-object-download_tag menu-item-20314"><a href="https://templatesjungle.com/jewellery-shop/">Jewellery Shop</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+              <div class="col-md-2">    
+          <div class="footer-links">
+            <section id="nav_menu-18" class="widget widget_nav_menu clearfix"><h3 class="widget-title">Frameworks</h3><div class="menu-frameworks-container"><ul id="menu-frameworks" class="menu"><li id="menu-item-20338" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-20338"><a target="_blank" href="https://templatesjungle.com/figma-templates/">Figma</a></li>
+<li id="menu-item-20339" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-20339"><a target="_blank" href="https://templatesjungle.com/bootstrap-templates/">Bootstrap</a></li>
+<li id="menu-item-20340" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-20340"><a target="_blank" href="https://templatesjungle.com/tailwind-css-templates/">Tailwind CSS</a></li>
+<li id="menu-item-20341" class="menu-item menu-item-type-taxonomy menu-item-object-download_category menu-item-20341"><a target="_blank" href="https://templatesjungle.com/psd-website-templates/">PSD</a></li>
+</ul></div></section>          </div>
+        </div>
+      
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="copyright text-center">© Copyright 2026 TemplatesJungle</p>
+      </div>
+    </div>
+  </div>
+</footer>	</div> 
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/freebies/*","/*\\?(.+)","/checkout/*"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<style>.edd-js-none .edd-has-js, .edd-js .edd-no-js, body.edd-js input.edd-no-js { display: none; }</style>
+	<script>/* <![CDATA[ */(function(){var c = document.body.classList;c.remove('edd-js-none');c.add('edd-js');})();/* ]]> */</script>
+	<div class="edd-free-downloads-modal-wrapper edd-free-downloads"><span class="edd-loading"></span><div id="edd-free-downloads-modal" style="display:none"></div></div><script id="ta_main_js-js-extra">
+var thirsty_global_vars = {"home_url":"//templatesjungle.com","ajax_url":"https://templatesjungle.com/wp-admin/admin-ajax.php","link_fixer_enabled":"yes","link_prefix":"go","link_prefixes":{"0":"recommends","3":"go"},"post_id":"20612","enable_record_stats":"yes","enable_js_redirect":"yes","disable_thirstylink_class":""};
+//# sourceURL=ta_main_js-js-extra
+</script>
+<script id="ta_main_js-js" src="https://templatesjungle.com/wp-content/plugins/thirstyaffiliates/js/app/ta.js?ver=3.11.6"></script>
+<script id="edd-ajax-js-extra">
+var edd_scripts = {"ajaxurl":"https://templatesjungle.com/wp-admin/admin-ajax.php","position_in_cart":"","has_purchase_links":"0","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"paypal_commerce","redirect_to_checkout":"1","checkout_page":"https://templatesjungle.com/checkout/","permalinks":"1","quantities_enabled":"","taxes_enabled":"0","current_page":"20612"};
+//# sourceURL=edd-ajax-js-extra
+</script>
+<script id="edd-ajax-js" src="https://templatesjungle.com/wp-content/plugins/easy-digital-downloads/assets/js/edd-ajax.js?ver=3.3.9"></script>
+<script id="edd-free-downloads-mobile-js" src="https://templatesjungle.com/wp-content/plugins/edd-free-downloads/assets/js/isMobile.min.js"></script>
+<script id="edd-free-downloads-js-extra">
+var edd_free_downloads_vars = {"close_button":"box","user_registration":"false","require_name":"true","download_loading":"Please Wait... ","download_label":"Download Now","modal_download_label":"Send me the Link","has_ajax":"1","ajaxurl":"https://templatesjungle.com/wp-admin/admin-ajax.php","mobile_url":"/?edd-free-download=true","form_class":"edd_purchase_submit_wrapper","bypass_logged_in":"false","is_download":"false","edd_is_mobile":"","success_page":"https://templatesjungle.com/checkout/purchase-confirmation/","guest_checkout_disabled":"","email_verification":"","on_complete_handler":"auto-download","on_complete_delay":"2000"};
+//# sourceURL=edd-free-downloads-js-extra
+</script>
+<script id="edd-free-downloads-js" src="https://templatesjungle.com/wp-content/plugins/edd-free-downloads/assets/js/edd-free-downloads.min.js?ver=2.3.10"></script>
+<script id="hoverIntent-js" src="https://templatesjungle.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2"></script>
+<script id="megamenu-js" src="https://templatesjungle.com/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=3.10.6"></script>
+
+</body>
+</html>
