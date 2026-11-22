@@ -1,0 +1,774 @@
+/* ==========================================================================
+   DECOR E-COMMERCE - TAILADMIN DASHBOARD STYLESHEET
+   Áp dụng cho: ui/admin/*.html (Vai trò & quyền hạn, Tin tức, Bình luận)
+   Thiết kế bám sát bộ token TailAdmin v2 + ảnh thiết kế pic_of_UI/roles_and_quyen.png
+   ========================================================================== */
+
+:root {
+  --ta-brand-50: #eef2ff;
+  --ta-brand-100: #e0e7ff;
+  --ta-brand-200: #c7d2fe;
+  --ta-brand-500: #4640de;
+  --ta-brand-600: #3730a3;
+  --ta-gray-25: #fcfcfd;
+  --ta-gray-50: #f8fafc;
+  --ta-gray-100: #f2f4f7;
+  --ta-gray-200: #e4e7ec;
+  --ta-gray-300: #d0d5dd;
+  --ta-gray-400: #98a2b3;
+  --ta-gray-500: #667085;
+  --ta-gray-600: #475467;
+  --ta-gray-700: #344054;
+  --ta-gray-800: #1d2939;
+  --ta-gray-900: #101828;
+  --ta-success-50: #ecfdf3;
+  --ta-success-600: #027a48;
+  --ta-success-dot: #12b76a;
+  --ta-danger-50: #fef3f2;
+  --ta-danger-600: #b42318;
+  --ta-warning-50: #fffaeb;
+  --ta-warning-600: #b54708;
+  --ta-shadow-xs: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --ta-shadow-sm: 0 1px 3px 0 rgba(16, 24, 40, 0.08), 0 1px 2px -1px rgba(16, 24, 40, 0.06);
+  --ta-shadow-md: 0 8px 24px -4px rgba(16, 24, 40, 0.08);
+  --ta-radius-sm: 8px;
+  --ta-radius-md: 12px;
+  --ta-radius-lg: 16px;
+  --ta-font: "Inter", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: var(--ta-font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ta-gray-900);
+  background-color: var(--ta-gray-50);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ta-brand-500);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   1. ADMIN SHELL (SIDEBAR + MAIN CONTENT)
+   ========================================================================== */
+.ta-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.ta-sidebar {
+  background-color: #ffffff;
+  border-right: 1px solid var(--ta-gray-200);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.ta-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 16px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ta-gray-900);
+  letter-spacing: -0.02em;
+}
+
+.ta-logo img {
+  width: 34px;
+  height: 34px;
+}
+
+.ta-workspace-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--ta-gray-200);
+  border-radius: var(--ta-radius-md);
+  background-color: var(--ta-gray-25);
+  margin-bottom: 20px;
+}
+
+.ta-workspace-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ta-workspace-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ta-workspace-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ta-gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ta-workspace-sub {
+  font-size: 11.5px;
+  color: var(--ta-gray-500);
+}
+
+.ta-nav-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ta-gray-400);
+  padding: 0 12px;
+  margin: 14px 0 6px;
+}
+
+.ta-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ta-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--ta-radius-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ta-gray-600);
+  transition: all 0.15s ease;
+}
+
+.ta-nav-link-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ta-nav-link:hover {
+  background-color: var(--ta-gray-100);
+  color: var(--ta-gray-900);
+}
+
+.ta-nav-link.is-active {
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+}
+
+.ta-nav-badge {
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--ta-warning-50);
+  color: var(--ta-warning-600);
+}
+
+/* Sidebar Bottom Help Box & Profile */
+.ta-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.ta-help-card {
+  background-color: #f5f6ff;
+  border: 1px solid var(--ta-brand-100);
+  border-radius: var(--ta-radius-md);
+  padding: 14px;
+}
+
+.ta-help-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--ta-brand-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.ta-help-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ta-gray-900);
+  margin-bottom: 4px;
+}
+
+.ta-help-desc {
+  font-size: 12px;
+  color: var(--ta-gray-600);
+  margin-bottom: 8px;
+}
+
+.ta-help-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ta-brand-500);
+}
+
+.ta-current-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 10px 8px;
+  border-top: 1px solid var(--ta-gray-200);
+}
+
+.ta-current-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ta-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  font-weight: 700;
+  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   2. TOPBAR & MAIN CONTAINER
+   ========================================================================== */
+.ta-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ta-topbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--ta-gray-200);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.ta-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ta-gray-500);
+}
+
+.ta-breadcrumb a {
+  color: var(--ta-gray-500);
+  font-weight: 500;
+}
+
+.ta-breadcrumb a:hover {
+  color: var(--ta-gray-900);
+}
+
+.ta-breadcrumb-current {
+  color: var(--ta-gray-900);
+  font-weight: 600;
+}
+
+.ta-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ta-content {
+  padding: 28px 32px 48px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Page Header */
+.ta-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.ta-page-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ta-gray-900);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.ta-page-subtitle {
+  font-size: 13.5px;
+  color: var(--ta-gray-500);
+}
+
+.ta-header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons */
+.ta-btn {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--ta-radius-sm);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ta-btn--primary {
+  background-color: var(--ta-brand-500);
+  color: #ffffff;
+  box-shadow: var(--ta-shadow-xs);
+}
+
+.ta-btn--primary:hover {
+  background-color: var(--ta-brand-600);
+  color: #ffffff;
+}
+
+.ta-btn--outline {
+  background-color: #ffffff;
+  border-color: var(--ta-gray-300);
+  color: var(--ta-gray-700);
+}
+
+.ta-btn--outline:hover {
+  background-color: var(--ta-gray-50);
+  color: var(--ta-gray-900);
+}
+
+.ta-btn--sm {
+  height: 32px;
+  padding: 0 10px;
+  font-size: 12.5px;
+}
+
+.ta-row-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   3. STAT CARDS GRID
+   ========================================================================== */
+.ta-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ta-stat-card {
+  background-color: #ffffff;
+  border: 1px solid var(--ta-gray-200);
+  border-radius: var(--ta-radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--ta-shadow-xs);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ta-stat-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ta-gray-500);
+  margin-bottom: 6px;
+}
+
+.ta-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ta-gray-900);
+  margin-bottom: 6px;
+}
+
+.ta-stat-caption {
+  font-size: 12px;
+  color: var(--ta-gray-400);
+}
+
+.ta-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   4. CARD & TABLE
+   ========================================================================== */
+.ta-card {
+  background-color: #ffffff;
+  border: 1px solid var(--ta-gray-200);
+  border-radius: var(--ta-radius-lg);
+  box-shadow: var(--ta-shadow-xs);
+  overflow: hidden;
+}
+
+.ta-card-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--ta-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ta-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ta-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ta-gray-900);
+}
+
+.ta-count-pill {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ta-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ta-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ta-table th {
+  padding: 12px 18px;
+  background-color: var(--ta-gray-50);
+  border-bottom: 1px solid var(--ta-gray-200);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ta-gray-500);
+  white-space: nowrap;
+}
+
+.ta-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--ta-gray-100);
+  font-size: 13.5px;
+  color: var(--ta-gray-700);
+  vertical-align: middle;
+}
+
+.ta-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Badges */
+.ta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ta-badge--admin {
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+}
+
+.ta-badge--member {
+  background-color: var(--ta-warning-50);
+  color: var(--ta-warning-600);
+}
+
+.ta-card-footer {
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--ta-gray-500);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   5. ROLES & PERMISSIONS MATRIX (roles_and_quyen.png)
+   ========================================================================== */
+.ta-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ta-section-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ta-gray-800);
+}
+
+.ta-section-hint {
+  font-size: 12.5px;
+  color: var(--ta-gray-400);
+}
+
+.ta-role-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ta-role-card {
+  background-color: #ffffff;
+  border: 1.5px solid var(--ta-gray-200);
+  border-radius: var(--ta-radius-lg);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+
+.ta-role-card:hover {
+  border-color: var(--ta-brand-200);
+}
+
+.ta-role-card.is-selected {
+  border-color: var(--ta-brand-500);
+  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+  box-shadow: 0 0 0 3px rgba(70, 64, 222, 0.1);
+}
+
+.ta-role-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ta-role-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ta-role-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--ta-gray-300);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ta-role-card.is-selected .ta-role-radio {
+  border-color: var(--ta-brand-500);
+  background-color: var(--ta-brand-500);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.ta-role-name {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--ta-gray-900);
+}
+
+.ta-role-card.is-selected .ta-role-name {
+  color: var(--ta-brand-500);
+}
+
+.ta-role-user-count {
+  font-size: 12.5px;
+  color: var(--ta-gray-500);
+}
+
+.ta-role-desc {
+  font-size: 13px;
+  color: var(--ta-gray-600);
+  margin-bottom: 12px;
+}
+
+.ta-role-perm-summary {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ta-brand-500);
+}
+
+/* Permission Matrix Table */
+.ta-perm-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12.5px;
+  color: var(--ta-gray-600);
+}
+
+.ta-perm-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ta-perm-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ta-perm-box--allowed {
+  background-color: var(--ta-brand-500);
+  color: #ffffff;
+}
+
+.ta-perm-box--denied {
+  background-color: var(--ta-gray-100);
+  border: 1px solid var(--ta-gray-200);
+  color: var(--ta-gray-400);
+}
+
+.ta-module-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ta-module-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--ta-gray-100);
+  color: var(--ta-gray-600);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ta-module-name {
+  font-weight: 700;
+  color: var(--ta-gray-900);
+}
+
+.ta-module-desc {
+  font-size: 12px;
+  color: var(--ta-gray-500);
+}
+
+.ta-center {
+  text-align: center !important;
+}
+
+@media (max-width: 991.98px) {
+  .ta-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .ta-sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--ta-gray-200);
+  }
+
+  .ta-stats-grid,
+  .ta-role-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ta-content {
+    padding: 20px 16px;
+  }
+}
