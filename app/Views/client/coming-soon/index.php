@@ -1,34 +1,27 @@
 <?php
 /**
- * TEMP VIEW - remove this file when Products/Pricing/News/Contact go live.
- * Used by PageController@comingSoon for routes that have no real page yet.
+ * TEMP VIEW - remove when Products/Pricing/News/Contact go live.
+ * Markup tự viết, chỉ dùng Bootstrap utilities + class dc-.
+ *
  * @var string $pageTitle
  */
 $pageTitle = $pageTitle ?? 'Coming Soon';
 ?>
-<section class="page-title padding-large mt-5">
-    <div class="container" data-aos="fade-up">
-        <div class="row">
-            <div class="d-flex flex-wrap flex-column justify-content-between align-items-center">
-                <h1 class="display-5 fw-bold"><?= e($pageTitle) ?></h1>
-                <nav class="breadcrumb" aria-label="breadcrumb">
-                    <a class="breadcrumb-item" href="<?= e(url('')) ?>">Home</a>
-                    <span class="breadcrumb-item active" aria-current="page"><?= e($pageTitle) ?></span>
-                </nav>
-            </div>
-        </div>
+<section class="dc-page-head">
+    <div class="container">
+        <h1 class="display-5 fw-bold"><?= e($pageTitle) ?></h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<?= e(url('')) ?>">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?= e($pageTitle) ?></li>
+            </ol>
+        </nav>
     </div>
 </section>
 
-<section class="details">
-    <div class="container" data-aos="fade-up">
-        <div class="row">
-            <div class="col-12 text-center py-5">
-                <p>This page is being prepared. Please check back soon.</p>
-                <a class="btn btn-primary btn-lg text-uppercase btn-rounded-none" href="<?= e(url('')) ?>">
-                    Back to Home
-                </a>
-            </div>
-        </div>
+<section class="dc-coming">
+    <div class="container">
+        <p>This page is being prepared. Please check back soon.</p>
+        <a class="btn dc-btn-primary" href="<?= e(url('')) ?>">Back to Home</a>
     </div>
 </section>

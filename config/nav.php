@@ -12,7 +12,7 @@ return [
         ['label' => 'Products', 'route' => 'products', 'enabled' => true],
         ['label' => 'Pricing',  'route' => 'pricing',  'enabled' => true],
         ['label' => 'News',     'route' => 'news',     'enabled' => true],
-        ['label' => 'FAQ',      'route' => 'faq',      'enabled' => true],
+        ['label' => 'FAQs',      'route' => 'faq',      'enabled' => true],
         ['label' => 'Contact',  'route' => 'contact',  'enabled' => true],
     ],
 

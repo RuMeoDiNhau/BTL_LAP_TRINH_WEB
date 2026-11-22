@@ -32,6 +32,18 @@ function asset(string $path): string
     return url($path);
 }
 
+/** Icon từ sprite Bootstrap Icons local: <svg class="bi ..."><use href="...#name"></use></svg>. */
+function icon(string $name, string $class = ''): string
+{
+    $name = preg_replace('/[^a-z0-9-]/i', '', $name);
+    $class = trim($class);
+    $classes = 'bi' . ($class === '' ? '' : ' ' . $class);
+
+    return '<svg class="' . e($classes) . '" aria-hidden="true" width="1em" height="1em" fill="currentColor">'
+        . '<use href="' . e(asset('assets/icons/bootstrap-icons.svg') . '#' . $name) . '"></use>'
+        . '</svg>';
+}
+
 /** URL tuyệt đối cho canonical/OG: scheme + host + BASE_URL + path. */
 function absolute_url(string $path = ''): string
 {
