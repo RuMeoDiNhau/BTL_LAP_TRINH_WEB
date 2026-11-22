@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Minh họa góc trang trí nội thất">
+  <rect width="800" height="600" fill="#eef1ec"/>
+  <rect x="60" y="60" width="680" height="480" rx="18" fill="#fbfcf9"/>
+  <rect x="100" y="100" width="600" height="230" rx="12" fill="#dfe6dd"/>
+  <path d="M100 260c120-90 220-90 330 0 110 90 190 80 270-20v90H100Z" fill="#cbd8c9"/>
+  <rect x="150" y="380" width="220" height="16" rx="6" fill="#a98663"/>
+  <rect x="170" y="396" width="12" height="110" fill="#8d6c4e"/>
+  <rect x="338" y="396" width="12" height="110" fill="#8d6c4e"/>
+  <rect x="215" y="340" width="70" height="45" rx="8" fill="#c49b72"/>
+  <path d="M250 340c-35-25-40-70-12-100 28 25 36 70 12 100Z" fill="#6f8d70"/>
+  <rect x="470" y="360" width="150" height="150" rx="10" fill="#e7dccb"/>
+  <circle cx="545" cy="435" r="42" fill="#b98f6b"/>
+  <circle cx="545" cy="435" r="18" fill="#fbfcf9"/>
+</svg>

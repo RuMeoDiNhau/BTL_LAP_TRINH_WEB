@@ -10,7 +10,8 @@
 *.sw?
 .qodo/
 .history/
-
+.docs/
+.references/
 # ============================================================
 # Operating System Files
 # ============================================================
@@ -52,3 +53,5 @@ database/backup/
 *.bak
 *.orig
 *.rej
+
+references/
