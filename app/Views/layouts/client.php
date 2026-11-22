@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,29 @@
     <meta property="og:url" content="<?= e($canonicalUrl) ?>">
     <meta property="og:image" content="<?= e($ogImage) ?>">
 
-    <link rel="stylesheet" href="<?= e(asset('assets/vendor/bootstrap/bootstrap.min.css')) ?>">
-    <link rel="stylesheet" href="<?= e(asset('assets/css/style.css')) ?>">
+    <!-- Local assets in the same order as the template; fonts.css replaces CDN fonts. -->
+    <link rel="stylesheet" href="<?= e(asset('assets/css/bootstrap.min.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/vendor.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/swiper-bundle.min.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/fonts.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/decor.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('assets/css/about-faq.css')) ?>">
 </head>
 <body>
-    <!-- Header/nav/footer và about-faq.css sẽ thêm cùng 2 view ở nhóm (a).
-         Layout giữ tối giản để test route trước. -->
+    <?php include __DIR__ . '/partials/svg-sprite.php'; ?>
+    <?php include __DIR__ . '/partials/header.php'; ?>
+
     <main id="main-content"><?= $content ?></main>
 
-    <script src="<?= e(asset('assets/vendor/bootstrap/bootstrap.bundle.min.js')) ?>"></script>
-    <script src="<?= e(asset('assets/js/main.js')) ?>"></script>
+    <?php include __DIR__ . '/partials/footer.php'; ?>
+
+    <!-- Script order follows the template; faq-form.js only runs on the FAQ page. -->
+    <script src="<?= e(asset('assets/js/bootstrap.bundle.min.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/swiper-bundle.min.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/SmoothScroll.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/jquery.min.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/plugins.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/script.js')) ?>"></script>
+    <script src="<?= e(asset('assets/js/faq-form.js')) ?>"></script>
 </body>
 </html>

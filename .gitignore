@@ -55,3 +55,4 @@ database/backup/
 *.rej
 
 references/
+AGENTS.md

@@ -23,33 +23,15 @@ spl_autoload_register(static function (string $class): void {
     }
 });
 
-/*
- * ROUTE TẠM để test hạ tầng trước khi có view.
- * Sẽ thay bằng 'App\Controllers\Client\PageController@about' / '@faq' ở nhóm (a).
- */
-$smokePage = static function (string $title, string $description, string $canonical, string $active): callable {
-    return static function () use ($title, $description, $canonical, $active): void {
-        (new Controller())->render('', [], [
-            'title'       => $title,
-            'description' => $description,
-            'canonical'   => $canonical,
-            'og_image'    => 'assets/images/og-default.svg',
-            'active'      => $active,
-        ]);
-    };
-};
+Router::add('GET', '/', 'App\\Controllers\\Client\\PageController@home');
+Router::add('GET', '/about', 'App\\Controllers\\Client\\PageController@about');
+Router::add('GET', '/faq', 'App\\Controllers\\Client\\PageController@faq');
+Router::add('POST', '/faq/ask', 'App\\Controllers\\Client\\PageController@ask');
 
-Router::add('GET', '/about', $smokePage(
-    'Giới thiệu | DECOR',
-    'Tìm hiểu về DECOR – đơn vị trang trí và nội thất.',
-    'about',
-    'about'
-));
-Router::add('GET', '/faq', $smokePage(
-    'Hỏi/đáp | DECOR',
-    'Giải đáp các câu hỏi thường gặp về sản phẩm và dịch vụ DECOR.',
-    'faq',
-    'faq'
-));
+// TEMP ROUTES - remove this block when the real pages are ready.
+Router::add('GET', '/products', 'App\\Controllers\\Client\\PageController@comingSoon');
+Router::add('GET', '/pricing', 'App\\Controllers\\Client\\PageController@comingSoon');
+Router::add('GET', '/news', 'App\\Controllers\\Client\\PageController@comingSoon');
+Router::add('GET', '/contact', 'App\\Controllers\\Client\\PageController@comingSoon');
 
 Router::dispatch();

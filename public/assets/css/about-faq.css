@@ -1,0 +1,88 @@
+/* Small overrides for About/FAQ. Base styles stay in decor.css (do not edit it). */
+
+/* Flat title band: no hero image, no overlay. */
+.page-title {
+    background: #f7f6f3;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    padding: 4rem 0 3.5rem;
+    margin-bottom: 0;
+}
+
+/* Bootstrap .breadcrumb có margin-bottom:1rem -> h1+breadcrumb bị lệch lên. */
+.page-title .breadcrumb {
+    margin-bottom: 0;
+}
+
+/* Phần tử liền sau dải tiêu đề: cách đều, không offset âm/transform. */
+.page-title + .details,
+.page-title + .faqs-wrap {
+    margin-top: 3.5rem;
+    transform: none;
+}
+
+.page-title + .faqs-wrap .inquiry-item {
+    transform: none;
+}
+
+/* .row.g-lg-5 có margin-top:-48px; margin này collapse qua section, kéo FAQ áp sát dải. */
+.page-title + .faqs-wrap .row {
+    margin-top: 0;
+}
+
+/* The template used <button><h3 class="fs-5">; we use <h3><button>
+   for W3C compliance. Keep .fs-5 size and Playfair, but regular weight. */
+.accordion-header .accordion-button {
+    font-family: var(--heading-font);
+    font-size: 1.25rem; /* .fs-5 */
+    font-weight: 400;
+}
+
+/* Body copy uses the local Jost font. */
+body {
+    font-family: 'Jost', system-ui, sans-serif;
+}
+
+.inquiry-item .btn {
+    margin-top: .5rem;
+}
+
+/* FAQ form: keep one error slot under each control. */
+.faq-form .field-error {
+    display: block;
+    min-height: 1.1rem;
+    margin-top: .25rem;
+    color: #b02a37;
+    font-size: .875rem;
+}
+
+.faq-form .is-invalid {
+    border-color: #b02a37;
+}
+
+/* Keep story images in their original ratio inside the Bootstrap columns. */
+.vertical-element .image-holder img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Seven menu items + account icons must not wrap or scroll horizontally. */
+.navbar .navbar-nav {
+    gap: .5rem 1rem;
+}
+
+.navbar .nav-link,
+.dropdown-item {
+    white-space: nowrap;
+}
+
+/* Anchor the account dropdown to the right edge so it stays on screen. */
+.dropdown-menu {
+    min-width: 10rem;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        gap: 1.25rem;
+    }
+}
