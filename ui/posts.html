@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tin tức, xu hướng thiết kế nội thất và cẩm nang trang trí không gian sống từ Decor E-Commerce.">
+  <meta name="keywords" content="tin tức nội thất, trang trí phòng khách, decor nhà đẹp, xu hướng nội thất 2026">
+  <title>Tin tức &amp; Cẩm nang Nội thất | Decor E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/pages/posts.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="posts.html" class="brand-mark">
+        <img src="assets/images/brand/logo.svg" alt="Logo Decor" width="34" height="34">
+        <span>Decor</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="posts.html" class="nav-link is-active" aria-current="page">Tin tức</a>
+        <a href="post-detail.html" class="nav-link">Đọc bài mẫu</a>
+        <a href="admin/posts.html" class="nav-link">Quản trị Tin tức</a>
+        <a href="admin/comments.html" class="nav-link">Quản trị Bình luận</a>
+      </nav>
+
+      <div class="header-actions" id="headerAuthArea">
+        <a href="login.html" class="btn btn--outline btn--sm">Đăng nhập</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Đăng ký</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="posts.html">Trang chủ</a>
+        <span aria-hidden="true">/</span>
+        <span class="breadcrumb-current" aria-current="page">Tin tức &amp; Cẩm nang</span>
+      </nav>
+      <h1 class="page-hero-title">Tin tức &amp; Cảm hứng Nội thất</h1>
+      <p class="page-hero-subtitle">
+        Khám phá các bí quyết bài trí không gian sống tinh tế, lựa chọn chất liệu gỗ tự nhiên và xu hướng ánh sáng hiện đại.
+      </p>
+    </div>
+  </section>
+
+  <main class="blog-section">
+    <div class="container">
+      <div class="blog-layout">
+        <!-- Cột chính: Thanh tìm kiếm + Lưới bài viết 3 cột + Phân trang -->
+        <div>
+          <div class="search-toolbar">
+            <form id="postSearchForm" class="search-form" action="posts.html" method="get" role="search">
+              <div class="search-input-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <label for="postSearchInput" class="sr-only">Tìm kiếm bài viết theo từ khóa</label>
+                <input
+                  type="search"
+                  id="postSearchInput"
+                  name="keyword"
+                  class="search-input"
+                  maxlength="100"
+                  placeholder="Tìm kiếm bài viết theo từ khóa (vd: sofa, ánh sáng, phòng ngủ)..."
+                >
+              </div>
+              <button type="submit" class="btn btn--primary">Tìm kiếm</button>
+            </form>
+
+            <div class="search-meta">
+              <span id="searchResultText">Hiển thị 9 bài viết</span>
+              <button type="button" id="clearSearchBtn" class="clear-search-btn" hidden>Xóa lọc</button>
+            </div>
+          </div>
+
+          <section aria-label="Danh sách bài viết">
+            <div id="postsGrid" class="posts-grid"></div>
+          </section>
+
+          <nav id="postsPagination" class="pagination-nav" aria-label="Phân trang bài viết"></nav>
+        </div>
+
+        <!-- Cột phải: Sidebar (Bài viết mới nhất & Xem nhiều nhất) -->
+        <aside class="blog-sidebar" aria-label="Thông tin bổ sung">
+          <section class="sidebar-widget">
+            <h2 class="widget-title">Bài viết mới nhất</h2>
+            <ul id="latestPostsList" class="mini-post-list"></ul>
+          </section>
+
+          <section class="sidebar-widget">
+            <h2 class="widget-title">Xem nhiều nhất</h2>
+            <ul id="popularPostsList" class="mini-post-list"></ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 Decor E-Commerce. Giao diện Tin tức &amp; Cẩm nang Nội thất.</span>
+      <a href="admin/posts.html">Đi tới trang Quản trị bài viết &rarr;</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/pages/posts.js"></script>
+</body>
+</html>

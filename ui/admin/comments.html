@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quản lý và kiểm duyệt bình luận người dùng trên bài viết tại Decor Admin.">
+  <title>Quản lý Bình luận | Decor Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+  <div class="ta-shell">
+    <aside class="ta-sidebar" aria-label="Menu quản trị Decor">
+      <div>
+        <a href="index.html" class="ta-logo">
+          <img src="../assets/images/brand/logo.svg" alt="Logo Decor" width="34" height="34">
+          <span>Decor</span>
+        </a>
+
+        <div class="ta-workspace-switcher">
+          <span class="ta-workspace-badge">D</span>
+          <div class="ta-workspace-info">
+            <div class="ta-workspace-name">Không gian Decor</div>
+            <div class="ta-workspace-sub">Quản trị &amp; Phân quyền</div>
+          </div>
+        </div>
+
+        <div class="ta-nav-section-label">Quản trị &amp; Phân quyền</div>
+        <ul class="ta-nav-list">
+          <li><a href="index.html" class="ta-nav-link"><span>Tổng quan</span></a></li>
+          <li><a href="roles.html" class="ta-nav-link"><span>Vai trò &amp; quyền hạn</span></a></li>
+        </ul>
+
+        <div class="ta-nav-section-label">Nội dung (Phần #4)</div>
+        <ul class="ta-nav-list">
+          <li><a href="posts.html" class="ta-nav-link"><span>Bài viết / Tin tức</span></a></li>
+          <li>
+            <a href="comments.html" class="ta-nav-link is-active" aria-current="page">
+              <span>Bình luận bài viết</span>
+              <span class="ta-nav-badge" id="sidebarPendingBadge">2</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ta-sidebar-bottom">
+        <div class="ta-current-user">
+          <div class="ta-current-user-info">
+            <span class="ta-avatar">MA</span>
+            <div>
+              <div class="ta-workspace-name">Nguyễn Minh Anh</div>
+              <div class="ta-workspace-sub">Quản trị viên</div>
+            </div>
+          </div>
+          <a href="../login.html?logout=1">Thoát</a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="ta-main">
+      <header class="ta-topbar">
+        <nav class="ta-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Quản trị</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span class="ta-breadcrumb-current">Bình luận bài viết</span>
+        </nav>
+        <div class="ta-topbar-actions">
+          <a href="../post-detail.html#comments" class="ta-btn ta-btn--outline ta-btn--sm">Xem trang khách</a>
+          <span class="ta-avatar">MA</span>
+        </div>
+      </header>
+
+      <main class="ta-content">
+        <div class="ta-page-header">
+          <div>
+            <h1 class="ta-page-title">Quản lý Bình luận bài viết</h1>
+            <p class="ta-page-subtitle">Kiểm duyệt bình luận của thành viên: duyệt hiển thị, ẩn bình luận vi phạm hoặc xóa vĩnh viễn.</p>
+          </div>
+        </div>
+
+        <section class="ta-stats-grid" aria-label="Thống kê bình luận">
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Tổng bình luận</div>
+              <div class="ta-stat-value" id="statTotalComments">00</div>
+              <div class="ta-stat-caption">Tất cả bài viết</div>
+            </div>
+            <span class="ta-stat-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Đã duyệt (approved)</div>
+              <div class="ta-stat-value" id="statApprovedComments">00</div>
+              <div class="ta-stat-caption">Đang hiển thị công khai</div>
+            </div>
+            <span class="ta-stat-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="ta-stat-card">
+            <div>
+              <div class="ta-stat-label">Chờ duyệt / Đã ẩn</div>
+              <div class="ta-stat-value" id="statPendingHiddenComments">00</div>
+              <div class="ta-stat-caption">Cần Quản trị viên xem xét</div>
+            </div>
+            <span class="ta-stat-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </span>
+          </div>
+        </section>
+
+        <!-- Công tắc kiểm duyệt bình luận (settings.comment_moderation) -->
+        <section class="ta-card ta-moderation-bar" aria-label="Cấu hình kiểm duyệt bình luận">
+          <div>
+            <div style="font-weight:700;color:#101828;">Chế độ kiểm duyệt bình luận (<code>settings.comment_moderation</code>)</div>
+            <div id="moderationDesc" style="font-size:12.5px;color:#667085;">
+              Đang TẮT (0): Bình luận mới của thành viên sẽ được duyệt tự động (approved) và hiển thị ngay.
+            </div>
+          </div>
+          <label class="ta-switch">
+            <input type="checkbox" id="moderationToggle">
+            <span id="moderationLabel">Tắt kiểm duyệt</span>
+          </label>
+        </section>
+
+        <section class="ta-card" aria-label="Danh sách bình luận">
+          <div class="ta-toolbar">
+            <div class="ta-toolbar-filters">
+              <div class="ta-search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <label for="commentSearchInput" style="position:absolute;width:1px;height:1px;overflow:hidden;">Tìm bình luận theo nội dung hoặc người gửi</label>
+                <input type="search" id="commentSearchInput" class="ta-input" placeholder="Tìm theo nội dung hoặc tên người gửi...">
+              </div>
+
+              <select id="commentStatusFilter" class="ta-select" aria-label="Lọc theo trạng thái bình luận">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="pending">Chờ duyệt (pending)</option>
+                <option value="approved">Đã duyệt (approved)</option>
+                <option value="hidden">Đã ẩn (hidden)</option>
+              </select>
+
+              <select id="commentPostFilter" class="ta-select" aria-label="Lọc theo bài viết">
+                <option value="all">Tất cả bài viết</option>
+              </select>
+            </div>
+
+            <span class="ta-result-count" id="commentsCountText">0 kết quả</span>
+          </div>
+
+          <div class="ta-table-wrap">
+            <table class="ta-table">
+              <thead>
+                <tr>
+                  <th>Người bình luận</th>
+                  <th>Nội dung</th>
+                  <th>Bài viết</th>
+                  <th>Trạng thái</th>
+                  <th>Thời gian</th>
+                  <th style="text-align:right;">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminCommentsTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="ta-card-footer">
+            <span id="commentsPaginationInfo">Hiển thị 0 bình luận</span>
+            <nav id="commentsPagination" class="ta-pagination" aria-label="Phân trang bình luận"></nav>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="adminToast" class="ta-toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/pages/admin-comments.js"></script>
+</body>
+</html>
