@@ -62,7 +62,17 @@ VALUES
 
     ('faq', 'intro', 'Frequently asked questions',
      'Below are the questions we hear most often. If you cannot find the answer you need, please get in touch and we will be happy to help.',
-     NULL, 1)
+     NULL, 1),
+
+    ('about', 'hero', 'About Us', NULL, NULL, 0),
+    ('about', 'seo', 'About DECOR | DECOR',
+     'Learn more about DECOR, your partner for home decor and furniture.', NULL, 99),
+    ('faq', 'hero', 'FAQs', NULL, NULL, 0),
+    ('faq', 'ask', 'Ask us anything',
+     'You can also send us a message below — we are always happy to help.', NULL, 2),
+    ('faq', 'seo', 'FAQs | DECOR',
+     'Answers to common questions about choosing products, delivery, returns and payment at DECOR.', NULL, 99)
+
 ON DUPLICATE KEY UPDATE
     `title`      = VALUES(`title`),
     `content`    = VALUES(`content`),

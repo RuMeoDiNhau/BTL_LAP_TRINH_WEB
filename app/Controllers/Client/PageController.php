@@ -11,12 +11,17 @@ final class PageController extends \Controller
 {
     public function about(): void
     {
+        $sections = PageContent::getByPage('about');
+        $seo = $sections['seo'] ?? [];
+        $title = trim((string)($seo['title'] ?? ''));
+        $desc = trim((string)($seo['content'] ?? ''));
+
         $this->render('client/about/index', [
-            'sections'     => PageContent::getByPage('about'),
-            'latestPosts'  => Post::getLatest(3),
+            'sections'    => $sections,
+            'latestPosts' => Post::getLatest(3),
         ], [
-            'title'       => 'About Us | DECOR',
-            'description' => 'Learn more about DECOR, your partner for home decor and furniture.',
+            'title'       => $title !== '' ? $title : 'About Us | DECOR',
+            'description' => $desc !== '' ? $desc : 'Learn more about DECOR, your partner for home decor and furniture.',
             'canonical'   => 'about',
             'og_image'    => 'assets/images/post-thumbnail-1.jpg',
             'active'      => 'about',
@@ -170,8 +175,13 @@ final class PageController extends \Controller
         $flashSuccess = (string)($_SESSION['flash_success'] ?? '');
         unset($_SESSION['flash_success']);
 
+        $sections = PageContent::getByPage('faq');
+        $seo = $sections['seo'] ?? [];
+        $title = trim((string)($seo['title'] ?? ''));
+        $desc = trim((string)($seo['content'] ?? ''));
+
         $data = array_merge([
-            'sections'     => PageContent::getByPage('faq'),
+            'sections'     => $sections,
             'faqs'         => Faq::getActive(),
             'errors'       => [],
             'old'          => [],
@@ -180,8 +190,8 @@ final class PageController extends \Controller
         ], $extra);
 
         $this->render('client/faq/index', $data, [
-            'title'       => 'FAQs | DECOR',
-            'description' => 'Answers to common questions about DECOR products and services.',
+            'title'       => $title !== '' ? $title : 'FAQs | DECOR',
+            'description' => $desc !== '' ? $desc : 'Answers to common questions about DECOR products and services.',
             'canonical'   => 'faq',
             'og_image'    => 'assets/images/post-thumbnail-2.jpg',
             'active'      => 'faq',

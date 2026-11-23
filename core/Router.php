@@ -1,6 +1,6 @@
 <?php
 
-/** Router tối giản: nhận closure hoặc handler 'Namespace\Class@method'. */
+/** Router tối giản: nhận closure hoặc handler 'Namespace\Class@method'. Hỗ trợ {param}. */
 final class Router
 {
     /** @var array<string, array<string, callable|string>> */
@@ -21,7 +21,7 @@ final class Router
     {
         $method = strtoupper((string)($_SERVER['REQUEST_METHOD'] ?? 'GET'));
         $path = self::currentPath();
-        $handler = self::$routes[$method][$path] ?? null;
+        [$handler, $params] = self::match($method, $path);
 
         if ($handler === null) {
             http_response_code(404);
@@ -30,7 +30,7 @@ final class Router
         }
 
         if (is_callable($handler)) {
-            $handler();
+            call_user_func_array($handler, $params);
             return;
         }
 
@@ -43,7 +43,42 @@ final class Router
 
         /** @var object $controller */
         $controller = new $parts[0]();
-        $controller->{$parts[1]}();
+        call_user_func_array([$controller, $parts[1]], $params);
+    }
+
+    /** @return array{0: callable|string|null, 1: array<int, string>} */
+    private static function match(string $method, string $path): array
+    {
+        $routes = self::$routes[$method] ?? [];
+        if (isset($routes[$path])) {
+            return [$routes[$path], []];
+        }
+
+        $pathParts = explode('/', trim($path, '/'));
+        foreach ($routes as $pattern => $handler) {
+            if (strpos($pattern, '{') === false) {
+                continue;
+            }
+            $patternParts = explode('/', trim($pattern, '/'));
+            if (count($patternParts) !== count($pathParts)) {
+                continue;
+            }
+            $params = [];
+            $ok = true;
+            foreach ($patternParts as $i => $segment) {
+                if (preg_match('/^\{([a-zA-Z_][a-zA-Z0-9_]*)\}$/', $segment, $m)) {
+                    $params[] = $pathParts[$i];
+                } elseif ($segment !== $pathParts[$i]) {
+                    $ok = false;
+                    break;
+                }
+            }
+            if ($ok) {
+                return [$handler, $params];
+            }
+        }
+
+        return [null, []];
     }
 
     /** Cắt BASE_URL (vd /btl) khỏi REQUEST_URI trước khi khớp route. */

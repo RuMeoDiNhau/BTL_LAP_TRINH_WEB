@@ -1,7 +1,6 @@
 <?php
 /**
- * FAQs page tự viết: Bootstrap accordion + form giữ nguyên CSRF/honeypot/validate.
- * Không dùng markup/class của template DECOR; accordion dùng <h3><button> cho W3C.
+ * FAQ page: nội dung đọc từ DB (page_contents, faqs, settings). Nhãn/placeholder form giữ cố định.
  *
  * @var array<string, array<string, mixed>> $sections
  * @var array<int, array<string, mixed>> $faqs
@@ -15,45 +14,44 @@ $old = $old ?? [];
 $formError = $formError ?? '';
 $flashSuccess = $flashSuccess ?? '';
 
-$text = function (string $key, string $default = '') use ($sections): string {
-    $value = $sections[$key]['content'] ?? '';
-    return $value === '' ? $default : (string)$value;
+$text = static function (string $key) use ($sections): string {
+    return trim((string)($sections[$key]['content'] ?? ''));
+};
+$heading = static function (string $key) use ($sections): string {
+    return trim((string)($sections[$key]['title'] ?? ''));
 };
 
-$heading = function (string $key, string $default = '') use ($sections): string {
-    $value = $sections[$key]['title'] ?? '';
-    return $value === '' ? $default : (string)$value;
-};
+$heroTitle = $heading('hero');
+$introTitle = $heading('intro');
+$introText = $text('intro');
+$askTitle = $heading('ask');
+$askText = $text('ask');
 
-$email = setting('email', 'contact@decor.vn');
-$phone = setting('phone', '0901234567');
+$email = trim(setting('email', ''));
+$phone = trim(setting('phone', ''));
+$address = trim(setting('address', ''));
 
-$fieldValue = function (string $key) use ($old): string {
+$fieldValue = static function (string $key) use ($old): string {
     return e((string)($old[$key] ?? ''));
 };
-
-$fieldClass = function (string $key) use ($errors): string {
+$fieldClass = static function (string $key) use ($errors): string {
     return 'form-control' . (isset($errors[$key]) ? ' is-invalid' : '');
 };
-
-$fieldInvalid = function (string $key) use ($errors): string {
+$fieldInvalid = static function (string $key) use ($errors): string {
     return isset($errors[$key]) ? ' aria-invalid="true"' : '';
 };
-
-$errorSpan = function (string $key) use ($errors): string {
+$errorSpan = static function (string $key) use ($errors): string {
     $message = isset($errors[$key]) ? e((string)$errors[$key]) : '';
-
-    return '<small class="field-error d-block" id="faq-' . e($key) . '-error" role="alert">'
-        . $message . '</small>';
+    return '<small class="field-error d-block" id="faq-' . e($key) . '-error" role="alert">' . $message . '</small>';
 };
 ?>
 <section class="dc-page-head">
     <div class="container">
-        <h1 class="display-5 fw-bold">FAQs</h1>
+        <h1 class="display-5 fw-bold"><?= e($heroTitle) ?></h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?= e(url('')) ?>">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">FAQs</li>
+                <li class="breadcrumb-item active" aria-current="page"><?= e($heroTitle) ?></li>
             </ol>
         </nav>
     </div>
@@ -63,11 +61,8 @@ $errorSpan = function (string $key) use ($errors): string {
     <div class="container">
         <div class="row g-4 g-lg-5">
             <div class="col-lg-8">
-                <h2 class="h3 fw-bold dc-faq__title"><?= e($heading('intro', 'Frequently asked questions')) ?></h2>
-                <p class="dc-faq__intro mb-4"><?= nl2br(e($text(
-                    'intro',
-                    'Below are the questions we hear most often. If you cannot find the answer you need, please get in touch and we will be happy to help.'
-                ))) ?></p>
+                <?php if ($introTitle !== ''): ?><h2 class="h3 fw-bold dc-faq__title"><?= e($introTitle) ?></h2><?php endif; ?>
+                <?php if ($introText !== ''): ?><p class="dc-faq__intro mb-4"><?= nl2br(e($introText)) ?></p><?php endif; ?>
 
                 <?php if ($faqs === []): ?>
                     <p>Our FAQs are being updated.</p>
@@ -104,11 +99,13 @@ $errorSpan = function (string $key) use ($errors): string {
             </div>
 
             <aside class="col-lg-4">
-                <h2 class="h4 mb-3 dc-faq__title">Ask us anything</h2>
+                <?php if ($askTitle !== ''): ?><h2 class="h4 mb-3 dc-faq__title"><?= e($askTitle) ?></h2><?php endif; ?>
+                <?php if ($askText !== ''): ?><p class="dc-faq__intro"><?= nl2br(e($askText)) ?></p><?php endif; ?>
                 <p class="dc-faq__intro">
-                    Call <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $phone)) ?>"><?= e($phone) ?></a>
-                    or email <a href="mailto:<?= e($email) ?>"><?= e($email) ?></a>.
-                    You can also send us a message below — we are always happy to help.
+                    <?php if ($phone !== ''): ?>Call <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $phone)) ?>"><?= e($phone) ?></a><?php endif; ?>
+                    <?php if ($phone !== '' && $email !== ''): ?> or <?php endif; ?>
+                    <?php if ($email !== ''): ?>email <a href="mailto:<?= e($email) ?>"><?= e($email) ?></a><?php endif; ?>
+                    <?php if ($address !== ''): ?><br><?= e($address) ?><?php endif; ?>
                 </p>
 
                 <?php if ($flashSuccess !== ''): ?>

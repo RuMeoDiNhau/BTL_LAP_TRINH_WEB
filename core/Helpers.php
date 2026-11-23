@@ -106,3 +106,24 @@ function csrf_verify(?string $token = null): bool
 
     return $token !== '' && hash_equals((string)($_SESSION['_csrf'] ?? ''), $token);
 }
+
+/** Lưu flash message 1 lần vào session. */
+function flash_set(string $key, string $message): void
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $_SESSION['_flash'][$key] = $message;
+}
+
+/** Đọc và xóa flash message. */
+function flash_get(string $key): string
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $message = (string)($_SESSION['_flash'][$key] ?? '');
+    unset($_SESSION['_flash'][$key]);
+
+    return $message;
+}
