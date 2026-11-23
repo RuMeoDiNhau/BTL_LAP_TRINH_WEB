@@ -38,6 +38,10 @@ Router::add('POST', '/admin/faqs/{id}/update', 'App\\Controllers\\Admin\\FaqCont
 Router::add('POST', '/admin/faqs/delete', 'App\\Controllers\\Admin\\FaqController@delete');
 Router::add('GET', '/admin/pages/{page}', 'App\\Controllers\\Admin\\PageController@edit');
 Router::add('POST', '/admin/pages/{page}/update', 'App\\Controllers\\Admin\\PageController@update');
+Router::add('GET', '/admin/faq-questions', 'App\\Controllers\\Admin\\FaqQuestionController@index');
+Router::add('GET', '/admin/faq-questions/{id}', 'App\\Controllers\\Admin\\FaqQuestionController@show');
+Router::add('POST', '/admin/faq-questions/status', 'App\\Controllers\\Admin\\FaqQuestionController@status');
+Router::add('POST', '/admin/faq-questions/delete', 'App\\Controllers\\Admin\\FaqQuestionController@delete');
 
 // TEMP ROUTES - remove this block when the real pages are ready.
 Router::add('GET', '/products', 'App\\Controllers\\Client\\PageController@comingSoon');

@@ -37,10 +37,14 @@
 
     function messageFor(field) {
         var value = field.value.trim();
+        var min = parseInt(field.getAttribute('minlength') || '0', 10);
         var max = parseInt(field.getAttribute('maxlength') || '0', 10);
 
         if (field.required && value === '') {
             return field.dataset.errorRequired || 'This field is required.';
+        }
+        if (min > 0 && value.length < min) {
+            return field.dataset.errorMinlength || 'This value is too short.';
         }
         if (max > 0 && value.length > max) {
             return field.dataset.errorMaxlength || 'This value is too long.';

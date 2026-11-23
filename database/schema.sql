@@ -95,10 +95,12 @@ CREATE TABLE IF NOT EXISTS `contacts` (
     `message`       TEXT            NOT NULL,
     `status`        ENUM('unread', 'read', 'replied')   NOT NULL DEFAULT 'unread',
     `created_at`    TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `source`        ENUM('contact', 'faq') NOT NULL DEFAULT 'contact',
     PRIMARY KEY (`id`),
     KEY `idx_contacts_status` (`status`),
     KEY `idx_contacts_created_at` (`created_at`),
     KEY `idx_contacts_user_id` (`user_id`),
+    KEY `idx_contacts_source` (`source`),
     CONSTRAINT `fk_contacts_user`
         FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
         ON DELETE SET NULL

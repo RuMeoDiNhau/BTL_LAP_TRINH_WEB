@@ -41,6 +41,14 @@ $uiText = [
     'Phiên không hợp lệ, vui lòng thử lại.' => 'Invalid session. Please try again.',
 ];
 $pageName = $uiText[$title] ?? (string)$title;
+
+// Badge dùng chung cho mọi trang admin; lỗi CSDL thì coi như 0 để không vỡ layout.
+try {
+    $unreadCount = \App\Models\FaqQuestion::countUnread();
+} catch (Throwable $e) {
+    $unreadCount = 0;
+}
+
 $rawSuccess = flash_get('success');
 $rawError = flash_get('error');
 $flashSuccess = $uiText[$rawSuccess] ?? $rawSuccess;
@@ -56,6 +64,7 @@ $flashError = $uiText[$rawError] ?? $rawError;
     <link rel="stylesheet" href="<?= e(asset('assets/admin/style.css')) ?>">
     <script src="<?= e(asset('assets/admin/bundle.js')) ?>" defer></script>
     <script src="<?= e(asset('assets/js/admin-faqs.js')) ?>" defer></script>
+    <script src="<?= e(asset('assets/js/admin-faq-questions.js')) ?>" defer></script>
     <script src="<?= e(asset('assets/js/admin-pages.js')) ?>" defer></script>
 </head>
 <body class="bg-gray-50 font-outfit" x-data="{ sidebarToggle: false }" @keydown.escape.window="sidebarToggle = false">
@@ -87,6 +96,7 @@ $flashError = $uiText[$rawError] ?? $rawError;
                         ['key' => 'admin-about', 'label' => 'About Page', 'href' => url('admin/pages/about'), 'path' => 'M7 3h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm1 5h8M8 12h8M8 16h5'],
                         ['key' => 'admin-faq-page', 'label' => 'FAQ Page', 'href' => url('admin/pages/faq'), 'path' => 'M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V5Zm4 4h8M8 12h5'],
                         ['key' => 'admin-faqs', 'label' => 'FAQ List', 'href' => url('admin/faqs'), 'path' => 'M4 6h16M4 12h16M4 18h10'],
+                        ['key' => 'admin-faq-questions', 'label' => 'Customer Questions', 'href' => url('admin/faq-questions'), 'path' => 'M3 5h18v14H3V5Zm0 8h4l2 3h6l2-3h4'],
                     ];
                     foreach ($menu as $item):
                         $isActive = ($active ?? '') === $item['key'];
@@ -100,6 +110,10 @@ $flashError = $uiText[$rawError] ?? $rawError;
                                 <path stroke-linecap="round" stroke-linejoin="round" d="<?= e($item['path']) ?>"/>
                             </svg>
                             <span class="menu-item-text"><?= e($item['label']) ?></span>
+                            <?php if ($item['key'] === 'admin-faq-questions' && $unreadCount > 0): ?>
+                                <span class="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-500 px-1.5 text-xs font-medium text-white"
+                                      aria-label="<?= (int)$unreadCount ?> unread questions"><?= (int)$unreadCount ?></span>
+                            <?php endif; ?>
                         </a>
                     </li>
                     <?php endforeach; ?>

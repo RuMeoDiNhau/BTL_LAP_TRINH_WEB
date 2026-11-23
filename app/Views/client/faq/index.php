@@ -154,9 +154,9 @@ $errorSpan = static function (string $key) use ($errors): string {
                             <input type="tel" id="faq-phone" name="phone"
                                    class="<?= e($fieldClass('phone')) ?>" value="<?= $fieldValue('phone') ?>"
                                    placeholder="Phone number (optional)" maxlength="20"
-                                   pattern="[0-9+() .-]{0,20}" autocomplete="tel"
+                                   pattern="[0-9+ .-]{0,20}" autocomplete="tel"
                                    aria-describedby="faq-phone-error"<?= $fieldInvalid('phone') ?>
-                                   data-error-pattern="Please enter a valid phone number (20 characters or fewer).">
+                                   data-error-pattern="Use only digits, spaces, + or - (20 characters or fewer).">
                             <?= $errorSpan('phone') ?>
                         </div>
 
@@ -175,10 +175,11 @@ $errorSpan = static function (string $key) use ($errors): string {
                             <label class="form-label" for="faq-message">Your message</label>
                             <textarea id="faq-message" name="message"
                                       class="<?= e($fieldClass('message')) ?>"
-                                      rows="8" placeholder="Your message" required maxlength="5000"
+                                      rows="8" placeholder="Your message" required minlength="10" maxlength="2000"
                                       aria-describedby="faq-message-error"<?= $fieldInvalid('message') ?>
                                       data-error-required="Please enter your message."
-                                      data-error-maxlength="Message must be 5000 characters or fewer."><?= $fieldValue('message') ?></textarea>
+                                      data-error-minlength="Message must be at least 10 characters."
+                                       data-error-maxlength="Message must be 2000 characters or fewer."><?= $fieldValue('message') ?></textarea>
                             <?= $errorSpan('message') ?>
                         </div>
 

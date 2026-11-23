@@ -2,8 +2,8 @@
 
 namespace App\Controllers\Client;
 
-use App\Models\Contact;
 use App\Models\Faq;
+use App\Models\FaqQuestion;
 use App\Models\PageContent;
 use App\Models\Post;
 
@@ -114,9 +114,9 @@ final class PageController extends \Controller
             $errors['email'] = 'Please enter a valid email address (150 characters or fewer).';
         }
 
-        // Phone is optional, but must match the HTML5 pattern when filled.
-        if ($old['phone'] !== '' && preg_match('/^[0-9+() .-]{0,20}$/', $old['phone']) !== 1) {
-            $errors['phone'] = 'Please enter a valid phone number (20 characters or fewer).';
+        // Phone is optional: digits, spaces, + and - only (max 20 characters).
+        if ($old['phone'] !== '' && preg_match('/^[0-9+ .-]{0,20}$/', $old['phone']) !== 1) {
+            $errors['phone'] = 'Use only digits, spaces, + or - (20 characters or fewer).';
         }
 
         if ($old['subject'] === '') {
@@ -127,8 +127,10 @@ final class PageController extends \Controller
 
         if ($old['message'] === '') {
             $errors['message'] = 'Please enter your message.';
-        } elseif ($length($old['message']) > 5000) {
-            $errors['message'] = 'Message must be 5000 characters or fewer.';
+        } elseif ($length($old['message']) < 10) {
+            $errors['message'] = 'Message must be at least 10 characters.';
+        } elseif ($length($old['message']) > 2000) {
+            $errors['message'] = 'Message must be 2000 characters or fewer.';
         }
 
         if ($errors !== []) {
@@ -141,8 +143,9 @@ final class PageController extends \Controller
             return;
         }
 
+        // Ghi thẳng qua FaqQuestion để dòng mới luôn có source='faq' (không sửa model Contact phần #1).
         $userId = (int)($_SESSION['user']['id'] ?? $_SESSION['user_id'] ?? 0);
-        $saved = Contact::create([
+        $saved = FaqQuestion::create([
             'user_id' => $userId > 0 ? $userId : null,
             'name'    => $old['name'],
             'email'   => $old['email'],
@@ -160,7 +163,7 @@ final class PageController extends \Controller
             return;
         }
 
-        $_SESSION['flash_success'] = 'Thank you! Your message has been sent.';
+        $_SESSION['flash_success'] = 'Thanks, we have received your question';
         $this->redirect('faq');
     }
 
