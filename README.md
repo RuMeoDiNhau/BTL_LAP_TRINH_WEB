@@ -15,7 +15,10 @@ Website Thương mại Điện tử / Doanh nghiệp Đồ trang trí & Nội th
 
 - `database/schema.sql` — tạo CSDL `decor_db` và **14 bảng** quan hệ đầy đủ khóa ngoại.
 - `database/seed.sql` — dữ liệu mẫu: 2 tài khoản, 3 danh mục, 4 cấu hình.
-- `config/database.php` — cấu hình PDO cho MariaDB/MySQL (file local, không commit).
+- `config/database.example.php` — mẫu cấu hình PDO; mỗi máy tạo `config/database.php` riêng, không commit.
+- Bộ nền MVC: `core/`, `public/index.php`, rewrite Apache và router PHP built-in.
+- Tài khoản cá nhân: đăng ký/đăng nhập bằng phiên PHP; sửa họ tên, email, điện thoại; đổi mật khẩu; upload/thay/xóa avatar lưu trên server.
+- Giao diện tài khoản responsive tại `app/Views/client/account/`, CSS/JS tại `public/assets/`.
 - Đã kiểm thử thực tế trên **XAMPP MariaDB 10.4.32 + PHP 8.2.12**:
   - Kết nối PDO thành công tới `decor_db`.
   - Đủ 14 bảng, 2 user.
@@ -23,14 +26,9 @@ Website Thương mại Điện tử / Doanh nghiệp Đồ trang trí & Nội th
 
 ### Chưa triển khai
 
-Toàn bộ mã nguồn ứng dụng vẫn đang là **file rỗng (placeholder)**:
+Các phân hệ sản phẩm, giỏ hàng, quản trị và trang nội dung còn nhiều placeholder. `Post.php` đã có các truy vấn dữ liệu. Các trang xác thực cũ trong `ui/` vẫn là bản demo bằng localStorage; tài khoản của tính năng PHP mới được lưu trong MySQL và dùng phiên PHP.
 
-- `core/Database.php`, `core/Router.php`, `core/Controller.php`, `core/Helpers.php`
-- Toàn bộ `app/Controllers/`, `app/Models/`, `app/Views/`
-- `public/index.php`, `public/.htaccess`
-- `public/assets/css/*`, `public/assets/js/*`
-
-→ Hiện tại **chưa có giao diện hoặc route để chạy**. Cần implement tiếp theo roadmap ở mục 7.
+Trang mặc định của ứng dụng PHP hiện chuyển đến hồ sơ cá nhân; khách chưa đăng nhập được chuyển đến đăng nhập. Trang chủ Decor gốc vẫn nằm tại `decor-template/decor/index.html`.
 
 ---
 
@@ -38,8 +36,8 @@ Toàn bộ mã nguồn ứng dụng vẫn đang là **file rỗng (placeholder)*
 
 | Thành phần | Yêu cầu |
 | :--- | :--- |
-| PHP | `>= 8.0` (khuyến nghị 8.2.x) |
-| Extension | `pdo_mysql` (bật sẵn trong XAMPP) |
+| PHP | `>= 8.1` (khuyến nghị 8.2.x) |
+| Extension | `pdo_mysql`, `mbstring`, `fileinfo` (thường có sẵn trong XAMPP) |
 | CSDL | MariaDB 10.4+ hoặc MySQL 8.0+ |
 | Web server | PHP Built-in Server hoặc Apache (XAMPP/Laragon/WAMP) |
 | Hệ điều hành | Windows (hướng dẫn bên dưới), Linux/macOS vẫn chạy được |
@@ -99,9 +97,7 @@ E:\xampp\mysql\bin\mysql.exe -u root -p < database\seed.sql
 
 ### Bước 3: Cấu hình kết nối CSDL
 
-Trên máy hiện tại, `config/database.php` đã được tạo và kết nối thành công.
-
-Khi clone dự án sang máy khác:
+Tạo cấu hình riêng trên mỗi máy nếu chưa có:
 
 ```powershell
 Copy-Item config\database.example.php config\database.php
@@ -125,18 +121,20 @@ return [
 
 ### Bước 4: Khởi chạy ứng dụng
 
-Sau khi đã triển khai `public/index.php` và `core/Router.php`:
-
 ```bash
-php -S localhost:8000 -t public
+php -S localhost:8000 -t public public/router.php
 ```
 
 Truy cập:
 
-- **Client:** [http://localhost:8000](http://localhost:8000)
-- **Admin:** [http://localhost:8000/admin](http://localhost:8000/admin)
+- **Đăng nhập:** [http://localhost:8000/index.php?route=%2Flogin](http://localhost:8000/index.php?route=%2Flogin)
+- **Đăng ký:** [http://localhost:8000/index.php?route=%2Fregister](http://localhost:8000/index.php?route=%2Fregister)
+- **Hồ sơ:** [http://localhost:8000/index.php?route=%2Faccount%2Fprofile](http://localhost:8000/index.php?route=%2Faccount%2Fprofile)
+- **Đổi mật khẩu:** [http://localhost:8000/index.php?route=%2Faccount%2Fchange-password](http://localhost:8000/index.php?route=%2Faccount%2Fchange-password)
 
-> Ở trạng thái hiện tại, `public/index.php` còn rỗng nên trình duyệt sẽ chỉ trả về trang trắng.
+Nếu PHP chưa nằm trong PATH, thay `php` bằng đường dẫn đến `php.exe` trong XAMPP/Laragon. Với Apache, đặt DocumentRoot vào `public/` hoặc mở `.../public/index.php?route=%2Flogin`; query route hoạt động cả khi chưa bật rewrite. Không dùng Live Server để thực thi PHP.
+
+Nếu muốn xem cả template Decor qua cùng server trong lúc phát triển, chạy `php -S localhost:8000` tại gốc project rồi mở `/decor-template/decor/index.html`. Các liên kết đăng nhập/đăng ký/tài khoản trên trang đó đi vào `/public/index.php`. Khi triển khai, chỉ công khai thư mục `public/`.
 
 ---
 
@@ -220,13 +218,10 @@ Sau đó import lại `database/schema.sql` và `database/seed.sql`.
 
 ## 7. Việc cần làm tiếp
 
-1. `core/Database.php` — PDO Singleton, đọc cấu hình từ `config/database.php`.
-2. `core/Router.php` + `public/index.php` + `.htaccess` — routing cơ bản.
-3. `core/Controller.php`, `core/Helpers.php` — render view, redirect, escape HTML.
-4. Client: Home, Product, Cart, Auth, Post, Page (About/Contact/FAQ).
-5. Admin: Dashboard, Product, Order, Post, User, Setting.
-6. Views + CSS/JS cho client và admin.
-7. Kiểm thử luồng đăng nhập, giỏ hàng, đặt hàng, quản trị.
+1. Hoàn thiện các trang Client: Home, Product, Cart, Post, Page (About/Contact/FAQ).
+2. Admin: Dashboard, Product, Order, Post, User, Setting; áp dụng kiểm tra quyền PHP trước khi thực thi route quản trị.
+3. Tích hợp thống nhất giao diện của các thành viên vào layout chung.
+4. Kiểm thử giỏ hàng, đặt hàng, quản trị. Khôi phục mật khẩu qua email chưa được triển khai trong luồng PHP.
 
 ---
 
@@ -239,4 +234,75 @@ Sau đó import lại `database/schema.sql` và `database/seed.sql`.
 | Port 3306 bị chiếm | MySQL80 và XAMPP MariaDB đang chạy cùng lúc — chỉ bật một cái. |
 | MariaDB báo ready nhưng không kết nối được | Kiểm tra `bind-address="127.0.0.1"` trong `E:\xampp\mysql\bin\my.ini`. |
 | Import lỗi trên PowerShell | PowerShell không hỗ trợ `<`; dùng CMD hoặc phpMyAdmin. |
-| Trang web trắng | `public/index.php` chưa được triển khai (xem mục 1). |
+| Trang thông báo chưa có CSDL | Tạo `config/database.php`, kiểm tra thông số kết nối, import `schema.sql` rồi `seed.sql`. |
+| Không giữ được đăng nhập | Kiểm tra `session.save_path` trong PHP có tồn tại và có quyền ghi. |
+| Upload không thành công | Kiểm tra `upload_tmp_dir`, quyền ghi `public/uploads/`, `upload_max_filesize >= 2M` và `post_max_size >= 3M`. |
+
+---
+
+## 9. Tài khoản cá nhân
+
+### Các file chính
+
+```text
+app/Controllers/Client/AccountController.php  # Điều phối sửa hồ sơ, mật khẩu, avatar
+app/Controllers/Client/AuthController.php     # Đăng ký/đăng nhập/đăng xuất PHP tối thiểu
+app/Models/User.php                          # Truy vấn users bằng prepared statements
+app/Services/AccountValidation.php           # Kiểm tra dữ liệu phía PHP
+app/Services/AvatarUpload.php                # Kiểm tra ảnh và quản lý file avatar
+app/Views/client/account/                    # Hồ sơ, đổi mật khẩu và sidebar dùng chung
+app/Views/layouts/client.php                 # Header/footer và trạng thái người dùng
+public/assets/css/pages/account.css         # Giao diện desktop/mobile
+public/assets/js/pages/account.js           # Validation, xem trước ảnh, hiện/ẩn mật khẩu
+public/uploads/avatars/                      # Avatar được tạo khi upload, không commit
+ui/account/                                 # Liên kết mở giao diện PHP từ bộ UI
+tests/account-smoke.php                      # Kiểm thử HTTP với MySQL thử riêng
+```
+
+### Hành vi và tích hợp
+
+- Sửa họ tên, email, số điện thoại (điện thoại không bắt buộc). Đổi email yêu cầu xác nhận mật khẩu hiện tại và kiểm tra email trùng.
+- Đổi mật khẩu yêu cầu đúng mật khẩu cũ, mật khẩu mới khác mật khẩu cũ, xác nhận khớp. Mật khẩu mới có chữ hoa, chữ thường, số; từ 8 ký tự và không vượt quá 72 byte để phù hợp bcrypt.
+- Upload JPG/PNG/WebP tối đa 2 MB, kích thước tối đa 4096 × 4096. Kiểm tra MIME thực, thông tin ảnh và file HTTP upload; tên file do server tạo ngẫu nhiên. Có xem trước ảnh, hủy lựa chọn, thay ảnh và xóa ảnh cũ.
+- Không cần sửa schema: dùng các cột sẵn có trong bảng `users`. Không đưa role, status hoặc ID từ form vào câu lệnh cập nhật hồ sơ.
+- `$_SESSION['user_id']` xác định người đang đăng nhập. `current_user()` đọc trạng thái mới từ DB; `sign_in()` tạo phiên sau đăng nhập. Người làm Auth có thể dùng chung các hàm trong `core/Helpers.php` khi tích hợp.
+- Đổi mật khẩu làm các phiên khác hết hiệu lực ở request tiếp theo. Phiên hiện tại được đổi session ID và CSRF token.
+- Tất cả thao tác ghi dùng POST + CSRF; dữ liệu được kiểm tra lại trong PHP và escape khi hiển thị. Mật khẩu không được điền lại vào HTML khi có lỗi.
+- Luồng PHP này không sử dụng dữ liệu localStorage của demo `ui/assets/js/pages/auth.js`. Để thử chức năng thật, đăng ký/đăng nhập qua các URL PHP ở mục 3. Không có cơ chế tự chuyển mật khẩu demo sang MySQL.
+- `ui/account/*.html` mở cùng giao diện PHP, không duy trì một bản hồ sơ độc lập. Hãy mở qua server PHP; không mở bằng `file://`.
+- Bộ giới hạn thử đăng nhập hiện áp dụng theo phiên trình duyệt; nếu đưa lên Internet cần bổ sung giới hạn ở server/proxy theo IP/tài khoản.
+
+### Route đang có
+
+| Phương thức | Route | Tác vụ |
+| :--- | :--- | :--- |
+| GET / POST | `/register` | Hiển thị / xử lý đăng ký |
+| GET / POST | `/login` | Hiển thị / xử lý đăng nhập |
+| POST | `/logout` | Đăng xuất |
+| GET / POST | `/account/profile` | Hiển thị / lưu thông tin cá nhân |
+| GET / POST | `/account/change-password` | Hiển thị / đổi mật khẩu |
+| POST | `/account/avatar` | Upload hoặc xóa avatar |
+
+### Kiểm thử tự động
+
+Chỉ dùng **database thử riêng** có tên bắt đầu bằng `decor_account_test`. Script tự tạo bảng/dữ liệu mẫu từ SQL và dọn dữ liệu tài khoản nó tạo; không được trỏ vào database thật. Máy chủ PHP và script phải dùng cùng cấu hình thử.
+
+Ví dụ PowerShell, cửa sổ thứ nhất:
+
+```powershell
+$env:DECOR_DB_HOST = '127.0.0.1'
+$env:DECOR_DB_PORT = '3306'
+$env:DECOR_DB_DBNAME = 'decor_account_test'
+$env:DECOR_DB_USERNAME = 'root'
+$env:DECOR_DB_PASSWORD = ''  # Điền thông số của MySQL thử trên máy bạn
+php -d post_max_size=3M -d upload_max_filesize=2M -S localhost:8017 -t public public/router.php
+```
+
+Cửa sổ thứ hai đặt cùng các biến `DECOR_DB_*`, rồi chạy (PHP CLI cần extension `curl`):
+
+```powershell
+$env:DECOR_TEST_URL = 'http://localhost:8017'
+php tests/account-smoke.php
+```
+
+Kiểm tra bao gồm: đăng ký/đăng nhập; lưu và từ chối dữ liệu lỗi; email trùng; yêu cầu mật khẩu khi đổi email; CSRF; XSS; giả mạo ID/quyền; upload/thay/xóa ảnh; file sai định dạng/dung lượng/kích thước; đổi mật khẩu; vô hiệu phiên cũ; khóa tài khoản; đăng xuất.
