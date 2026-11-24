@@ -94,9 +94,12 @@ CREATE TABLE IF NOT EXISTS `contacts` (
     `subject`       VARCHAR(200)    DEFAULT NULL,
     `message`       TEXT            NOT NULL,
     `status`        ENUM('unread', 'read', 'replied')   NOT NULL DEFAULT 'unread',
+    -- #2 About/FAQ: phân biệt thư từ trang Liên hệ và câu hỏi từ trang FAQ.
+    `source`        ENUM('contact', 'faq')              NOT NULL DEFAULT 'contact',
     `created_at`    TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     KEY `idx_contacts_status` (`status`),
+    KEY `idx_contacts_source` (`source`),
     KEY `idx_contacts_created_at` (`created_at`),
     KEY `idx_contacts_user_id` (`user_id`),
     CONSTRAINT `fk_contacts_user`
@@ -365,6 +368,38 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
+
+
+-- ----------------------------------------------------------------------------
+-- (#2) Migration nhỏ cho CSDL ĐÃ TỒN TẠI: contacts.source
+--      Báo nhóm #1: đây là thay đổi dùng chung duy nhất trong schema.sql.
+--      Có thể chạy lại nhiều lần: kiểm tra information_schema trước khi ALTER.
+-- ----------------------------------------------------------------------------
+SET @decor_sql := (
+    SELECT IF(
+        EXISTS (SELECT 1 FROM information_schema.COLUMNS
+                WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'contacts'
+                  AND COLUMN_NAME = 'source'),
+        'SELECT 1',
+        'ALTER TABLE `contacts` ADD COLUMN `source` ENUM(''contact'',''faq'') NOT NULL DEFAULT ''contact'' AFTER `status`'
+    )
+);
+PREPARE decor_stmt FROM @decor_sql;
+EXECUTE decor_stmt;
+DEALLOCATE PREPARE decor_stmt;
+
+SET @decor_sql := (
+    SELECT IF(
+        EXISTS (SELECT 1 FROM information_schema.STATISTICS
+                WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'contacts'
+                  AND INDEX_NAME = 'idx_contacts_source'),
+        'SELECT 1',
+        'ALTER TABLE `contacts` ADD INDEX `idx_contacts_source` (`source`)'
+    )
+);
+PREPARE decor_stmt FROM @decor_sql;
+EXECUTE decor_stmt;
+DEALLOCATE PREPARE decor_stmt;
 
 
 -- ============================================================================

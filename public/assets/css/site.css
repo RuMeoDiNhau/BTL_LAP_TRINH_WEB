@@ -1,0 +1,349 @@
+/* DECOR - site shell. Tokens lấy từ docs/design-tokens.md; mọi class riêng có tiền tố dc-. */
+
+:root {
+    --dc-color-text: #8f8f8f;
+    --dc-color-heading: #212529;
+    --dc-color-ink: #111;
+    --dc-color-accent: #000;
+    --dc-color-accent-hover: #6c757d;
+    --dc-color-surface: #F1F1F0;
+    --dc-color-on-accent: #fff;
+    --dc-focus-border: #ccc;
+    --dc-focus-ring: rgba(200, 200, 200, .25);
+    --dc-heading-font: 'Playfair Display', Georgia, serif;
+    --dc-body-font: 'Jost', system-ui, sans-serif;
+    --dc-container-max: 1800px;
+    --dc-section-y: 7rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: #fff;
+    color: var(--dc-color-text);
+    font-family: var(--dc-body-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dc-color-heading);
+    font-family: var(--dc-heading-font);
+    font-weight: 400;
+    line-height: 1.24;
+}
+
+a {
+    color: var(--dc-color-ink);
+    text-decoration: none;
+    transition: color .3s ease-out;
+}
+
+a:hover {
+    color: var(--dc-color-accent-hover);
+}
+
+.bi {
+    display: inline-block;
+    vertical-align: -.125em;
+}
+
+.dc-main {
+    padding-top: 4.75rem;
+}
+
+/* Nút dùng chung: giá trị lấy từ mục "Nút chính" của design tokens. */
+.dc-btn-primary {
+    padding: .8rem 2.2rem;
+    border: 2px solid var(--dc-color-accent);
+    border-radius: 5px;
+    background: var(--dc-color-accent);
+    color: var(--dc-color-on-accent);
+    font-family: var(--dc-body-font);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: background .5s ease-in-out, border-color .5s ease-in-out;
+}
+
+.dc-btn-primary:hover,
+.dc-btn-primary:focus-visible {
+    border-color: var(--dc-color-accent-hover);
+    background: var(--dc-color-accent-hover);
+    color: var(--dc-color-on-accent);
+}
+
+/* ---------- Header ---------- */
+.dc-navbar {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    background: #fff;
+}
+
+/* 3 vùng: trái/phải flex:1, giữa tự co theo nội dung menu. */
+.dc-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: var(--dc-container-max);
+    margin-inline: auto;
+}
+
+.dc-brand {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-right: 0;
+}
+
+.dc-header__nav {
+    flex: 0 1 auto;
+    justify-content: center;
+}
+
+.dc-header__actions {
+    flex: 1 1 0;
+    justify-content: flex-end;
+}
+
+.dc-brand__logo {
+    display: block;
+    width: 120px;
+    height: auto;
+}
+
+.dc-nav {
+    flex-wrap: nowrap;
+    gap: .25rem 1.25rem;
+}
+
+.dc-nav .nav-link {
+    color: var(--dc-color-heading);
+    font-family: var(--dc-body-font);
+    font-size: 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.dc-nav .nav-link.active,
+.dc-nav .nav-link:hover {
+    color: var(--dc-color-accent);
+}
+
+.dc-actions {
+    gap: .25rem;
+}
+
+.dc-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--dc-color-ink);
+}
+
+.dc-icon-btn svg {
+    font-size: 1.35rem;
+}
+
+.dc-icon-btn__chevron {
+    margin-left: .15rem;
+    font-size: .65rem;
+}
+
+/* Dropdown được neo vào phải, không bị cắt ở cạnh viewport. */
+.dc-account .dropdown-menu {
+    right: 0;
+    left: auto;
+    min-width: 11rem;
+    margin-top: .5rem;
+    padding: .75rem;
+    border: 1px solid rgba(0, 0, 0, .08);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08);
+}
+
+.dc-account .dropdown-item {
+    font-size: .95rem;
+}
+
+.dc-offcanvas-nav .nav-link {
+    color: var(--dc-color-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.dc-offcanvas__title {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+}
+
+.dc-offcanvas-account a {
+    display: block;
+    padding: .35rem 0;
+    color: var(--dc-color-ink);
+    font-size: 1rem;
+}
+
+/* ---------- Search overlay ---------- */
+.dc-search[hidden] {
+    display: none !important;
+}
+
+.dc-search {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    padding: 6rem 1rem 2rem;
+    background: rgba(17, 17, 17, .92);
+}
+
+body.dc-search-open {
+    overflow: hidden;
+}
+
+.dc-search__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    filter: invert(1);
+}
+
+.dc-search__panel {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: 2rem;
+    background: #fff;
+}
+
+.dc-search__input {
+    padding: .75rem 3rem .75rem 0;
+    border: 0;
+    border-bottom: 2px solid var(--dc-focus-border);
+    border-radius: 0;
+}
+
+.dc-search__input:focus {
+    border-color: var(--dc-focus-border);
+    box-shadow: 0 .25rem var(--dc-focus-ring);
+}
+
+.dc-search__submit {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: .5rem;
+    border: 0;
+    background: transparent;
+    transform: translateY(-50%);
+}
+
+/* ---------- Footer ---------- */
+.dc-footer {
+    padding-top: var(--dc-section-y);
+    background: var(--dc-color-surface);
+}
+
+.dc-footer__inner {
+    max-width: var(--dc-container-max);
+    margin-inline: auto;
+}
+
+.dc-footer__brand {
+    width: 160px;
+    height: auto;
+}
+
+.dc-footer__title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.dc-footer__links a {
+    color: var(--dc-color-ink);
+    font-size: .95rem;
+}
+
+.dc-footer__contact {
+    font-style: normal;
+}
+
+.dc-footer__contact p {
+    margin-bottom: .35rem;
+}
+
+.dc-social {
+    gap: .5rem;
+}
+
+.dc-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 50%;
+    color: var(--dc-color-heading);
+}
+
+.dc-social a:hover {
+    border-color: var(--dc-color-accent);
+    background: var(--dc-color-accent);
+    color: var(--dc-color-on-accent);
+}
+
+.dc-footer__bottom {
+    margin-top: 3rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+}
+
+.dc-shipping img,
+.dc-payments img {
+    width: auto;
+    height: 28px;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .dc-nav {
+        gap: .25rem .75rem;
+    }
+
+    .dc-nav .nav-link {
+        font-size: .95rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    body {
+        font-size: 1.2rem;
+    }
+
+    .dc-search {
+        padding-top: 4.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dc-brand__logo {
+        width: 100px;
+    }
+
+    .dc-search__panel {
+        padding: 1.25rem;
+    }
+
+    .dc-shipping,
+    .dc-payments {
+        margin-bottom: .75rem;
+    }
+}

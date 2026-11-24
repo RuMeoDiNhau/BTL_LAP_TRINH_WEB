@@ -19,6 +19,8 @@ $initials = count($nameParts) >= 2
 
 $activeMenu = $activeMenu ?? '';
 $pageScripts = $pageScripts ?? [];
+$pageStyles = $pageStyles ?? [];
+$unreadCount = isset($unreadCount) ? (int) $unreadCount : 0;
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -30,6 +32,9 @@ $pageScripts = $pageScripts ?? [];
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= $esc($assetUrl('css/admin.css')) ?>">
+  <?php foreach ($pageStyles as $cssFile): ?>
+    <link rel="stylesheet" href="<?= $esc($assetUrl((string) $cssFile)) ?>">
+  <?php endforeach; ?>
 </head>
 <body>
   <div class="ta-shell">
@@ -87,6 +92,34 @@ $pageScripts = $pageScripts ?? [];
           <li>
             <a href="<?= $esc($url('/admin/settings')) ?>" class="ta-nav-link<?= $activeMenu === 'settings' ? ' is-active' : '' ?>">
               <span class="ta-nav-link-left"><span>Cấu hình &amp; Liên hệ</span></span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- ===== #2 About/FAQ ===== -->
+        <div class="ta-nav-section-label">About / FAQ</div>
+        <ul class="ta-nav-list">
+          <li>
+            <a href="<?= $esc($url('/admin/pages/about')) ?>" class="ta-nav-link<?= $activeMenu === 'admin-about' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>About Page</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $esc($url('/admin/pages/faq')) ?>" class="ta-nav-link<?= $activeMenu === 'admin-faq-page' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>FAQ Page</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $esc($url('/admin/faqs')) ?>" class="ta-nav-link<?= $activeMenu === 'admin-faqs' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>FAQ List</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $esc($url('/admin/faq-questions')) ?>" class="ta-nav-link<?= $activeMenu === 'admin-faq-questions' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>Customer Questions</span></span>
+              <?php if ($unreadCount > 0): ?>
+                <span class="ta-nav-badge" aria-label="<?= $unreadCount ?> unread questions"><?= $unreadCount ?></span>
+              <?php endif; ?>
             </a>
           </li>
         </ul>
