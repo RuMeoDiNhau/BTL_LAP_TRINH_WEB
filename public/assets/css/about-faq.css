@@ -691,7 +691,9 @@
     .dc-shell .dc-shell-header {
         position: sticky;
         top: 0;
-        z-index: 40;
+        /* Header tạo stacking context: phải cao hơn backdrop (50) thì drawer bên trong
+           mới nhận click được, dù .dc-shell-nav có z-index: 60. */
+        z-index: 70;
         flex-wrap: nowrap;
     }
 
