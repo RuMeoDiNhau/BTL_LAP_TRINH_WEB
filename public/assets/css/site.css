@@ -11,7 +11,7 @@
     --dc-focus-border: #ccc;
     --dc-focus-ring: rgba(200, 200, 200, .25);
     --dc-heading-font: 'Playfair Display', Georgia, serif;
-    --dc-body-font: 'Jost', system-ui, sans-serif;
+    --dc-body-font: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     --dc-container-max: 1800px;
     --dc-section-y: 7rem;
 }

@@ -48,12 +48,6 @@ $errorSpan = static function (string $key) use ($errors): string {
 <section class="dc-page-head">
     <div class="container">
         <h1 class="display-5 fw-bold"><?= e($heroTitle) ?></h1>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= e(url('')) ?>">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><?= e($heroTitle) ?></li>
-            </ol>
-        </nav>
     </div>
 </section>
 
@@ -65,7 +59,7 @@ $errorSpan = static function (string $key) use ($errors): string {
                 <?php if ($introText !== ''): ?><p class="dc-faq__intro mb-4"><?= nl2br(e($introText)) ?></p><?php endif; ?>
 
                 <?php if ($faqs === []): ?>
-                    <p>Our FAQs are being updated.</p>
+                    <p>Các câu hỏi thường gặp đang được cập nhật.</p>
                 <?php else: ?>
                     <div class="accordion accordion-flush dc-accordion" id="accordion-box">
                         <?php foreach ($faqs as $index => $faq): ?>
@@ -102,9 +96,9 @@ $errorSpan = static function (string $key) use ($errors): string {
                 <?php if ($askTitle !== ''): ?><h2 class="h4 mb-3 dc-faq__title"><?= e($askTitle) ?></h2><?php endif; ?>
                 <?php if ($askText !== ''): ?><p class="dc-faq__intro"><?= nl2br(e($askText)) ?></p><?php endif; ?>
                 <p class="dc-faq__intro">
-                    <?php if ($phone !== ''): ?>Call <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $phone)) ?>"><?= e($phone) ?></a><?php endif; ?>
-                    <?php if ($phone !== '' && $email !== ''): ?> or <?php endif; ?>
-                    <?php if ($email !== ''): ?>email <a href="mailto:<?= e($email) ?>"><?= e($email) ?></a><?php endif; ?>
+                    <?php if ($phone !== ''): ?>Gọi <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $phone)) ?>"><?= e($phone) ?></a><?php endif; ?>
+                    <?php if ($phone !== '' && $email !== ''): ?> hoặc <?php endif; ?>
+                    <?php if ($email !== ''): ?>gửi email tới <a href="mailto:<?= e($email) ?>"><?= e($email) ?></a><?php endif; ?>
                     <?php if ($address !== ''): ?><br><?= e($address) ?><?php endif; ?>
                 </p>
 
@@ -117,71 +111,71 @@ $errorSpan = static function (string $key) use ($errors): string {
                     <?= csrf_field() ?>
 
                     <div class="visually-hidden">
-                        <label for="faq-website">Website</label>
+                        <label for="faq-website">Không điền vào ô này</label>
                         <input type="text" id="faq-website" name="website" value=""
                                autocomplete="off" tabindex="-1">
                     </div>
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label" for="faq-name">Your name</label>
+                            <label class="form-label" for="faq-name">Họ và tên</label>
                             <input type="text" id="faq-name" name="name"
                                    class="<?= e($fieldClass('name')) ?>" value="<?= $fieldValue('name') ?>"
-                                   placeholder="Your name" required maxlength="100" autocomplete="name"
+                                   placeholder="Họ và tên" required maxlength="100" autocomplete="name"
                                    aria-describedby="faq-name-error"<?= $fieldInvalid('name') ?>
-                                   data-error-required="Please enter your name."
-                                   data-error-maxlength="Name must be 100 characters or fewer.">
+                                   data-error-required="Vui lòng nhập họ và tên."
+                                   data-error-maxlength="Họ và tên tối đa 100 ký tự.">
                             <?= $errorSpan('name') ?>
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="faq-email">Your email</label>
+                            <label class="form-label" for="faq-email">Email của bạn</label>
                             <input type="email" id="faq-email" name="email"
                                    class="<?= e($fieldClass('email')) ?>" value="<?= $fieldValue('email') ?>"
-                                   placeholder="Your email" required maxlength="150" autocomplete="email"
+                                   placeholder="Email của bạn" required maxlength="150" autocomplete="email"
                                    aria-describedby="faq-email-error"<?= $fieldInvalid('email') ?>
-                                   data-error-required="Please enter your email address."
-                                   data-error-email="Please enter a valid email address."
-                                   data-error-maxlength="Email must be 150 characters or fewer.">
+                                   data-error-required="Vui lòng nhập địa chỉ email."
+                                   data-error-email="Vui lòng nhập địa chỉ email hợp lệ."
+                                   data-error-maxlength="Email tối đa 150 ký tự.">
                             <?= $errorSpan('email') ?>
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label" for="faq-phone">Phone number (optional)</label>
+                            <label class="form-label" for="faq-phone">Số điện thoại (không bắt buộc)</label>
                             <input type="tel" id="faq-phone" name="phone"
                                    class="<?= e($fieldClass('phone')) ?>" value="<?= $fieldValue('phone') ?>"
-                                   placeholder="Phone number (optional)" maxlength="20"
+                                   placeholder="Số điện thoại (không bắt buộc)" maxlength="20"
                                    pattern="[0-9+ .-]{0,20}" autocomplete="tel"
                                    aria-describedby="faq-phone-error"<?= $fieldInvalid('phone') ?>
-                                   data-error-pattern="Use only digits, spaces, + or - (20 characters or fewer).">
+                                   data-error-pattern="Chỉ dùng chữ số, dấu cách, + hoặc - (tối đa 20 ký tự).">
                             <?= $errorSpan('phone') ?>
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label" for="faq-subject">Subject</label>
+                            <label class="form-label" for="faq-subject">Chủ đề</label>
                             <input type="text" id="faq-subject" name="subject"
                                    class="<?= e($fieldClass('subject')) ?>" value="<?= $fieldValue('subject') ?>"
-                                   placeholder="Subject" required maxlength="200"
+                                   placeholder="Chủ đề" required maxlength="200"
                                    aria-describedby="faq-subject-error"<?= $fieldInvalid('subject') ?>
-                                   data-error-required="Please enter a subject."
-                                   data-error-maxlength="Subject must be 200 characters or fewer.">
+                                   data-error-required="Vui lòng nhập chủ đề."
+                                   data-error-maxlength="Chủ đề tối đa 200 ký tự.">
                             <?= $errorSpan('subject') ?>
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label" for="faq-message">Your message</label>
+                            <label class="form-label" for="faq-message">Nội dung tin nhắn</label>
                             <textarea id="faq-message" name="message"
                                       class="<?= e($fieldClass('message')) ?>"
-                                      rows="8" placeholder="Your message" required minlength="10" maxlength="2000"
+                                      rows="8" placeholder="Nội dung tin nhắn" required minlength="10" maxlength="2000"
                                       aria-describedby="faq-message-error"<?= $fieldInvalid('message') ?>
-                                      data-error-required="Please enter your message."
-                                      data-error-minlength="Message must be at least 10 characters."
-                                       data-error-maxlength="Message must be 2000 characters or fewer."><?= $fieldValue('message') ?></textarea>
+                                      data-error-required="Vui lòng nhập nội dung tin nhắn."
+                                      data-error-minlength="Tin nhắn phải có ít nhất 10 ký tự."
+                                      data-error-maxlength="Tin nhắn tối đa 2000 ký tự."><?= $fieldValue('message') ?></textarea>
                             <?= $errorSpan('message') ?>
                         </div>
 
                         <div class="col-12 d-grid">
-                            <button class="btn dc-btn-primary" type="submit">Send message</button>
+                            <button class="btn dc-btn-primary" type="submit">Gửi tin nhắn</button>
                         </div>
                     </div>
                 </form>

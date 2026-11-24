@@ -2,18 +2,13 @@
 
 .dc-page-head {
     margin-bottom: 3.5rem;
-    padding: 4rem 0;
+    padding: 5rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, .08);
     background: var(--dc-color-surface);
     text-align: center;
 }
 
 .dc-page-head h1 {
-    margin-bottom: .75rem;
-}
-
-.dc-page-head .breadcrumb {
-    justify-content: center;
     margin-bottom: 0;
 }
 
@@ -258,7 +253,7 @@
 .dc-shell .dc-shell-nav a,
 .dc-shell .dc-shell-nav__text {
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: .02em;
@@ -348,7 +343,7 @@
     border-bottom: 2px solid #ccc;
     border-radius: 0;
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -387,7 +382,7 @@
     border: 0;
     background: transparent;
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
     text-align: left;
     text-decoration: none;
@@ -516,7 +511,7 @@
     display: block;
     margin-bottom: 10px;
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
     text-decoration: none;
 }
@@ -533,7 +528,7 @@
 .dc-shell .dc-shell-footer__contact p {
     margin: 0 0 10px;
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -543,7 +538,7 @@
 
 .dc-shell .dc-shell-footer__contact a {
     color: #000;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -587,23 +582,181 @@
 .dc-shell .dc-shell-footer__copyright {
     margin: 0 0 0 auto;
     color: #777;
-    font-family: 'Jost', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 12px;
     text-align: right;
 }
 
+/* ---------- Mobile: nút hamburger + drawer (thay menu ngang bị wrap) ---------- */
+.dc-shell .dc-shell-toggle {
+    display: none;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.dc-shell .dc-shell-toggle span {
+    display: block;
+    flex: none;
+    width: 20px;
+    height: 2px;
+    background: #000;
+}
+
+.dc-shell .dc-shell-backdrop {
+    position: fixed;
+    inset: 60px 0 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, .4);
+}
+
+.dc-shell .dc-shell-nav[hidden],
+.dc-shell .dc-shell-backdrop[hidden] {
+    display: none !important;
+}
+
+.dc-shell.dc-shell-menu-open {
+    overflow: hidden;
+}
+
+.dc-shell .dc-post__more {
+    display: inline-block;
+    margin-top: .5rem;
+    color: #000;
+    font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Montserrat rộng hơn font cũ: thu cỡ chữ/gap để menu và bảng không xuống dòng. */
+.dc-shell .dc-shell-nav a,
+.dc-shell .dc-shell-nav__text {
+    font-size: 12px;
+    letter-spacing: .01em;
+}
+
+.dc-shell .dc-shell-nav ul {
+    gap: 18px;
+}
+
+.dc-shell .dc-shell-footer__links a,
+.dc-shell .dc-shell-footer__text,
+.dc-shell .dc-shell-footer__contact p,
+.dc-shell .dc-shell-footer__contact a,
+.dc-shell .dc-shell-search input,
+.dc-shell .dc-shell-account a,
+.dc-shell .dc-shell-account button {
+    font-size: 12px;
+}
+
+.dc-shell .dc-story img,
+.dc-shell .dc-post img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: 992px) {
+    /* Desktop luôn hiện nav dù thuộc tính hidden còn lại từ lúc thu nhỏ màn hình. */
+    .dc-shell .dc-shell-nav[hidden] {
+        display: block !important;
+    }
+
+    .dc-shell .dc-shell-toggle,
+    .dc-shell .dc-shell-backdrop {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .dc-shell .dc-shell-nav ul {
+        gap: 12px;
+    }
+
+    .dc-shell .dc-shell-nav a,
+    .dc-shell .dc-shell-nav__text {
+        font-size: 11px;
+    }
+}
+
 @media (max-width: 991.98px) {
     .dc-shell .dc-shell-header {
-        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        flex-wrap: nowrap;
+    }
+
+    .dc-shell .dc-shell-actions {
+        margin-left: auto;
+    }
+
+    .dc-shell .dc-shell-toggle {
+        display: inline-flex;
     }
 
     .dc-shell .dc-shell-nav {
-        order: 3;
-        flex-basis: 100%;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        width: min(320px, 86vw);
+        margin: 0;
+        padding: 16px;
+        overflow-y: auto;
+        background: #fff;
+        box-shadow: -8px 0 24px rgba(0, 0, 0, .12);
     }
 
+    .dc-shell .dc-shell-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Footer 5 -> 2 cột; hàng dưới xếp dọc. */
     .dc-shell .dc-shell-footer__grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dc-shell .dc-shell-footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dc-shell .dc-shell-footer__copyright {
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .dc-shell .dc-shell-footer__brand,
+    .dc-shell .dc-shell-footer__grid > :last-child {
+        grid-column: 1 / -1;
+    }
+
+    .dc-shell .dc-shell-footer__logo {
+        font-size: 44px;
+    }
+
+    .dc-shell .dc-quote {
+        font-size: 1.35rem;
+    }
+
+    /* Form name/email về 1 cột dưới 768px. */
+    .dc-shell .dc-faq-form .row > [class*="col-md-"] {
+        flex-basis: 100%;
+        max-width: 100%;
     }
 }
 
@@ -613,19 +766,16 @@
     }
 
     .dc-shell .dc-shell-nav ul {
-        gap: 12px;
+        gap: 10px;
     }
 
-    .dc-shell .dc-shell-footer__logo {
-        font-size: 52px;
-    }
-
+    /* Footer 2 -> 1 cột. */
     .dc-shell .dc-shell-footer__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
-    .dc-shell .dc-shell-footer__copyright {
-        margin-left: 0;
-        text-align: left;
+    .dc-shell .dc-shell-footer__brand,
+    .dc-shell .dc-shell-footer__grid > :last-child {
+        grid-column: auto;
     }
 }

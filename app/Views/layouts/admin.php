@@ -118,7 +118,7 @@ $unreadCount = isset($unreadCount) ? (int) $unreadCount : 0;
             <a href="<?= $esc($url('/admin/faq-questions')) ?>" class="ta-nav-link<?= $activeMenu === 'admin-faq-questions' ? ' is-active' : '' ?>">
               <span class="ta-nav-link-left"><span>Customer Questions</span></span>
               <?php if ($unreadCount > 0): ?>
-                <span class="ta-nav-badge" aria-label="<?= $unreadCount ?> unread questions"><?= $unreadCount ?></span>
+                <span class="ta-nav-badge" aria-label="<?= $unreadCount ?> câu hỏi chưa đọc"><?= $unreadCount ?></span>
               <?php endif; ?>
             </a>
           </li>

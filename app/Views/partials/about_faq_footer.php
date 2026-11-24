@@ -57,13 +57,13 @@ $dcSocialLabels = [
       <?php endforeach; ?>
 
       <div>
-        <h2 class="dc-shell-footer__title">Contact Us</h2>
+        <h2 class="dc-shell-footer__title">Liên hệ</h2>
         <address class="dc-shell-footer__contact">
           <?php if ($dcFooterSettings['address'] !== ''): ?>
-            <p><span class="dc-shell-footer__label">Address:</span> <?= e($dcFooterSettings['address']) ?></p>
+            <p><span class="dc-shell-footer__label">Địa chỉ:</span> <?= e($dcFooterSettings['address']) ?></p>
           <?php endif; ?>
           <p><span class="dc-shell-footer__label">Email:</span> <a href="mailto:<?= e($dcFooterSettings['email']) ?>"><?= e($dcFooterSettings['email']) ?></a></p>
-          <p><span class="dc-shell-footer__label">Phone:</span> <a href="<?= e($dcPhoneHref) ?>"><?= e($dcFooterSettings['phone']) ?></a></p>
+          <p><span class="dc-shell-footer__label">Điện thoại:</span> <a href="<?= e($dcPhoneHref) ?>"><?= e($dcFooterSettings['phone']) ?></a></p>
         </address>
       </div>
     </div>
@@ -71,18 +71,18 @@ $dcSocialLabels = [
     <div class="dc-shell-footer__bottom">
       <div class="dc-shell-footer__logos">
         <div class="dc-shell-footer__shipping">
-          <span class="dc-shell-footer__label">We ship with:</span>
+          <span class="dc-shell-footer__label">Đơn vị vận chuyển:</span>
           <img src="<?= e(asset('images/arct-icon.png')) ?>" alt="Arctic Shipping" width="38" height="24">
           <img src="<?= e(asset('images/dhl-logo.png')) ?>" alt="DHL" width="60" height="24">
         </div>
         <div class="dc-shell-footer__payments">
-          <span class="dc-shell-footer__label">Payment option:</span>
+          <span class="dc-shell-footer__label">Phương thức thanh toán:</span>
           <img src="<?= e(asset('images/visa-card.png')) ?>" alt="Visa" width="30" height="24">
           <img src="<?= e(asset('images/paypal-card.png')) ?>" alt="PayPal" width="29" height="24">
           <img src="<?= e(asset('images/master-card.png')) ?>" alt="MasterCard" width="30" height="24">
         </div>
       </div>
-      <p class="dc-shell-footer__copyright">&copy; Copyright 2026 DECOR E-COMMERCE. All rights reserved.</p>
+      <p class="dc-shell-footer__copyright">&copy; Bản quyền 2026 DECOR E-COMMERCE. Bảo lưu mọi quyền.</p>
     </div>
   </div>
 </footer>

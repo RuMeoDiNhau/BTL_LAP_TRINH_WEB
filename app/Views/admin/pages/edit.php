@@ -1,30 +1,13 @@
 <?php
 /** Form sửa nội dung About/FAQ: giữ nguyên mọi name/action/CSRF, chỉ đổi giao diện. */
-$pageLabel = (string)($config['label'] ?? 'Page');
-$pageLabels = [
-    'Trang About'          => 'About Page',
-    'Trang FAQ (nội dung)' => 'FAQ Page',
-];
-$pageLabel = $pageLabels[$pageLabel] ?? $pageLabel;
+$pageLabel = (string)($config['label'] ?? 'Trang');
 $sections = $config['sections'] ?? [];
 $tabs = $config['tabs'] ?? [];
 $action = url('admin/pages/' . $page . '/update');
 
-// Lỗi do controller trả về bằng tiếng Việt; map sang tiếng Anh ở view.
-$errorText = [
-    'Vui lòng nhập tiêu đề.'        => 'Please enter a title.',
-    'Tiêu đề tối đa 255 ký tự.'      => 'Title must be 255 characters or fewer.',
-    'Vui lòng nhập nội dung.'        => 'Please enter content.',
-    'Nội dung tối đa 5000 ký tự.'    => 'Content must be 5000 characters or fewer.',
-    'Không nhận được file ảnh.'      => 'No image file was received.',
-    'Upload ảnh thất bại.'           => 'Image upload failed.',
-    'Ảnh tối đa 2MB.'                => 'Image must be 2MB or less.',
-    'Chỉ chấp nhận jpg, png, webp.'  => 'Only JPG, PNG and WebP images are allowed.',
-    'MIME ảnh không hợp lệ.'         => 'Invalid image MIME type.',
-    'Không thể lưu ảnh.'             => 'The image could not be saved.',
-];
-$tr = static function (string $msg) use ($errorText): string {
-    return $errorText[$msg] ?? $msg;
+// Controller đã trả lỗi bằng tiếng Việt; giữ $tr để _fields.php dùng chung.
+$tr = static function (string $msg): string {
+    return $msg;
 };
 
 // Gom khối theo tab; tab đầu tiên (hoặc tab chứa lỗi) được mở sẵn.
@@ -80,7 +63,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
              data-section="<?= e($key) ?>"
              data-group="<?= e((string)($section['group'] ?? 'banner')) ?>"
              data-fields="<?= e(implode(',', $fields)) ?>">
-        <div class="border-b border-gray-100 px-4 py-4 sm:px-6">
+        <div class="border-b border-gray-100 px-6 py-5">
             <h2 class="text-base font-medium text-gray-800"><?= e($label) ?></h2>
             <?php if ($hint !== ''): ?>
                 <p class="mt-1 text-sm text-gray-500"><?= e($hint) ?></p>
@@ -91,19 +74,19 @@ $renderCard = static function (string $key, array $section, array $val, array $e
 
             <?php if ($hasImage): ?>
                 <div data-image-block>
-                    <span class="mb-1.5 block text-sm font-medium text-gray-700">Image</span>
+                    <span class="mb-1.5 block text-sm font-medium text-gray-700">Hình ảnh</span>
                     <div class="grid gap-4 lg:grid-cols-2">
                         <div>
                             <div class="aspect-4/3 overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
                                 <img data-preview
                                      data-original-src="<?= e($imagePath !== '' ? asset($imagePath) : '') ?>"
                                      <?= $imagePath !== '' ? 'src="' . e(asset($imagePath)) . '"' : '' ?>
-                                     alt="Preview: <?= e($label) ?>"
+                                     alt="Xem trước: <?= e($label) ?>"
                                      class="h-full w-full object-cover <?= $imagePath === '' ? 'hidden' : '' ?>">
                                 <div data-preview-empty
-                                     class="flex h-full w-full items-center justify-center px-2 text-center text-sm text-gray-400 <?= $imagePath !== '' ? 'hidden' : '' ?>">No image</div>
+                                     class="flex h-full w-full items-center justify-center px-2 text-center text-sm text-gray-400 <?= $imagePath !== '' ? 'hidden' : '' ?>">Chưa có hình ảnh</div>
                             </div>
-                            <p class="mt-2 text-xs text-gray-400">Current: <span data-image-path><?= e($imagePath !== '' ? $imagePath : 'none') ?></span></p>
+                            <p class="mt-2 text-xs text-gray-400">Hiện tại: <span data-image-path><?= e($imagePath !== '' ? $imagePath : 'không có') ?></span></p>
                         </div>
 
                         <div class="space-y-3">
@@ -113,8 +96,8 @@ $renderCard = static function (string $key, array $section, array $val, array $e
                                      stroke-width="1.6" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L7 9m5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
                                 </svg>
-                                <span class="mt-2 text-sm font-medium text-gray-700">Drag &amp; drop or click to choose</span>
-                                <span class="mt-1 text-xs text-gray-500">JPG, PNG, WEBP · max 2 MB</span>
+                                <span class="mt-2 text-sm font-medium text-gray-700">Kéo thả hoặc nhấn để chọn ảnh</span>
+                                <span class="mt-1 text-xs text-gray-500">JPG, PNG, WEBP · tối đa 2 MB</span>
                                 <input type="file" id="<?= e($key) ?>_image"
                                        name="sections[<?= e($key) ?>][image]"
                                        accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
@@ -126,7 +109,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
                             <div class="flex flex-wrap items-center gap-2">
                                 <input type="checkbox" id="<?= e($key) ?>_remove_image"
                                        name="sections[<?= e($key) ?>][remove_image]" value="1"
-                                       aria-label="Remove current image"
+                                       aria-label="Xóa hình ảnh hiện tại"
                                        class="sr-only" data-remove-image>
                                 <button type="button" data-remove-button
                                         aria-controls="<?= e($key) ?>_remove_image" aria-pressed="false"
@@ -135,7 +118,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
                                          stroke-width="1.8" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-9 0 1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13"/>
                                     </svg>
-                                    <span data-remove-label>Remove image</span>
+                                    <span data-remove-label>Xóa hình ảnh</span>
                                 </button>
                             </div>
                             <p class="text-xs text-red-600" data-error="<?= e($key) ?>.image"><?= e($tr($err['image'] ?? '')) ?></p>
@@ -155,14 +138,14 @@ $renderCard = static function (string $key, array $section, array $val, array $e
     <div class="flex flex-wrap items-end justify-between gap-4">
         <div>
             <h1 class="text-2xl font-semibold text-gray-800"><?= e($pageLabel) ?></h1>
-            <p class="mt-1 text-sm text-gray-500">Edit content blocks. Missing rows are filled with default content and created when you save.</p>
+            <p class="mt-1 text-sm text-gray-500">Chỉnh sửa các khối nội dung. Khối chưa có dữ liệu sẽ được điền nội dung mặc định và tạo khi bạn lưu.</p>
         </div>
         <a href="<?= e(url('admin/faqs')) ?>"
            class="inline-flex h-11 items-center justify-center gap-2 rounded-[10px] border border-gray-300 bg-white px-5 text-sm font-medium text-gray-700 shadow-theme-xs transition hover:bg-gray-50 focus-visible:ring-3 focus-visible:ring-brand-500/20 focus-visible:outline-hidden">
             <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m15 6-6 6 6 6"/>
             </svg>
-            Back to admin
+            Về trang quản trị
         </a>
     </div>
 
@@ -172,7 +155,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
         <input type="hidden" data-active-tab value="<?= e($initialTab) ?>">
 
         <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-theme-xs">
-            <div role="tablist" aria-label="Page content sections" class="border-b border-gray-100 px-2 sm:px-4">
+            <div role="tablist" aria-label="Các khối nội dung trang" class="border-b border-gray-100 px-2 sm:px-4">
                 <div class="flex gap-1 overflow-x-auto">
                     <?php foreach ($tabs as $tabId => $tabLabel): ?>
                         <?php $tabId = (string)$tabId; ?>
@@ -189,7 +172,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
                                     : 'relative inline-flex h-12 shrink-0 items-center gap-2 whitespace-nowrap border-b-2 border-transparent px-4 text-sm font-medium text-gray-500 transition hover:border-gray-300 hover:text-gray-800 focus-visible:ring-3 focus-visible:ring-brand-500/20 focus-visible:outline-hidden'">
                             <?= e($tabLabel) ?>
                             <span x-cloak x-show="errorTabs.includes('<?= e($tabId) ?>')"
-                                  class="size-1.5 rounded-full bg-red-500" title="Contains errors" aria-hidden="true"></span>
+                                  class="size-1.5 rounded-full bg-red-500" title="Có lỗi cần sửa" aria-hidden="true"></span>
                         </button>
                     <?php endforeach; ?>
                 </div>
@@ -253,7 +236,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
         <div class="sticky bottom-0 z-20 -mx-4 mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-gray-200 bg-white/95 px-4 py-4 shadow-theme-md backdrop-blur-sm sm:-mx-6 sm:px-6">
             <span data-unsaved hidden class="inline-flex items-center gap-2 text-sm font-medium text-amber-600">
                 <span class="size-2 rounded-full bg-amber-500" aria-hidden="true"></span>
-                Unsaved changes
+                Có thay đổi chưa lưu
             </span>
             <div class="flex flex-wrap items-center gap-3 md:ml-auto">
                 <button type="submit"
@@ -261,11 +244,11 @@ $renderCard = static function (string $key, array $section, array $val, array $e
                     <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                     </svg>
-                    Save changes
+                    Lưu thay đổi
                 </button>
                 <a href="<?= e(url('admin/pages/' . $page)) ?>" data-cancel
                    class="inline-flex h-11 items-center justify-center rounded-[10px] border border-gray-300 bg-white px-5 text-sm font-medium text-gray-700 shadow-theme-xs transition hover:bg-gray-50 focus-visible:ring-3 focus-visible:ring-brand-500/20 focus-visible:outline-hidden">
-                    Cancel
+                    Hủy
                 </a>
             </div>
         </div>

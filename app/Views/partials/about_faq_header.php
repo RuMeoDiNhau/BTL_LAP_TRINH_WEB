@@ -1,5 +1,6 @@
 <?php
 /** ===== #2 About/FAQ ===== Header riêng, chỉ render khi $useShell = true. */
+// ===== #2 About/FAQ: menu mobile dạng drawer, aria-expanded do about-faq.js cập nhật.
 // Route chưa tồn tại -> render chữ, không tự thêm route.
 $dcHeaderNav = [
     ['Home', '/'],
@@ -15,7 +16,8 @@ $dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
 <header class="dc-shell-header">
   <a class="dc-shell-logo" href="<?= e(base_url('/')) ?>">Decor</a>
 
-  <nav class="dc-shell-nav" aria-label="Main navigation">
+  <!-- hidden trên mobile; CSS min-width:992px luôn hiện nav để desktop không phụ thuộc JS. -->
+  <nav id="dcShellMenu" class="dc-shell-nav" aria-label="Menu chính" hidden>
     <ul>
       <?php foreach ($dcHeaderNav as $dcItem): ?>
         <?php
@@ -36,18 +38,18 @@ $dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
 
   <div class="dc-shell-actions">
     <details class="dc-shell-menu">
-      <summary class="dc-shell-icon" aria-label="Open search"><?= $dcIcon('search', 18) ?></summary>
+      <summary class="dc-shell-icon" aria-label="Mở tìm kiếm"><?= $dcIcon('search', 18) ?></summary>
       <div class="dc-shell-dropdown dc-shell-search">
         <form role="search" method="get" action="<?= e(url('faq')) ?>">
-          <label class="dc-shell-visually-hidden" for="dcShellSearch">Search</label>
-          <input id="dcShellSearch" type="search" name="s" placeholder="Type and press enter" autocomplete="off">
-          <button type="submit" aria-label="Submit search"><?= $dcIcon('search', 16) ?></button>
+          <label class="dc-shell-visually-hidden" for="dcShellSearch">Tìm kiếm</label>
+          <input id="dcShellSearch" type="search" name="s" placeholder="Nhập và nhấn Enter" autocomplete="off">
+          <button type="submit" aria-label="Gửi tìm kiếm"><?= $dcIcon('search', 16) ?></button>
         </form>
       </div>
     </details>
 
     <details class="dc-shell-menu">
-      <summary class="dc-shell-icon" aria-label="Account menu">
+      <summary class="dc-shell-icon" aria-label="Menu tài khoản">
         <?= $dcIcon('person', 18) ?><?= $dcIcon('chevron-down', 12, 'dc-shell-chevron') ?>
       </summary>
       <div class="dc-shell-dropdown dc-shell-account">
@@ -58,13 +60,19 @@ $dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
           <?php endif; ?>
           <form action="<?= e(base_url('/logout')) ?>" method="post">
             <?= csrf_field() ?>
-            <button type="submit">Logout</button>
+            <button type="submit">Đăng xuất</button>
           </form>
         <?php else: ?>
-          <a href="<?= e(base_url('/login')) ?>">Login</a>
+          <a href="<?= e(base_url('/login')) ?>">Đăng nhập</a>
           <a href="<?= e(base_url('/register')) ?>">Đăng ký</a>
         <?php endif; ?>
       </div>
     </details>
   </div>
+
+  <button class="dc-shell-toggle" type="button" aria-controls="dcShellMenu"
+          aria-expanded="false" aria-label="Mở menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<div class="dc-shell-backdrop" hidden></div>

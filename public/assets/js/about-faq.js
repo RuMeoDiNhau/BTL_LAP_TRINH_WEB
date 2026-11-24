@@ -1,8 +1,8 @@
-/* DECOR - JS tối thiểu: Swiper testimonials, search overlay, active menu. */
+/* ===== #2 About/FAQ ===== JS thuần: Swiper testimonial + menu drawer mobile. */
 (function () {
     'use strict';
 
-    // 1. Testimonials chạy bằng Swiper (slidesPerView = 4 như mẫu ở màn hình lớn).
+    // 1. Testimonials chạy bằng Swiper (4 slide ở màn hình lớn).
     var slider = document.querySelector('.dc-testimonial-swiper');
     if (slider && typeof window.Swiper === 'function') {
         new Swiper(slider, {
@@ -17,52 +17,58 @@
         });
     }
 
-    // 2. Đóng/mở ô tìm kiếm.
-    var panel = document.getElementById('dc-search');
-    var openBtn = document.querySelector('[data-dc-search-open]');
-    var closeBtn = panel && panel.querySelector('[data-dc-search-close]');
+    // 2. Menu drawer trên mobile: aria-expanded, đóng bằng link/backdrop/Esc/resize.
+    var root = document.querySelector('.dc-shell');
+    var toggle = root ? root.querySelector('.dc-shell-toggle') : null;
+    var panel = document.getElementById('dcShellMenu');
+    var backdrop = root ? root.querySelector('.dc-shell-backdrop') : null;
+    if (!toggle || !panel) {
+        return;
+    }
 
-    function showSearch(open) {
-        if (!panel) {
-            return;
-        }
+    function setOpen(open) {
         panel.hidden = !open;
-        document.body.classList.toggle('dc-search-open', open);
-        if (openBtn) {
-            openBtn.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (backdrop) {
+            backdrop.hidden = !open;
         }
-        if (open) {
-            var input = panel.querySelector('input[type="search"]');
-            if (input) {
-                input.focus();
+        if (root) {
+            root.classList.toggle('dc-shell-menu-open', open);
+            // Đóng dropdown search/account để không chồng lên drawer.
+            var details = root.querySelectorAll('.dc-shell-menu[open]');
+            for (var i = 0; i < details.length; i++) {
+                details[i].open = false;
             }
         }
     }
 
-    if (openBtn) {
-        openBtn.addEventListener('click', function () { showSearch(true); });
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function () { showSearch(false); });
-    }
-    if (panel) {
-        panel.addEventListener('click', function (event) {
-            if (event.target === panel) {
-                showSearch(false);
-            }
+    toggle.addEventListener('click', function () {
+        setOpen(panel.hidden);
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', function () {
+            setOpen(false);
         });
     }
+
+    var links = panel.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function () {
+            setOpen(false);
+        });
+    }
+
     document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            showSearch(false);
+        if (!panel.hidden && (event.key === 'Escape' || event.keyCode === 27)) {
+            setOpen(false);
+            toggle.focus();
         }
     });
 
-    // 3. Đánh dấu menu active (server đã làm; đây chỉ là fallback khi đổi route).
-    document.querySelectorAll('.dc-nav .nav-link').forEach(function (link) {
-        if (new URL(link.href, location.href).pathname === location.pathname) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 992 && !panel.hidden) {
+            setOpen(false);
         }
     });
 }());

@@ -57,7 +57,7 @@
     var active = faqForm.querySelector('[name="is_active"]');
     var status = faqForm.querySelector('[data-active-status]');
     if (active && status) {
-        var syncStatus = function () { status.textContent = active.checked ? 'Active' : 'Hidden'; };
+        var syncStatus = function () { status.textContent = active.checked ? 'Đang hiển thị' : 'Đang ẩn'; };
         active.addEventListener('change', syncStatus);
         syncStatus();
     }
@@ -74,11 +74,11 @@
         setErr('question', '');
         setErr('answer', '');
         setErr('sort_order', '');
-        if (!qv) { setErr('question', 'Please enter a question.'); ok = false; }
-        else if (qv.length > 255) { setErr('question', 'Question must be 255 characters or fewer.'); ok = false; }
-        if (!av) { setErr('answer', 'Please enter an answer.'); ok = false; }
-        else if (av.length > 5000) { setErr('answer', 'Answer must be 5000 characters or fewer.'); ok = false; }
-        if (sv !== '' && (isNaN(sv) || Number(sv) < 0)) { setErr('sort_order', 'Order must be 0 or greater.'); ok = false; }
+        if (!qv) { setErr('question', 'Vui lòng nhập câu hỏi.'); ok = false; }
+        else if (qv.length > 255) { setErr('question', 'Câu hỏi tối đa 255 ký tự.'); ok = false; }
+        if (!av) { setErr('answer', 'Vui lòng nhập câu trả lời.'); ok = false; }
+        else if (av.length > 5000) { setErr('answer', 'Câu trả lời tối đa 5000 ký tự.'); ok = false; }
+        if (sv !== '' && (isNaN(sv) || Number(sv) < 0)) { setErr('sort_order', 'Thứ tự phải >= 0.'); ok = false; }
 
         if (!ok) {
             e.preventDefault();

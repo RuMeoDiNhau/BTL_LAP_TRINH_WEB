@@ -30,7 +30,7 @@ final class FaqQuestionController extends Controller
             'totalPages' => $totalPages,
             'total'      => $total,
             'perPage'    => $perPage,
-        ], 'Customer Questions', 'admin-faq-questions', 'js/admin-faq-questions.js'), 'admin');
+        ], 'Câu hỏi của khách hàng', 'admin-faq-questions', 'js/admin-faq-questions.js'), 'admin');
     }
 
     public function show($id): void
@@ -40,7 +40,7 @@ final class FaqQuestionController extends Controller
         $id = (int) $id;
         $row = FaqQuestion::find($id);
         if ($row === []) {
-            set_flash('error', 'Question not found.');
+            set_flash('error', 'Không tìm thấy câu hỏi.');
             $this->redirect('admin/faq-questions');
             return;
         }
@@ -53,7 +53,7 @@ final class FaqQuestionController extends Controller
 
         $this->view('admin/faq-questions/show', $this->adminData([
             'row' => $row,
-        ], 'Customer Question #' . $id, 'admin-faq-questions', 'js/admin-faq-questions.js'), 'admin');
+        ], 'Câu hỏi khách hàng #' . $id, 'admin-faq-questions', 'js/admin-faq-questions.js'), 'admin');
     }
 
     /** POST /admin/faq-questions/status */
@@ -69,19 +69,19 @@ final class FaqQuestionController extends Controller
         $id = (int) ($_POST['id'] ?? 0);
         $status = (string) ($_POST['status'] ?? '');
         if (!in_array($status, ['unread', 'read', 'replied'], true)) {
-            set_flash('error', 'Invalid status.');
+            set_flash('error', 'Trạng thái không hợp lệ.');
             $this->redirect('admin/faq-questions');
             return;
         }
         if ($id <= 0 || FaqQuestion::find($id) === []) {
-            set_flash('error', 'Question not found.');
+            set_flash('error', 'Không tìm thấy câu hỏi.');
             $this->redirect('admin/faq-questions');
             return;
         }
 
         FaqQuestion::setStatus($id, $status);
-        set_flash('success', 'Question status updated.');
-        // Về danh sách để nút "Mark as unread" không bị GET show đổi ngược lại.
+        set_flash('success', 'Đã cập nhật trạng thái câu hỏi.');
+        // Về danh sách để nút "Đánh dấu chưa đọc" không bị GET show đổi ngược lại.
         $this->redirect('admin/faq-questions');
     }
 
@@ -97,9 +97,9 @@ final class FaqQuestionController extends Controller
         $id = (int) ($_POST['id'] ?? 0);
         if ($id > 0 && FaqQuestion::find($id) !== []) {
             FaqQuestion::delete($id);
-            set_flash('success', 'Question deleted successfully.');
+            set_flash('success', 'Đã xóa câu hỏi.');
         } else {
-            set_flash('error', 'Question not found.');
+            set_flash('error', 'Không tìm thấy câu hỏi.');
         }
         $this->redirect('admin/faq-questions');
     }
@@ -131,7 +131,7 @@ final class FaqQuestionController extends Controller
     private function deny(): void
     {
         http_response_code(403);
-        set_flash('error', 'Invalid session. Please try again.');
+        set_flash('error', 'Phiên không hợp lệ, vui lòng thử lại.');
         $this->redirect('admin/faq-questions');
     }
 }

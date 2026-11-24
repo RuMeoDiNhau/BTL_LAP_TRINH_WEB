@@ -41,19 +41,19 @@
         var max = parseInt(field.getAttribute('maxlength') || '0', 10);
 
         if (field.required && value === '') {
-            return field.dataset.errorRequired || 'This field is required.';
+            return field.dataset.errorRequired || 'Trường này là bắt buộc.';
         }
         if (min > 0 && value.length < min) {
-            return field.dataset.errorMinlength || 'This value is too short.';
+            return field.dataset.errorMinlength || 'Giá trị này quá ngắn.';
         }
         if (max > 0 && value.length > max) {
-            return field.dataset.errorMaxlength || 'This value is too long.';
+            return field.dataset.errorMaxlength || 'Giá trị này quá dài.';
         }
         if (field.type === 'email' && value !== '' && field.validity.typeMismatch) {
-            return field.dataset.errorEmail || 'Please enter a valid email address.';
+            return field.dataset.errorEmail || 'Vui lòng nhập địa chỉ email hợp lệ.';
         }
         if (field.name === 'phone' && value !== '' && field.validity.patternMismatch) {
-            return field.dataset.errorPattern || 'Please enter a valid phone number.';
+            return field.dataset.errorPattern || 'Vui lòng nhập số điện thoại hợp lệ.';
         }
 
         return '';

@@ -26,12 +26,6 @@ $featureIcons = ['calendar-event', 'bag', 'gift', 'arrow-repeat'];
 <section class="dc-page-head">
     <div class="container">
         <h1 class="display-5 fw-bold"><?= e($heroTitle) ?></h1>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= e(url('')) ?>">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><?= e($heroTitle) ?></li>
-            </ol>
-        </nav>
     </div>
 </section>
 
@@ -60,7 +54,7 @@ $featureIcons = ['calendar-event', 'bag', 'gift', 'arrow-repeat'];
         <div class="row g-0 dc-surface dc-story__row<?= $reverse ?>">
             <?php if ($image !== ''): ?>
                 <div class="col-md-6">
-                    <img class="dc-story__img" src="<?= e(asset($image)) ?>" alt="<?= e($title) ?>">
+                    <img class="dc-story__img" src="<?= e(asset($image)) ?>" alt="Ảnh minh họa: <?= e($title) ?>">
                 </div>
             <?php endif; ?>
             <div class="<?= $image !== '' ? 'col-md-6' : 'col-12' ?> d-flex align-items-center p-4 p-lg-5">
@@ -86,7 +80,7 @@ foreach ($testimonialKeys as $key) {
 <?php if ($testimonials !== []): ?>
 <section class="dc-section dc-testimonials">
     <div class="container">
-        <div class="swiper dc-testimonial-swiper" role="region" aria-label="Testimonials">
+        <div class="swiper dc-testimonial-swiper" role="region" aria-label="Chứng thực của khách hàng">
             <div class="swiper-wrapper">
                 <?php foreach ($testimonials as $item): ?>
                     <div class="swiper-slide d-flex">
@@ -143,13 +137,14 @@ for ($i = 1; $i <= 4; $i++) {
                     $postUrl = url('posts/' . $post['slug']);
                     $thumb = trim((string)($post['thumbnail'] ?? ''));
                     $timestamp = strtotime((string)($post['published_at'] ?? ''));
-                    $dateLabel = $timestamp === false ? '' : date('M d, Y', $timestamp);
+                    // ===== #2 About/FAQ: ngày tháng theo tiếng Việt (dd/mm/yyyy).
+                    $dateLabel = $timestamp === false ? '' : date('d/m/Y', $timestamp);
                     ?>
                     <div class="col-md-4">
                         <article class="dc-post">
                             <?php if ($thumb !== ''): ?>
                                 <a href="<?= e($postUrl) ?>">
-                                    <img class="img-fluid" src="<?= e(asset(ltrim($thumb, '/'))) ?>" alt="<?= e($post['title']) ?>" loading="lazy">
+                                    <img class="img-fluid" src="<?= e(asset(ltrim($thumb, '/'))) ?>" alt="Ảnh bài viết: <?= e($post['title']) ?>" loading="lazy">
                                 </a>
                             <?php endif; ?>
                             <div class="mt-3">
@@ -160,6 +155,7 @@ for ($i = 1; $i <= 4; $i++) {
                                     <a href="<?= e($postUrl) ?>"><?= e($post['title']) ?></a>
                                 </h3>
                                 <?php if ((string)$post['excerpt'] !== ''): ?><p><?= e($post['excerpt']) ?></p><?php endif; ?>
+                                <a class="dc-post__more" href="<?= e($postUrl) ?>">Đọc thêm</a>
                             </div>
                         </article>
                     </div>

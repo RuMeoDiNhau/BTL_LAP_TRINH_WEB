@@ -10,7 +10,7 @@ $contentLength = function_exists('mb_strlen') ? mb_strlen((string)($val['content
     <div>
         <div class="mb-1.5 flex flex-wrap items-center justify-between gap-2">
             <label for="<?= e($key) ?>_title" class="block text-sm font-medium text-gray-700">
-                Title <span class="text-red-500">*</span>
+                Tiêu đề <span class="text-red-500">*</span>
             </label>
             <?php if ($isSeo): ?>
                 <span class="text-xs <?= $titleLength > 60 ? 'text-red-600' : 'text-gray-400' ?>"
@@ -29,7 +29,7 @@ $contentLength = function_exists('mb_strlen') ? mb_strlen((string)($val['content
     <div>
         <div class="mb-1.5 flex flex-wrap items-center justify-between gap-2">
             <label for="<?= e($key) ?>_content" class="block text-sm font-medium text-gray-700">
-                Content <span class="text-red-500">*</span>
+                Nội dung <span class="text-red-500">*</span>
             </label>
             <?php if ($isSeo): ?>
                 <span class="text-xs <?= $contentLength > 160 ? 'text-red-600' : 'text-gray-400' ?>"

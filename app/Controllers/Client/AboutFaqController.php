@@ -24,25 +24,24 @@ final class AboutFaqController extends Controller
                 'excerpt'       => (string) ($post['summary'] ?? ''),
                 'published_at'  => (string) ($post['created_at'] ?? ''),
                 // Nhãn cố định theo AGENTS.md; Post::getPublished() không trả category_name.
-                'category_name' => 'NEWS',
+                'category_name' => 'TIN TỨC',
             ];
         }
 
         $this->view('client/about/index', [
             'sections'     => $sections,
             'latestPosts'  => $latest,
-            'pageTitle'    => $this->seoTitle($seo, 'About Us | DECOR'),
-            'metaDesc'     => $this->seoDesc($seo, 'Learn more about DECOR, your partner for home decor and furniture.'),
-            'metaKeywords' => 'DECOR, about, furniture, home decor',
+            'pageTitle'    => $this->seoTitle($seo, 'Giới thiệu | DECOR'),
+            'metaDesc'     => $this->seoDesc($seo, 'Tìm hiểu về DECOR, người bạn đồng hành trong trang trí và nội thất nhà ở.'),
+            'metaKeywords' => 'DECOR, giới thiệu, nội thất, trang trí nhà',
             'activeMenu'   => 'about',
-            'breadcrumb'   => 'Giới thiệu',
             // ===== #2 About/FAQ: bật header/footer riêng, không ảnh hưởng account.
             'useShell'     => true,
             'headExtra'    => $this->headExtra(
                 '/about',
                 'assets/images/post-thumbnail-1.jpg',
-                $this->seoTitle($seo, 'About Us | DECOR'),
-                $this->seoDesc($seo, 'Learn more about DECOR, your partner for home decor and furniture.')
+                $this->seoTitle($seo, 'Giới thiệu | DECOR'),
+                $this->seoDesc($seo, 'Tìm hiểu về DECOR, người bạn đồng hành trong trang trí và nội thất nhà ở.')
             ),
             'pageScripts'  => [
                 'vendor/bootstrap/bootstrap.bundle.min.js',
@@ -63,14 +62,14 @@ final class AboutFaqController extends Controller
         $token = $_POST['_csrf'] ?? null;
         if (!verify_csrf(is_string($token) ? $token : null)) {
             http_response_code(403);
-            $this->renderFaq(['formError' => 'Security token is missing or invalid. Please try again.']);
+            $this->renderFaq(['formError' => 'Mã bảo mật không hợp lệ hoặc đã hết hạn. Vui lòng thử lại.']);
             return;
         }
 
         // Honeypot: bot điền ô ẩn thì chặn, không ghi CSDL.
         if ((string) ($_POST['website'] ?? '') !== '') {
             http_response_code(403);
-            $this->renderFaq(['formError' => 'Your submission could not be processed.']);
+            $this->renderFaq(['formError' => 'Không thể xử lý biểu mẫu. Vui lòng thử lại.']);
             return;
         }
 
@@ -88,30 +87,30 @@ final class AboutFaqController extends Controller
 
         $errors = [];
         if ($old['name'] === '') {
-            $errors['name'] = 'Please enter your name.';
+            $errors['name'] = 'Vui lòng nhập họ và tên.';
         } elseif ($length($old['name']) > 100) {
-            $errors['name'] = 'Name must be 100 characters or fewer.';
+            $errors['name'] = 'Họ và tên tối đa 100 ký tự.';
         }
         if ($old['email'] === '') {
-            $errors['email'] = 'Please enter your email address.';
+            $errors['email'] = 'Vui lòng nhập địa chỉ email.';
         } elseif (filter_var($old['email'], FILTER_VALIDATE_EMAIL) === false || $length($old['email']) > 150) {
-            $errors['email'] = 'Please enter a valid email address (150 characters or fewer).';
+            $errors['email'] = 'Vui lòng nhập địa chỉ email hợp lệ (tối đa 150 ký tự).';
         }
-        // Phone optional: digits, spaces, + and -, max 20 characters.
+        // Số điện thoại không bắt buộc: chỉ chữ số, dấu cách, + và -, tối đa 20 ký tự.
         if ($old['phone'] !== '' && preg_match('/^[0-9+ .-]{0,20}$/', $old['phone']) !== 1) {
-            $errors['phone'] = 'Use only digits, spaces, + or - (20 characters or fewer).';
+            $errors['phone'] = 'Chỉ dùng chữ số, dấu cách, + hoặc - (tối đa 20 ký tự).';
         }
         if ($old['subject'] === '') {
-            $errors['subject'] = 'Please enter a subject.';
+            $errors['subject'] = 'Vui lòng nhập chủ đề.';
         } elseif ($length($old['subject']) > 200) {
-            $errors['subject'] = 'Subject must be 200 characters or fewer.';
+            $errors['subject'] = 'Chủ đề tối đa 200 ký tự.';
         }
         if ($old['message'] === '') {
-            $errors['message'] = 'Please enter your message.';
+            $errors['message'] = 'Vui lòng nhập nội dung tin nhắn.';
         } elseif ($length($old['message']) < 10) {
-            $errors['message'] = 'Message must be at least 10 characters.';
+            $errors['message'] = 'Tin nhắn phải có ít nhất 10 ký tự.';
         } elseif ($length($old['message']) > 2000) {
-            $errors['message'] = 'Message must be 2000 characters or fewer.';
+            $errors['message'] = 'Tin nhắn tối đa 2000 ký tự.';
         }
 
         if ($errors !== []) {
@@ -119,7 +118,7 @@ final class AboutFaqController extends Controller
             $this->renderFaq([
                 'errors'    => $errors,
                 'old'       => $old,
-                'formError' => 'Please correct the highlighted fields.',
+                'formError' => 'Vui lòng kiểm tra các trường được đánh dấu.',
             ]);
             return;
         }
@@ -139,13 +138,13 @@ final class AboutFaqController extends Controller
             http_response_code(500);
             $this->renderFaq([
                 'old'       => $old,
-                'formError' => 'Sorry, we could not save your message. Please try again.',
+                'formError' => 'Xin lỗi, không thể lưu tin nhắn. Vui lòng thử lại.',
             ]);
             return;
         }
 
         // Layout client đã tự render flash; không tự hiển thị trong view.
-        set_flash('success', 'Thanks, we have received your question');
+        set_flash('success', 'Cảm ơn bạn, chúng tôi đã nhận được câu hỏi.');
         $this->redirect('faq');
     }
 
@@ -164,21 +163,21 @@ final class AboutFaqController extends Controller
             'errors'       => [],
             'old'          => [],
             'formError'    => '',
-            'pageTitle'    => $this->seoTitle($seo, 'FAQs | DECOR'),
-            'metaDesc'     => $this->seoDesc($seo, 'Answers to common questions about DECOR products and services.'),
-            'metaKeywords' => 'DECOR, FAQ, questions, answers',
+            'pageTitle'    => $this->seoTitle($seo, 'Câu hỏi thường gặp | DECOR'),
+            'metaDesc'     => $this->seoDesc($seo, 'Giải đáp các câu hỏi thường gặp về sản phẩm và dịch vụ của DECOR.'),
+            'metaKeywords' => 'DECOR, câu hỏi thường gặp, giải đáp, hỗ trợ',
             'activeMenu'   => 'faq',
-            'breadcrumb'   => 'Hỏi & đáp',
             // ===== #2 About/FAQ: bật header/footer riêng, không ảnh hưởng account.
             'useShell'     => true,
             'headExtra'    => $this->headExtra(
                 '/faq',
                 'assets/images/post-thumbnail-2.jpg',
-                $this->seoTitle($seo, 'FAQs | DECOR'),
-                $this->seoDesc($seo, 'Answers to common questions about DECOR products and services.')
+                $this->seoTitle($seo, 'Câu hỏi thường gặp | DECOR'),
+                $this->seoDesc($seo, 'Giải đáp các câu hỏi thường gặp về sản phẩm và dịch vụ của DECOR.')
             ),
             'pageScripts'  => [
                 'vendor/bootstrap/bootstrap.bundle.min.js',
+                'js/about-faq.js',
                 'js/faq-form.js',
             ],
         ], $extra);

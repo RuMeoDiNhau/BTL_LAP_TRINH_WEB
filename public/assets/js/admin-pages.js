@@ -98,8 +98,8 @@
         var name = (file.name || '').toLowerCase();
         var okExt = /\.(jpg|jpeg|png|webp)$/.test(name);
         var okType = ['image/jpeg', 'image/png', 'image/webp'].indexOf(file.type) !== -1;
-        if (!okExt || !okType) return 'Only JPG, PNG and WebP images are allowed.';
-        if (file.size > 2 * 1024 * 1024) return 'Image must be 2MB or less.';
+        if (!okExt || !okType) return 'Chỉ chấp nhận ảnh JPG, PNG và WebP.';
+        if (file.size > 2 * 1024 * 1024) return 'Ảnh tối đa 2MB.';
         return '';
     }
 
@@ -125,7 +125,7 @@
         var removeBtn = block.querySelector('[data-remove-button]');
         var removeLabel = block.querySelector('[data-remove-label]');
         var originalSrc = preview ? preview.getAttribute('data-original-src') : '';
-        var originalPath = path ? path.textContent : 'none';
+        var originalPath = path ? path.textContent : 'không có';
         if (!input || !preview) return;
 
         function showPreview(src) {
@@ -138,12 +138,12 @@
             if (!remove) return;
             var removing = remove.checked;
             if (removeBtn) removeBtn.setAttribute('aria-pressed', removing ? 'true' : 'false');
-            if (removeLabel) removeLabel.textContent = removing ? 'Undo remove' : 'Remove image';
+            if (removeLabel) removeLabel.textContent = removing ? 'Hoàn tác xóa' : 'Xóa hình ảnh';
             if (removing) {
                 input.value = '';
                 if (info) { info.textContent = ''; info.hidden = true; }
                 showPreview('');
-                if (path) path.textContent = 'will be removed';
+                if (path) path.textContent = 'sẽ bị xóa';
             } else {
                 showPreview(originalSrc);
                 if (path) path.textContent = originalPath;
@@ -229,13 +229,13 @@
 
             if (fields.indexOf('title') !== -1 && title) {
                 var tv = title.value.trim();
-                if (!tv) { setErr(key + '.title', 'Please enter a title.'); bad = true; firstField = firstField || title; }
-                else if (len(tv) > 255) { setErr(key + '.title', 'Title must be 255 characters or fewer.'); bad = true; firstField = firstField || title; }
+                if (!tv) { setErr(key + '.title', 'Vui lòng nhập tiêu đề.'); bad = true; firstField = firstField || title; }
+                else if (len(tv) > 255) { setErr(key + '.title', 'Tiêu đề tối đa 255 ký tự.'); bad = true; firstField = firstField || title; }
             }
             if (fields.indexOf('content') !== -1 && content) {
                 var cv = content.value.trim();
-                if (!cv) { setErr(key + '.content', 'Please enter content.'); bad = true; firstField = firstField || content; }
-                else if (len(cv) > 5000) { setErr(key + '.content', 'Content must be 5000 characters or fewer.'); bad = true; firstField = firstField || content; }
+                if (!cv) { setErr(key + '.content', 'Vui lòng nhập nội dung.'); bad = true; firstField = firstField || content; }
+                else if (len(cv) > 5000) { setErr(key + '.content', 'Nội dung tối đa 5000 ký tự.'); bad = true; firstField = firstField || content; }
             }
             if (fields.indexOf('image') !== -1 && file && file.files && file.files[0]) {
                 var msg = fileError(file.files[0]);
