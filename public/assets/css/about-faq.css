@@ -637,7 +637,6 @@
     text-underline-offset: 3px;
 }
 
-/* Montserrat rộng hơn font cũ: thu cỡ chữ/gap để menu và bảng không xuống dòng. */
 .dc-shell .dc-shell-nav a,
 .dc-shell .dc-shell-nav__text {
     font-size: 12px;
@@ -691,8 +690,6 @@
     .dc-shell .dc-shell-header {
         position: sticky;
         top: 0;
-        /* Header tạo stacking context: phải cao hơn backdrop (50) thì drawer bên trong
-           mới nhận click được, dù .dc-shell-nav có z-index: 60. */
         z-index: 70;
         flex-wrap: nowrap;
     }
@@ -725,7 +722,6 @@
         gap: 12px;
     }
 
-    /* Footer 5 -> 2 cột; hàng dưới xếp dọc. */
     .dc-shell .dc-shell-footer__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }

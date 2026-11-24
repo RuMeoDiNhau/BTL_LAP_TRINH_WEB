@@ -1,5 +1,4 @@
-/* #2 Admin: giữ giao diện shell ta-* của nhóm #1 khi nạp build TailAdmin.
-   File này được nạp SAU assets/admin/style.css qua slot $pageStyles. */
+/* File này được nạp SAU assets/admin/style.css qua slot $pageStyles. */
 
 .ta-sidebar,
 .ta-topbar {
