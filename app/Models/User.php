@@ -119,6 +119,78 @@ class User
         return $counts;
     }
 
+    /** @return array{users: array<int,array<string,mixed>>, total: int} */
+    public function paginateForAdmin(string $keyword, string $role, string $status, int $page, int $perPage = 10): array
+    {
+        $allowedRoles = ['admin', 'member'];
+        $allowedStatuses = ['active', 'banned'];
+        $role = in_array($role, $allowedRoles, true) ? $role : '';
+        $status = in_array($status, $allowedStatuses, true) ? $status : '';
+        $page = max(1, $page);
+        $perPage = min(50, max(1, $perPage));
+        $offset = ($page - 1) * $perPage;
+
+        $where = [];
+        $params = [];
+        $keyword = trim($keyword);
+        if ($keyword !== '') {
+            $where[] = '(full_name LIKE :keyword_name OR email LIKE :keyword_email OR phone LIKE :keyword_phone)';
+            $like = '%' . $keyword . '%';
+            $params[':keyword_name'] = $like;
+            $params[':keyword_email'] = $like;
+            $params[':keyword_phone'] = $like;
+        }
+        if ($role !== '') {
+            $where[] = 'role = :role';
+            $params[':role'] = $role;
+        }
+        if ($status !== '') {
+            $where[] = 'status = :status';
+            $params[':status'] = $status;
+        }
+        $whereSql = $where ? ' WHERE ' . implode(' AND ', $where) : '';
+
+        $count = $this->db->prepare('SELECT COUNT(*) FROM users' . $whereSql);
+        foreach ($params as $name => $value) {
+            $count->bindValue($name, $value, PDO::PARAM_STR);
+        }
+        $count->execute();
+
+        $stmt = $this->db->prepare(
+            'SELECT id, full_name, email, phone, avatar, role, status, created_at FROM users'
+            . $whereSql . ' ORDER BY created_at DESC, id DESC LIMIT :limit OFFSET :offset'
+        );
+        foreach ($params as $name => $value) {
+            $stmt->bindValue($name, $value, PDO::PARAM_STR);
+        }
+        $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return ['users' => $stmt->fetchAll(), 'total' => (int) $count->fetchColumn()];
+    }
+
+    public function updateMemberStatus(int $id, string $status): bool
+    {
+        if (!in_array($status, ['active', 'banned'], true)) {
+            return false;
+        }
+        $stmt = $this->db->prepare("UPDATE users SET status = :status WHERE id = :id AND role = 'member'");
+        $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount() === 1;
+    }
+
+    public function resetMemberPassword(int $id, string $passwordHash): bool
+    {
+        $stmt = $this->db->prepare("UPDATE users SET password_hash = :password_hash WHERE id = :id AND role = 'member'");
+        $stmt->bindValue(':password_hash', $passwordHash, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount() === 1;
+    }
+
     /** Hồ sơ cá nhân chỉ cập nhật các cột được phép. */
     public function updateProfile(int $id, array $data): void
     {

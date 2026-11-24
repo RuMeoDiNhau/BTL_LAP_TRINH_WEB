@@ -89,6 +89,11 @@ $pageScripts = array_values(array_unique(array_merge(
               <span class="ta-nav-link-left"><span>Vai trò &amp; quyền hạn</span></span>
             </a>
           </li>
+          <li>
+            <a href="<?= $esc($url('/admin/users')) ?>" class="ta-nav-link<?= $activeMenu === 'users' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>Người dùng</span></span>
+            </a>
+          </li>
         </ul>
 
         <div class="ta-nav-section-label">Nội dung &amp; Kinh doanh</div>
