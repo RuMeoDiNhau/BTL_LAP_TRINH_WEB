@@ -87,7 +87,7 @@ Thống nhất sử dụng URL tiếng Anh, chữ thường, phân tách bằng 
 | POST | `/login` | `AuthController@login` | Khách |
 | GET | `/register` | `AuthController@showRegister` | Khách |
 | POST | `/register` | `AuthController@register` | Khách |
-| POST / GET | `/logout` | `AuthController@logout` | Đã đăng nhập |
+| POST | `/logout` | `AuthController@logout` | Đã đăng nhập |
 
 ### 3.2. Nhóm Client (Khách & Thành viên)
 | Method | URL | Mô tả |
@@ -96,6 +96,8 @@ Thống nhất sử dụng URL tiếng Anh, chữ thường, phân tách bằng 
 | GET | `/about`, `/faq`, `/contact` | Giới thiệu, Hỏi/Đáp, Liên hệ |
 | GET | `/products`, `/products/{slug}` | Danh sách & Chi tiết sản phẩm |
 | GET / POST | `/cart`, `/checkout`, `/orders` | Giỏ hàng, Đặt hàng, Lịch sử đơn hàng |
+| GET / POST | `/account/profile`, `/account/change-password` | Hồ sơ và đổi mật khẩu của tài khoản đang đăng nhập |
+| POST | `/account/avatar` | Thay hoặc xóa ảnh đại diện của tài khoản đang đăng nhập |
 | GET | `/posts`, `/posts/{slug}` | Danh sách & Chi tiết bài viết / tin tức |
 | POST | `/posts/{slug}/comments` | Gửi bình luận bài viết (yêu cầu đăng nhập) |
 
