@@ -6,17 +6,22 @@ require_once dirname(__DIR__, 2) . '/Models/User.php';
 
 class AuthController
 {
-    private User $userModel;
+    private ?User $userModel;
 
     public function __construct(?User $userModel = null)
     {
         $this->ensureSession();
-        $this->userModel = $userModel ?? new User();
+        $this->userModel = $userModel;
     }
 
-    public function showLogin(): void
+    private function users(): User
     {
-        if (!empty($_SESSION['user'])) {
+        return $this->userModel ??= new User();
+    }
+
+    public function showLogin(bool $redirectSignedIn = true): void
+    {
+        if ($redirectSignedIn && is_logged_in()) {
             $role = $_SESSION['user']['role'] ?? 'member';
             $this->redirect($role === 'admin' ? '/admin' : '/');
             return;
@@ -79,7 +84,7 @@ class AuthController
             return;
         }
 
-        $user = $this->userModel->findByEmail($email);
+        $user = $this->users()->findByEmail($email);
 
         if ($user === null || !password_verify($password, (string) $user['password_hash'])) {
             $this->render('client/auth/login', [
@@ -119,9 +124,9 @@ class AuthController
         $this->redirect($user['role'] === 'admin' ? '/admin' : '/');
     }
 
-    public function showRegister(): void
+    public function showRegister(bool $redirectSignedIn = true): void
     {
-        if (!empty($_SESSION['user'])) {
+        if ($redirectSignedIn && is_logged_in()) {
             $role = $_SESSION['user']['role'] ?? 'member';
             $this->redirect($role === 'admin' ? '/admin' : '/');
             return;
@@ -171,7 +176,7 @@ class AuthController
             $errors['email'] = 'Vui lòng nhập địa chỉ email hợp lệ.';
         } elseif (mb_strlen($email, 'UTF-8') > 150) {
             $errors['email'] = 'Địa chỉ email tối đa 150 ký tự.';
-        } elseif ($this->userModel->emailExists($email)) {
+        } elseif ($this->users()->emailExists($email)) {
             $errors['email'] = 'Địa chỉ email này đã được đăng ký.';
         }
 
@@ -198,7 +203,7 @@ class AuthController
         }
 
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-        $this->userModel->createMember($fullName, $email, $passwordHash);
+        $this->users()->createMember($fullName, $email, $passwordHash);
 
         $this->setFlash('success', 'Đăng ký tài khoản Thành viên thành công! Vui lòng đăng nhập.');
         $this->redirect('/login');

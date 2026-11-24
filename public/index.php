@@ -116,5 +116,28 @@ try {
     $router->dispatch();
 } catch (PDOException $exception) {
     error_log($exception->getMessage());
-    (new ErrorController())->show('Không thể kết nối hoặc truy vấn cơ sở dữ liệu. Vui lòng kiểm tra cấu hình và thử lại.', 503);
+    $path = $router->currentPath();
+    $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+    $isPageRequest = $method === 'GET' || $method === 'HEAD';
+    $message = 'Không thể kết nối cơ sở dữ liệu. Vui lòng thử lại khi MySQL đã sẵn sàng.';
+
+    // Khi phiên cũ chưa xác minh được, vẫn cho phép mở form công khai.
+    if ($isPageRequest && $path === '/') {
+        header('Location: ' . base_url('/login'));
+        return;
+    }
+    if ($path === '/login' || $path === '/register') {
+        if (!$isPageRequest) {
+            http_response_code(503);
+            set_flash('error', $message);
+        }
+        $auth = new AuthController();
+        if ($path === '/login') {
+            $auth->showLogin(false);
+        } else {
+            $auth->showRegister(false);
+        }
+        return;
+    }
+    (new ErrorController())->show($message, 503);
 }
