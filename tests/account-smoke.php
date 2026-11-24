@@ -27,7 +27,7 @@ final class Browser
     public function request(string $route, ?array $data = null): array
     {
         global $base;
-        $ch = curl_init($base . '/index.php?route=' . rawurlencode($route));
+        $ch = curl_init($base . $route);
         $headers = [];
         curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_COOKIEJAR => $this->cookieFile,
             CURLOPT_COOKIEFILE => $this->cookieFile, CURLOPT_TIMEOUT => 30, CURLOPT_HTTPHEADER => ['Expect:'],
@@ -45,13 +45,13 @@ final class Browser
     public function token(string $route): string
     {
         $page = $this->request($route);
-        if (!preg_match('/name="_token" value="([a-f0-9]{64})"/', $page['body'], $match)) throw new RuntimeException('Không tìm thấy CSRF token: ' . $route . ' HTTP ' . $page['status']);
+        if (!preg_match('/name="_csrf" value="([a-f0-9]{64})"/', $page['body'], $match)) throw new RuntimeException('Không tìm thấy CSRF token: ' . $route . ' HTTP ' . $page['status']);
         return $match[1];
     }
     public function post(string $route, array $data): array
     {
         $page = str_starts_with($route, '/account/') || $route === '/logout' ? '/account/profile' : $route;
-        return $this->request($route, ['_token' => $this->token($page)] + $data);
+        return $this->request($route, ['_csrf' => $this->token($page)] + $data);
     }
     public function __destruct()
     {
@@ -86,22 +86,26 @@ try {
     $guest = new Browser();
     $handshake = $guest->request('/register');
     check(str_contains($handshake['headers'], 'X-Decor-Test-Database: ' . $name . "\r\n"), 'Máy chủ HTTP dùng đúng database thử, không phải dữ liệu thật');
-    check($guest->request('/register', [])['status'] === 419, 'Đăng ký yêu cầu CSRF');
-    check($guest->request('/login', [])['status'] === 419, 'Đăng nhập yêu cầu CSRF');
-    check($guest->request('/account/profile')['status'] === 303, 'Khách được chuyển đến đăng nhập');
-    check($guest->request('/logout')['status'] === 405, 'Đăng xuất không chấp nhận GET');
+    check(str_contains($guest->request('/register', [])['headers'], 'Location: /register'), 'Đăng ký yêu cầu CSRF');
+    check(str_contains($guest->request('/login', [])['headers'], 'Location: /login'), 'Đăng nhập yêu cầu CSRF');
+    check(str_contains($guest->request('/account/profile')['headers'], 'Location: /login'), 'Khách được chuyển đến đăng nhập');
+    check(str_contains($guest->request('/admin/roles')['headers'], 'Location: /login'), 'Khách chưa vào được trang quản trị');
+    check($guest->request('/logout')['status'] === 404, 'Đăng xuất không chấp nhận GET');
     check($guest->request('/does-not-exist')['status'] === 404, 'Route không tồn tại trả 404');
     $browser = new Browser();
     $email = 'account-' . bin2hex(random_bytes(5)) . '@example.com';
     $password = 'Decor@2026';
-    $result = $browser->post('/register', ['full_name' => 'Nguyễn An', 'email' => $email, 'password' => $password, 'password_confirmation' => $password, 'role' => 'admin', 'status' => 'banned']);
-    check($result['status'] === 303, 'Đăng ký tạo tài khoản và phiên PHP');
+    $result = $browser->post('/register', ['full_name' => 'Nguyễn An', 'email' => $email, 'password' => $password, 'password_confirmation' => $password, 'terms' => '1', 'role' => 'admin', 'status' => 'banned']);
+    check(str_contains($result['headers'], 'Location: /login'), 'Đăng ký chuyển về trang đăng nhập của nhóm');
     $query = $db->prepare('SELECT id FROM users WHERE email = ?'); $query->execute([$email]);
     $id = (int) $query->fetchColumn(); $ids[] = $id;
     check(row($id)['role'] === 'member' && row($id)['status'] === 'active', 'Không thể tự cấp quyền admin khi đăng ký');
     check(password_verify($password, row($id)['password_hash']), 'Mật khẩu được lưu bằng hash');
+    $login = $browser->post('/login', ['email' => $email, 'password' => $password]);
+    check(str_contains($login['headers'], "Location: /\r\n"), 'Auth của nhóm chuyển thành viên tới trang chủ');
     $profile = $browser->request('/account/profile');
     check($profile['status'] === 200 && str_contains($profile['body'], 'Nguyễn An'), 'Đọc hồ sơ sau khi đăng ký');
+    check($browser->request('/admin/roles')['status'] === 403, 'Thành viên không vào được trang quản trị');
     $dom = new DOMDocument(); libxml_use_internal_errors(true); $dom->loadHTML($profile['body']); libxml_clear_errors();
     $idsInPage = [];
     foreach ($dom->getElementsByTagName('*') as $element) {
@@ -116,15 +120,17 @@ try {
         check($status === 200 && strlen($content) > 100, 'Tải được tài nguyên giao diện: ' . $asset);
     }
     check(str_contains($profile['headers'], 'HttpOnly') || !str_contains($profile['headers'], 'Set-Cookie'), 'Phiên không xuất cookie có thể đọc bằng JavaScript');
-    $safeName = '<img src=x onerror=alert(1)>';
+    $safeName = '<b>Nguyễn An</b>';
     $result = $browser->post('/account/profile', ['full_name' => $safeName, 'email' => $email, 'phone' => '0912345678', 'id' => '1', 'user_id' => '1', 'role' => 'admin', 'status' => 'banned']);
     check($result['status'] === 303 && row($id)['full_name'] === $safeName && row($id)['phone'] === '0912345678', 'Lưu thông tin cá nhân vào MySQL');
     check(row($id)['role'] === 'member' && row(1)['full_name'] === 'Quản trị viên', 'Bỏ qua ID và vai trò giả mạo, chỉ sửa tài khoản hiện tại');
     $profile = $browser->request('/account/profile');
-    check(str_contains($profile['body'], '&lt;img src=x onerror=alert(1)&gt;') && !str_contains($profile['body'], $safeName), 'Escape dữ liệu hồ sơ để ngăn XSS');
-    foreach (['/account/profile', '/account/avatar', '/account/change-password', '/logout'] as $route) {
+    check(str_contains($profile['body'], '&lt;b&gt;Nguyễn An&lt;/b&gt;') && !str_contains($profile['body'], $safeName), 'Escape dữ liệu hồ sơ trước khi hiển thị');
+    foreach (['/account/profile', '/account/avatar', '/account/change-password'] as $route) {
         check($browser->request($route, [])['status'] === 419, 'Chặn CSRF tại ' . $route);
     }
+    $browser->request('/logout', []);
+    check($browser->request('/account/profile')['status'] === 200, 'Đăng xuất thiếu CSRF giữ nguyên phiên');
     $data = ['full_name' => 'Nguyễn An', 'email' => $email, 'phone' => 'abc'];
     check($browser->post('/account/profile', $data)['status'] === 422 && row($id)['phone'] === '0912345678', 'Số điện thoại sai không thay đổi dữ liệu');
     $data['phone'] = '';
@@ -160,7 +166,8 @@ try {
     check($browser->post('/account/avatar', ['remove_avatar' => '1'])['status'] === 303 && row($id)['avatar'] === null && !is_file(__DIR__ . '/../public/' . $replacement), 'Xóa avatar và dùng lại ảnh mặc định');
 
     $other = new Browser();
-    check($other->post('/login', ['email' => $newEmail, 'password' => $password])['status'] === 303, 'Đăng nhập phiên thứ hai bằng email mới');
+    $other->post('/login', ['email' => $newEmail, 'password' => $password]);
+    check($other->request('/account/profile')['status'] === 200, 'Đăng nhập phiên thứ hai bằng email mới');
     foreach ([['wrong', 'NewDecor@2026', 'NewDecor@2026'], [$password, 'weak', 'weak'], [$password, 'ÁÁA1aa', 'ÁÁA1aa'], [$password, str_repeat('a', 70) . 'A1x', str_repeat('a', 70) . 'A1x'], [$password, $password, $password], [$password, 'NewDecor@2026', 'Mismatch@2026']] as [$current, $next, $confirmation]) {
         $result = $browser->post('/account/change-password', ['current_password' => $current, 'password' => $next, 'password_confirmation' => $confirmation]);
         check($result['status'] === 422 && password_verify($password, row($id)['password_hash']), 'Từ chối đổi mật khẩu với dữ liệu sai');
@@ -169,16 +176,28 @@ try {
     $newPassword = 'NewDecor@2026';
     check($browser->post('/account/change-password', ['current_password' => $password, 'password' => $newPassword, 'password_confirmation' => $newPassword])['status'] === 303 && password_verify($newPassword, row($id)['password_hash']), 'Đổi mật khẩu và lưu hash mới');
     check($browser->request('/account/profile')['status'] === 200, 'Phiên hiện tại vẫn sử dụng được sau đổi mật khẩu');
-    check($other->request('/account/profile')['status'] === 303, 'Phiên cũ bị thu hồi sau đổi mật khẩu');
+    check(str_contains($other->request('/account/profile')['headers'], 'Location: /login'), 'Phiên cũ bị thu hồi sau đổi mật khẩu');
     $fresh = new Browser();
-    check($fresh->post('/login', ['email' => $newEmail, 'password' => $password])['status'] === 422, 'Mật khẩu cũ không đăng nhập được');
-    check($fresh->post('/login', ['email' => $newEmail, 'password' => $newPassword])['status'] === 303, 'Mật khẩu mới đăng nhập được');
+    $fresh->post('/login', ['email' => $newEmail, 'password' => $password]);
+    check(str_contains($fresh->request('/account/profile')['headers'], 'Location: /login'), 'Mật khẩu cũ không đăng nhập được');
+    $fresh->post('/login', ['email' => $newEmail, 'password' => $newPassword]);
+    check($fresh->request('/account/profile')['status'] === 200, 'Mật khẩu mới đăng nhập được');
+    $adminResetPassword = 'ResetDecor@2026';
+    $db->prepare('UPDATE users SET password_hash = ? WHERE id = ?')->execute([password_hash($adminResetPassword, PASSWORD_BCRYPT), $id]);
+    check(str_contains($fresh->request('/account/profile')['headers'], 'Location: /login'), 'Đổi hash qua luồng reset của quản trị sẽ thu hồi phiên');
+    $fresh->post('/login', ['email' => $newEmail, 'password' => $adminResetPassword]);
+    check($fresh->request('/account/profile')['status'] === 200, 'Mật khẩu sau reset đăng nhập được');
     $db->prepare("UPDATE users SET status = 'banned' WHERE id = ?")->execute([$id]);
-    check($fresh->request('/account/profile')['status'] === 303, 'Tài khoản bị khóa mất quyền truy cập hồ sơ');
-    check($fresh->post('/login', ['email' => $newEmail, 'password' => $newPassword])['status'] === 422, 'Tài khoản bị khóa không đăng nhập được');
+    check(str_contains($fresh->request('/account/profile')['headers'], 'Location: /login'), 'Tài khoản bị khóa mất quyền truy cập hồ sơ');
+    $fresh->post('/login', ['email' => $newEmail, 'password' => $adminResetPassword]);
+    check(str_contains($fresh->request('/account/profile')['headers'], 'Location: /login'), 'Tài khoản bị khóa không đăng nhập được');
     $admin = new Browser();
-    check($admin->post('/login', ['email' => 'admin@decor.vn', 'password' => 'admin123'])['status'] === 303, 'Admin cũng có thể quản lý hồ sơ của chính mình');
-    check($admin->post('/logout', [])['status'] === 303 && $admin->request('/account/profile')['status'] === 303, 'Đăng xuất hủy quyền truy cập hồ sơ');
+    $login = $admin->post('/login', ['email' => 'admin@decor.vn', 'password' => 'admin123']);
+    check(str_contains($login['headers'], 'Location: /admin'), 'Auth của nhóm chuyển quản trị viên tới dashboard');
+    check($admin->request('/admin')['status'] === 200 && $admin->request('/admin/roles')['status'] === 200, 'Dashboard và phân quyền của nhóm vẫn hoạt động');
+    check($admin->request('/account/profile')['status'] === 200, 'Admin cũng có thể quản lý hồ sơ của chính mình');
+    $admin->post('/logout', []);
+    check(str_contains($admin->request('/account/profile')['headers'], 'Location: /login'), 'Đăng xuất hủy quyền truy cập hồ sơ');
     echo "\nĐã vượt qua $checks kiểm tra.\n";
 } finally {
     foreach ($uploaded as $path) {

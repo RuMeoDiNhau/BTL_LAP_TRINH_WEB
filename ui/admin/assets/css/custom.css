@@ -772,3 +772,439 @@ a {
     padding: 20px 16px;
   }
 }
+
+/* ==========================================================================
+   6. EXTENSIONS FOR MODULE #4 (POSTS & COMMENTS MANAGEMENT - ui-ux-pro-max)
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2.5px solid var(--ta-brand-500);
+  outline-offset: 2px;
+}
+
+.ta-toolbar {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--ta-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ta-toolbar-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.ta-search-box {
+  position: relative;
+  min-width: 260px;
+  flex: 0 1 340px;
+}
+
+.ta-search-box svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ta-gray-400);
+  pointer-events: none;
+}
+
+.ta-input,
+.ta-select {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--ta-gray-300);
+  border-radius: var(--ta-radius-sm);
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--ta-gray-800);
+}
+
+.ta-search-box .ta-input {
+  width: 100%;
+  padding-left: 36px;
+}
+
+.ta-textarea {
+  width: 100%;
+  min-height: 92px;
+  padding: 10px 12px;
+  border: 1px solid var(--ta-gray-300);
+  border-radius: var(--ta-radius-sm);
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--ta-gray-800);
+  resize: vertical;
+}
+
+.ta-input.is-invalid,
+.ta-select.is-invalid,
+.ta-textarea.is-invalid {
+  border-color: var(--ta-danger-600);
+  background-color: #fffafa;
+}
+
+.ta-result-count {
+  font-size: 12.5px;
+  color: var(--ta-gray-500);
+  font-weight: 500;
+}
+
+.ta-btn--danger {
+  background-color: var(--ta-danger-50);
+  border-color: #fecdca;
+  color: var(--ta-danger-600);
+}
+
+.ta-btn--danger:hover {
+  background-color: #fee4e2;
+}
+
+.ta-btn--success {
+  background-color: var(--ta-success-50);
+  border-color: #a6f4c5;
+  color: var(--ta-success-600);
+}
+
+.ta-btn--success:hover {
+  background-color: #d1fadf;
+}
+
+/* Status Badges */
+.ta-badge--published,
+.ta-badge--approved {
+  background-color: var(--ta-success-50);
+  color: var(--ta-success-600);
+}
+
+.ta-badge--draft,
+.ta-badge--hidden {
+  background-color: var(--ta-gray-100);
+  color: var(--ta-gray-600);
+}
+
+.ta-badge--pending {
+  background-color: var(--ta-warning-50);
+  color: var(--ta-warning-600);
+}
+
+/* Thumbnail in table */
+.ta-post-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 340px;
+}
+
+.ta-post-thumb {
+  width: 60px;
+  height: 42px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--ta-gray-200);
+  flex-shrink: 0;
+}
+
+.ta-post-title {
+  font-weight: 700;
+  color: var(--ta-gray-900);
+  line-height: 1.35;
+}
+
+.ta-post-slug {
+  font-size: 12px;
+  color: var(--ta-gray-500);
+}
+
+/* Pagination */
+.ta-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ta-page-btn {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--ta-gray-600);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ta-page-btn:hover:not(:disabled) {
+  background-color: var(--ta-gray-100);
+}
+
+.ta-page-btn.is-active {
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  border-color: var(--ta-brand-200);
+}
+
+.ta-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 2-Column Post Form */
+.ta-form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+.ta-form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ta-card-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ta-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ta-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ta-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ta-gray-700);
+}
+
+.ta-char-counter {
+  font-size: 12px;
+  color: var(--ta-gray-500);
+}
+
+.ta-char-counter.is-over {
+  color: var(--ta-danger-600);
+  font-weight: 700;
+}
+
+.ta-field-error {
+  display: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ta-danger-600);
+}
+
+.ta-field-error.is-visible {
+  display: block;
+}
+
+.ta-error-summary {
+  display: none;
+  padding: 14px 18px;
+  border-radius: var(--ta-radius-md);
+  background-color: var(--ta-danger-50);
+  border: 1px solid #fecdca;
+  color: var(--ta-danger-600);
+  margin-bottom: 18px;
+}
+
+.ta-error-summary.is-visible {
+  display: block;
+}
+
+.ta-error-summary ul {
+  margin: 6px 0 0 18px;
+  font-size: 13px;
+}
+
+.ta-error-summary a {
+  color: var(--ta-danger-600);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* WYSIWYG Editor */
+.ta-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  background-color: var(--ta-gray-50);
+  border: 1px solid var(--ta-gray-300);
+  border-bottom: none;
+  border-radius: var(--ta-radius-sm) var(--ta-radius-sm) 0 0;
+}
+
+.ta-editor-btn {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--ta-gray-200);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--ta-gray-700);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ta-editor-btn:hover {
+  background-color: var(--ta-brand-50);
+  color: var(--ta-brand-500);
+  border-color: var(--ta-brand-200);
+}
+
+.ta-editor-surface {
+  min-height: 240px;
+  padding: 14px;
+  border: 1px solid var(--ta-gray-300);
+  border-radius: 0 0 var(--ta-radius-sm) var(--ta-radius-sm);
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ta-gray-900);
+}
+
+.ta-editor-surface.is-invalid {
+  border-color: var(--ta-danger-600);
+}
+
+/* Drag & Drop Upload (WCAG 2.2 AA with single-pointer button alternative) */
+.ta-dropzone {
+  border: 1.5px dashed var(--ta-gray-300);
+  border-radius: var(--ta-radius-md);
+  padding: 20px 16px;
+  text-align: center;
+  background-color: var(--ta-gray-25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ta-dropzone.is-dragover {
+  border-color: var(--ta-brand-500);
+  background-color: var(--ta-brand-50);
+}
+
+.ta-preview-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--ta-radius-sm);
+  border: 1px solid var(--ta-gray-200);
+}
+
+/* Toggle Switch (comment_moderation) */
+.ta-moderation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ta-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ta-gray-800);
+}
+
+.ta-switch input {
+  width: 42px;
+  height: 24px;
+  appearance: none;
+  background-color: var(--ta-gray-300);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ta-switch input::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.ta-switch input:checked {
+  background-color: var(--ta-brand-500);
+}
+
+.ta-switch input:checked::after {
+  transform: translateX(18px);
+}
+
+/* Toast */
+.ta-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background-color: var(--ta-gray-900);
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: var(--ta-radius-sm);
+  box-shadow: var(--ta-shadow-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+}
+
+.ta-toast.is-visible {
+  display: inline-flex;
+}
+
+@media (max-width: 1024px) {
+  .ta-form-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

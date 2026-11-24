@@ -16,7 +16,7 @@ Website Thương mại Điện tử / Doanh nghiệp Đồ trang trí & Nội th
 - `database/schema.sql` — tạo CSDL `decor_db` và **14 bảng** quan hệ đầy đủ khóa ngoại.
 - `database/seed.sql` — dữ liệu mẫu: 2 tài khoản, 3 danh mục, 4 cấu hình.
 - `config/database.example.php` — mẫu cấu hình PDO; mỗi máy tạo `config/database.php` riêng, không commit.
-- Bộ nền MVC: `core/`, `public/index.php`, rewrite Apache và router PHP built-in.
+- Bộ nền MVC chung gồm `core/`, `public/index.php`, các route theo module trong `routes/` và rewrite Apache.
 - Tài khoản cá nhân: đăng ký/đăng nhập bằng phiên PHP; sửa họ tên, email, điện thoại; đổi mật khẩu; upload/thay/xóa avatar lưu trên server.
 - Giao diện tài khoản responsive tại `app/Views/client/account/`, CSS/JS tại `public/assets/`.
 - Đã kiểm thử thực tế trên **XAMPP MariaDB 10.4.32 + PHP 8.2.12**:
@@ -122,19 +122,20 @@ return [
 ### Bước 4: Khởi chạy ứng dụng
 
 ```bash
-php -S localhost:8000 -t public public/router.php
+php -S localhost:8000 -t public
 ```
 
 Truy cập:
 
-- **Đăng nhập:** [http://localhost:8000/index.php?route=%2Flogin](http://localhost:8000/index.php?route=%2Flogin)
-- **Đăng ký:** [http://localhost:8000/index.php?route=%2Fregister](http://localhost:8000/index.php?route=%2Fregister)
-- **Hồ sơ:** [http://localhost:8000/index.php?route=%2Faccount%2Fprofile](http://localhost:8000/index.php?route=%2Faccount%2Fprofile)
-- **Đổi mật khẩu:** [http://localhost:8000/index.php?route=%2Faccount%2Fchange-password](http://localhost:8000/index.php?route=%2Faccount%2Fchange-password)
+- **Đăng nhập:** [http://localhost:8000/login](http://localhost:8000/login)
+- **Đăng ký:** [http://localhost:8000/register](http://localhost:8000/register)
+- **Hồ sơ:** [http://localhost:8000/account/profile](http://localhost:8000/account/profile)
+- **Đổi mật khẩu:** [http://localhost:8000/account/change-password](http://localhost:8000/account/change-password)
+- **Quản trị:** [http://localhost:8000/admin](http://localhost:8000/admin)
 
-Nếu PHP chưa nằm trong PATH, thay `php` bằng đường dẫn đến `php.exe` trong XAMPP/Laragon. Với Apache, đặt DocumentRoot vào `public/` hoặc mở `.../public/index.php?route=%2Flogin`; query route hoạt động cả khi chưa bật rewrite. Không dùng Live Server để thực thi PHP.
+Nếu PHP chưa nằm trong PATH, thay `php` bằng đường dẫn đến `php.exe` trong XAMPP/Laragon. Với Apache, bật `mod_rewrite` và cho phép `.htaccess` trong cấu hình dự án. Live Server chỉ phục vụ bản HTML tĩnh.
 
-Nếu muốn xem cả template Decor qua cùng server trong lúc phát triển, chạy `php -S localhost:8000` tại gốc project rồi mở `/decor-template/decor/index.html`. Các liên kết đăng nhập/đăng ký/tài khoản trên trang đó đi vào `/public/index.php`. Khi triển khai, chỉ công khai thư mục `public/`.
+Các liên kết tài khoản trong bản HTML demo trỏ vào các route dưới `/public/` khi phục vụ cả project ở localhost. Khi triển khai, đặt DocumentRoot vào `public/`.
 
 ---
 
@@ -246,7 +247,7 @@ Sau đó import lại `database/schema.sql` và `database/seed.sql`.
 
 ```text
 app/Controllers/Client/AccountController.php  # Điều phối sửa hồ sơ, mật khẩu, avatar
-app/Controllers/Client/AuthController.php     # Đăng ký/đăng nhập/đăng xuất PHP tối thiểu
+app/Controllers/Client/AuthController.php     # Đăng ký/đăng nhập/đăng xuất dùng chung
 app/Models/User.php                          # Truy vấn users bằng prepared statements
 app/Services/AccountValidation.php           # Kiểm tra dữ liệu phía PHP
 app/Services/AvatarUpload.php                # Kiểm tra ảnh và quản lý file avatar
@@ -255,6 +256,7 @@ app/Views/layouts/client.php                 # Header/footer và trạng thái n
 public/assets/css/pages/account.css         # Giao diện desktop/mobile
 public/assets/js/pages/account.js           # Validation, xem trước ảnh, hiện/ẩn mật khẩu
 public/uploads/avatars/                      # Avatar được tạo khi upload, không commit
+routes/account.php                           # Route hồ sơ, mật khẩu và avatar
 ui/account/                                 # Liên kết mở giao diện PHP từ bộ UI
 tests/account-smoke.php                      # Kiểm thử HTTP với MySQL thử riêng
 ```
@@ -265,12 +267,11 @@ tests/account-smoke.php                      # Kiểm thử HTTP với MySQL th�
 - Đổi mật khẩu yêu cầu đúng mật khẩu cũ, mật khẩu mới khác mật khẩu cũ, xác nhận khớp. Mật khẩu mới có chữ hoa, chữ thường, số; từ 8 ký tự và không vượt quá 72 byte để phù hợp bcrypt.
 - Upload JPG/PNG/WebP tối đa 2 MB, kích thước tối đa 4096 × 4096. Kiểm tra MIME thực, thông tin ảnh và file HTTP upload; tên file do server tạo ngẫu nhiên. Có xem trước ảnh, hủy lựa chọn, thay ảnh và xóa ảnh cũ.
 - Không cần sửa schema: dùng các cột sẵn có trong bảng `users`. Không đưa role, status hoặc ID từ form vào câu lệnh cập nhật hồ sơ.
-- `$_SESSION['user_id']` xác định người đang đăng nhập. `current_user()` đọc trạng thái mới từ DB; `sign_in()` tạo phiên sau đăng nhập. Người làm Auth có thể dùng chung các hàm trong `core/Helpers.php` khi tích hợp.
+- `$_SESSION['user']['id']` xác định người đang đăng nhập theo quy ước chung. `sign_in()` tạo phiên và lưu dấu phiên bản mật khẩu. Front controller cập nhật thông tin, trạng thái và quyền từ DB trước khi xử lý route. Phiên cũ được tạo trước khi có dấu phiên bản sẽ cần đăng nhập lại một lần.
 - Đổi mật khẩu làm các phiên khác hết hiệu lực ở request tiếp theo. Phiên hiện tại được đổi session ID và CSRF token.
 - Tất cả thao tác ghi dùng POST + CSRF; dữ liệu được kiểm tra lại trong PHP và escape khi hiển thị. Mật khẩu không được điền lại vào HTML khi có lỗi.
 - Luồng PHP này không sử dụng dữ liệu localStorage của demo `ui/assets/js/pages/auth.js`. Để thử chức năng thật, đăng ký/đăng nhập qua các URL PHP ở mục 3. Không có cơ chế tự chuyển mật khẩu demo sang MySQL.
 - `ui/account/*.html` mở cùng giao diện PHP, không duy trì một bản hồ sơ độc lập. Hãy mở qua server PHP; không mở bằng `file://`.
-- Bộ giới hạn thử đăng nhập hiện áp dụng theo phiên trình duyệt; nếu đưa lên Internet cần bổ sung giới hạn ở server/proxy theo IP/tài khoản.
 
 ### Route đang có
 
@@ -295,7 +296,7 @@ $env:DECOR_DB_PORT = '3306'
 $env:DECOR_DB_DBNAME = 'decor_account_test'
 $env:DECOR_DB_USERNAME = 'root'
 $env:DECOR_DB_PASSWORD = ''  # Điền thông số của MySQL thử trên máy bạn
-php -d post_max_size=3M -d upload_max_filesize=2M -S localhost:8017 -t public public/router.php
+php -d post_max_size=3M -d upload_max_filesize=2M -S localhost:8017 -t public
 ```
 
 Cửa sổ thứ hai đặt cùng các biến `DECOR_DB_*`, rồi chạy (PHP CLI cần extension `curl`):

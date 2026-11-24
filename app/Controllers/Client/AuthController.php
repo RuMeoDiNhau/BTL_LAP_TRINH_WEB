@@ -2,82 +2,286 @@
 
 declare(strict_types=1);
 
-/** Luồng xác thực PHP tối thiểu để tính năng tài khoản hoạt động độc lập. */
-class AuthController extends Controller
+require_once dirname(__DIR__, 2) . '/Models/User.php';
+
+class AuthController
 {
-    public function login(array $errors = [], array $old = [], int $status = 200): void
+    private User $userModel;
+
+    public function __construct(?User $userModel = null)
     {
-        if (current_user()) {
-            $this->redirect('/account/profile');
-        }
-        $this->render('client/auth/login', ['title' => 'Đăng nhập', 'user' => null, 'errors' => $errors, 'old' => $old], $status);
+        $this->ensureSession();
+        $this->userModel = $userModel ?? new User();
     }
 
-    public function authenticate(): void
+    public function showLogin(): void
     {
-        verify_csrf();
-        $email = strtolower(trim(input('email')));
-        $password = input('password');
-        // Giới hạn thử liên tiếp trong phiên để tránh gửi dồn từ cùng trình duyệt.
-        $attempts = array_filter($_SESSION['login_attempts'] ?? [], fn ($at) => $at > time() - 300);
-        if (count($attempts) >= 10) {
-            $this->login(['form' => 'Bạn đã thử nhiều lần. Vui lòng chờ 5 phút rồi thử lại.'], ['email' => $email], 429);
+        if (!empty($_SESSION['user'])) {
+            $role = $_SESSION['user']['role'] ?? 'member';
+            $this->redirect($role === 'admin' ? '/admin' : '/');
             return;
         }
-        $attempts[] = time();
-        $_SESSION['login_attempts'] = $attempts;
-        $user = filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($password) <= 4096 ? (new User())->findByEmail($email) : null;
-        if (!$user || !password_verify($password, $user['password_hash']) || $user['status'] !== 'active') {
-            $this->login(['form' => 'Email hoặc mật khẩu không đúng, hoặc tài khoản đã bị khóa.'], ['email' => $email], 422);
+
+        $this->render('client/auth/login', [
+            'pageTitle'    => 'Đăng nhập | Decor E-Commerce',
+            'metaDesc'     => 'Đăng nhập tài khoản Decor E-Commerce dành cho Thành viên và Quản trị viên.',
+            'topbarPrompt' => 'Chưa có tài khoản?',
+            'topbarLink'   => '/register',
+            'topbarText'   => 'Đăng ký ngay',
+            'errors'       => [],
+            'old'          => ['email' => ''],
+            'csrfToken'    => $this->getCsrfToken(),
+            'flashSuccess' => $this->pullFlash('success'),
+            'flashError'   => $this->pullFlash('error'),
+        ]);
+    }
+
+    public function login(): void
+    {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+            $this->redirect('/login');
             return;
         }
-        unset($_SESSION['login_attempts']);
+
+        if (!$this->isValidCsrf($_POST['_csrf'] ?? null)) {
+            $this->setFlash('error', 'Phiên biểu mẫu không hợp lệ (CSRF). Vui lòng thử lại.');
+            $this->redirect('/login');
+            return;
+        }
+
+        $email = mb_strtolower(trim((string) ($_POST['email'] ?? '')), 'UTF-8');
+        $password = (string) ($_POST['password'] ?? '');
+        $errors = [];
+
+        if ($email === '') {
+            $errors['email'] = 'Vui lòng nhập địa chỉ email.';
+        } elseif (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            $errors['email'] = 'Địa chỉ email không đúng định dạng.';
+        }
+
+        if ($password === '') {
+            $errors['password'] = 'Vui lòng nhập mật khẩu.';
+        }
+
+        if ($errors !== []) {
+            $this->render('client/auth/login', [
+                'pageTitle'    => 'Đăng nhập | Decor E-Commerce',
+                'metaDesc'     => 'Đăng nhập tài khoản Decor E-Commerce dành cho Thành viên và Quản trị viên.',
+                'topbarPrompt' => 'Chưa có tài khoản?',
+                'topbarLink'   => '/register',
+                'topbarText'   => 'Đăng ký ngay',
+                'errors'       => $errors,
+                'old'          => ['email' => $email],
+                'csrfToken'    => $this->getCsrfToken(),
+                'flashSuccess' => null,
+                'flashError'   => 'Thông tin đăng nhập chưa hợp lệ. Vui lòng kiểm tra lại.',
+            ]);
+            return;
+        }
+
+        $user = $this->userModel->findByEmail($email);
+
+        if ($user === null || !password_verify($password, (string) $user['password_hash'])) {
+            $this->render('client/auth/login', [
+                'pageTitle'    => 'Đăng nhập | Decor E-Commerce',
+                'metaDesc'     => 'Đăng nhập tài khoản Decor E-Commerce dành cho Thành viên và Quản trị viên.',
+                'topbarPrompt' => 'Chưa có tài khoản?',
+                'topbarLink'   => '/register',
+                'topbarText'   => 'Đăng ký ngay',
+                'errors'       => [],
+                'old'          => ['email' => $email],
+                'csrfToken'    => $this->getCsrfToken(),
+                'flashSuccess' => null,
+                'flashError'   => 'Email hoặc mật khẩu không chính xác.',
+            ]);
+            return;
+        }
+
+        if (($user['status'] ?? '') === 'banned') {
+            $this->render('client/auth/login', [
+                'pageTitle'    => 'Đăng nhập | Decor E-Commerce',
+                'metaDesc'     => 'Đăng nhập tài khoản Decor E-Commerce dành cho Thành viên và Quản trị viên.',
+                'topbarPrompt' => 'Chưa có tài khoản?',
+                'topbarLink'   => '/register',
+                'topbarText'   => 'Đăng ký ngay',
+                'errors'       => [],
+                'old'          => ['email' => $email],
+                'csrfToken'    => $this->getCsrfToken(),
+                'flashSuccess' => null,
+                'flashError'   => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ Quản trị viên.',
+            ]);
+            return;
+        }
+
         sign_in($user);
-        flash('Đăng nhập thành công. Chào mừng bạn trở lại Decor.');
-        $this->redirect('/account/profile');
+
+        $this->setFlash('success', 'Đăng nhập thành công! Chào mừng ' . $user['full_name'] . '.');
+        $this->redirect($user['role'] === 'admin' ? '/admin' : '/');
     }
 
-    public function register(array $errors = [], array $old = [], int $status = 200): void
+    public function showRegister(): void
     {
-        if (current_user()) {
-            $this->redirect('/account/profile');
+        if (!empty($_SESSION['user'])) {
+            $role = $_SESSION['user']['role'] ?? 'member';
+            $this->redirect($role === 'admin' ? '/admin' : '/');
+            return;
         }
-        $this->render('client/auth/register', ['title' => 'Đăng ký', 'user' => null, 'errors' => $errors, 'old' => $old], $status);
+
+        $this->render('client/auth/register', [
+            'pageTitle'    => 'Đăng ký tài khoản | Decor E-Commerce',
+            'metaDesc'     => 'Đăng ký tài khoản thành viên Decor E-Commerce.',
+            'topbarPrompt' => 'Đã có tài khoản?',
+            'topbarLink'   => '/login',
+            'topbarText'   => 'Đăng nhập',
+            'errors'       => [],
+            'old'          => ['full_name' => '', 'email' => ''],
+            'csrfToken'    => $this->getCsrfToken(),
+            'flashSuccess' => $this->pullFlash('success'),
+            'flashError'   => $this->pullFlash('error'),
+        ]);
     }
 
-    public function store(): void
+    public function register(): void
     {
-        verify_csrf();
-        $data = ['full_name' => trim(input('full_name')), 'email' => strtolower(trim(input('email'))), 'phone' => '', 'password' => input('password')];
-        $errors = AccountValidation::profile($data) + AccountValidation::password($data['password'], input('password_confirmation'));
-        $model = new User();
-        if (!isset($errors['email']) && $model->emailExists($data['email'])) {
-            $errors['email'] = 'Email này đã được đăng ký.';
-        }
-        $old = ['full_name' => $data['full_name'], 'email' => $data['email']];
-        if ($errors) {
-            $this->register($errors, $old, 422);
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+            $this->redirect('/register');
             return;
         }
-        try {
-            $id = $model->create($data);
-        } catch (PDOException $exception) {
-            if ($exception->getCode() !== '23000') {
-                throw $exception;
-            }
-            $this->register(['email' => 'Email này đã được đăng ký.'], $old, 422);
+
+        if (!$this->isValidCsrf($_POST['_csrf'] ?? null)) {
+            $this->setFlash('error', 'Phiên biểu mẫu không hợp lệ (CSRF). Vui lòng thử lại.');
+            $this->redirect('/register');
             return;
         }
-        sign_in($model->findById($id));
-        flash('Tạo tài khoản thành công. Bạn có thể cập nhật hồ sơ ngay tại đây.');
-        $this->redirect('/account/profile');
+
+        $fullName = trim((string) ($_POST['full_name'] ?? ''));
+        $email = mb_strtolower(trim((string) ($_POST['email'] ?? '')), 'UTF-8');
+        $password = (string) ($_POST['password'] ?? '');
+        $passwordConfirm = (string) ($_POST['password_confirmation'] ?? '');
+        $terms = isset($_POST['terms']);
+
+        $errors = [];
+
+        $nameLen = mb_strlen($fullName, 'UTF-8');
+        if ($nameLen < 2 || $nameLen > 100) {
+            $errors['full_name'] = 'Họ và tên phải từ 2 đến 100 ký tự.';
+        }
+
+        if ($email === '' || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            $errors['email'] = 'Vui lòng nhập địa chỉ email hợp lệ.';
+        } elseif (mb_strlen($email, 'UTF-8') > 150) {
+            $errors['email'] = 'Địa chỉ email tối đa 150 ký tự.';
+        } elseif ($this->userModel->emailExists($email)) {
+            $errors['email'] = 'Địa chỉ email này đã được đăng ký.';
+        }
+
+        $errors += AccountValidation::password($password, $passwordConfirm);
+
+        if (!$terms) {
+            $errors['terms'] = 'Bạn cần đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư.';
+        }
+
+        if ($errors !== []) {
+            $this->render('client/auth/register', [
+                'pageTitle'    => 'Đăng ký tài khoản | Decor E-Commerce',
+                'metaDesc'     => 'Đăng ký tài khoản thành viên Decor E-Commerce.',
+                'topbarPrompt' => 'Đã có tài khoản?',
+                'topbarLink'   => '/login',
+                'topbarText'   => 'Đăng nhập',
+                'errors'       => $errors,
+                'old'          => ['full_name' => $fullName, 'email' => $email],
+                'csrfToken'    => $this->getCsrfToken(),
+                'flashSuccess' => null,
+                'flashError'   => 'Chưa thể tạo tài khoản. Vui lòng kiểm tra lại các thông tin bên dưới.',
+            ]);
+            return;
+        }
+
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        $this->userModel->createMember($fullName, $email, $passwordHash);
+
+        $this->setFlash('success', 'Đăng ký tài khoản Thành viên thành công! Vui lòng đăng nhập.');
+        $this->redirect('/login');
     }
 
     public function logout(): void
     {
-        verify_csrf();
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || !$this->isValidCsrf($_POST['_csrf'] ?? null)) {
+            $this->setFlash('error', 'Yêu cầu đăng xuất không hợp lệ.');
+            $this->redirect('/');
+            return;
+        }
+
         sign_out();
-        flash('Bạn đã đăng xuất.');
+        $this->setFlash('success', 'Bạn đã đăng xuất thành công.');
         $this->redirect('/login');
+    }
+
+    private function ensureSession(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+
+    private function getCsrfToken(): string
+    {
+        if (function_exists('csrf_token')) {
+            return (string) csrf_token();
+        }
+        if (empty($_SESSION['csrf_token'])) {
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        return (string) $_SESSION['csrf_token'];
+    }
+
+    private function isValidCsrf($token): bool
+    {
+        return is_string($token) && verify_csrf($token);
+    }
+
+    private function setFlash(string $type, string $message): void
+    {
+        if (function_exists('set_flash')) {
+            set_flash($type, $message);
+            return;
+        }
+        $_SESSION['flash'][$type] = $message;
+    }
+
+    private function pullFlash(string $type): ?string
+    {
+        if (function_exists('get_flash')) {
+            $val = get_flash($type);
+            return is_string($val) ? $val : null;
+        }
+        if (!isset($_SESSION['flash'][$type])) {
+            return null;
+        }
+        $message = (string) $_SESSION['flash'][$type];
+        unset($_SESSION['flash'][$type]);
+        return $message;
+    }
+
+    private function render(string $viewPath, array $data = []): void
+    {
+        $viewsDir = dirname(__DIR__, 2) . '/Views';
+        $viewFile = $viewsDir . '/' . ltrim($viewPath, '/') . '.php';
+        $layoutFile = $viewsDir . '/layouts/auth.php';
+
+        extract($data, EXTR_SKIP);
+
+        ob_start();
+        require $viewFile;
+        $content = ob_get_clean();
+
+        require $layoutFile;
+    }
+
+    private function redirect(string $path): void
+    {
+        $url = function_exists('base_url') ? base_url($path) : $path;
+        header('Location: ' . $url);
+        exit;
     }
 }

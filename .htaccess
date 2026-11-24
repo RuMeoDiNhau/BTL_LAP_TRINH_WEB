@@ -1,0 +1,13 @@
+# Rewrite ở gốc dự án: mọi URL -> public/index.php (chạy được cả trong thư mục con của htdocs).
+# Ở per-directory context, pattern đã bỏ prefix /<ten-thu-muc>/ nên không cần hardcode tên thư mục.
+Options -MultiViews
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1) URL có đuôi file tĩnh -> public/ (assets/css/style.css -> /<sub>/public/assets/css/style.css).
+    RewriteCond %{REQUEST_URI} \.(css|js|mjs|map|png|jpe?g|gif|svg|ico|webp|avif|woff2?|ttf|eot|otf|txt|pdf|json|xml)$ [NC]
+    RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+
+    # 2) Các URL còn lại -> front controller. Bỏ qua đường dẫn đã đi vào public/.
+    RewriteRule ^(?!public/)(.*)$ public/index.php [L]
+</IfModule>

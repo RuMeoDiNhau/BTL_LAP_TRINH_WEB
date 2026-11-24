@@ -1,45 +1,68 @@
+<?php
+/**
+ * Layout khách tối giản để các module khác ghép nội dung vào $content.
+ * TODO: nhóm thêm Bootstrap local (CSS/JS) khi có file; không dùng CDN.
+ */
+$pageTitle    = $pageTitle ?? 'Decor E-Commerce';
+$metaDesc     = $metaDesc ?? 'Decor E-Commerce – Nội thất và giải pháp sống hiện đại.';
+$metaKeywords = $metaKeywords ?? 'Decor, noi that, furniture';
+$content      = $content ?? '';
+$pageScripts  = $pageScripts ?? [];
+$headExtra    = $headExtra ?? '';
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Quản lý thông tin cá nhân, mật khẩu và ảnh đại diện của bạn tại Decor.">
-    <meta name="robots" content="noindex, nofollow">
-    <title><?= e($title ?? 'Tài khoản') ?> | Decor</title>
-    <link rel="stylesheet" href="<?= e(asset('css/pages/account.css')) ?>">
-    <script src="<?= e(asset('js/pages/account.js')) ?>" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?= e($pageTitle) ?></title>
+  <meta name="description" content="<?= e($metaDesc) ?>">
+  <meta name="keywords" content="<?= e($metaKeywords) ?>">
+  <?= $headExtra ?>
+  <link rel="stylesheet" href="<?= e(asset('css/style.css')) ?>">
 </head>
 <body>
-<a class="skip-link" href="#main">Đến nội dung chính</a>
-<header class="site-header">
-    <a class="brand" href="<?= e(url('/')) ?>" aria-label="Decor — Tài khoản">Decor<span class="brand-dot">.</span></a>
-    <span class="header-tagline">KHÔNG GIAN SỐNG CỦA BẠN</span>
-    <nav class="header-actions" aria-label="Tài khoản">
-        <?php if ($user ?? null): ?>
-            <a class="header-user" href="<?= e(url('/account/profile')) ?>">
-                <?php if ($avatar = avatar_url($user['avatar'])): ?>
-                    <img class="avatar avatar--tiny" src="<?= e($avatar) ?>" alt="" width="32" height="32">
-                <?php else: ?>
-                    <span class="avatar avatar--tiny" aria-hidden="true"><?= e(initials($user['full_name'])) ?></span>
-                <?php endif; ?>
-                <span><?= e($user['full_name']) ?></span>
-            </a>
-            <form action="<?= e(url('/logout')) ?>" method="post">
-                <?= csrf_field() ?>
-                <button class="text-button" type="submit">Đăng xuất</button>
+  <header class="site-header">
+    <a class="site-brand" href="<?= e(base_url('/')) ?>">Decor</a>
+    <nav class="site-nav" aria-label="Menu chính">
+      <ul>
+        <li><a href="<?= e(base_url('/')) ?>">Home</a></li>
+        <li><a href="<?= e(base_url('/about')) ?>">About</a></li>
+        <li><a href="<?= e(base_url('/products')) ?>">Products</a></li>
+        <li><a href="<?= e(base_url('/posts')) ?>">News</a></li>
+        <li><a href="<?= e(base_url('/faq')) ?>">FAQs</a></li>
+        <li><a href="<?= e(base_url('/contact')) ?>">Contact</a></li>
+        <?php if (is_logged_in()): ?>
+          <li><a href="<?= e(base_url('/account/profile')) ?>">Tài khoản</a></li>
+          <?php if (is_admin()): ?>
+            <li><a href="<?= e(base_url('/admin')) ?>">Admin</a></li>
+          <?php endif; ?>
+          <li>
+            <form action="<?= e(base_url('/logout')) ?>" method="post">
+              <?= csrf_field() ?>
+              <button type="submit">Logout</button>
             </form>
+          </li>
         <?php else: ?>
-            <a href="<?= e(url('/login')) ?>">Đăng nhập</a>
-            <a class="button button--small" href="<?= e(url('/register')) ?>">Đăng ký</a>
+          <li><a href="<?= e(base_url('/login')) ?>">Login</a></li>
+          <li><a href="<?= e(base_url('/register')) ?>">Đăng ký</a></li>
         <?php endif; ?>
+      </ul>
     </nav>
-</header>
-<main id="main" class="site-main">
-    <?php if ($notice = take_flash()): ?>
-        <div class="notice notice--success" role="status"><?= e($notice) ?></div>
-    <?php endif; ?>
-    <?php require $viewFile; ?>
-</main>
-<footer class="site-footer"><span class="footer-brand">Decor.</span><span>Chăm chút không gian. Bắt đầu từ bạn.</span><span>© <?= date('Y') ?> Decor</span></footer>
+  </header>
+
+  <main class="site-main">
+    <?= render_flash(null, ['success' => $flashSuccess ?? null, 'error' => $flashError ?? null]) ?>
+    <?= $content ?>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Decor E-Commerce. All rights reserved.</p>
+  </footer>
+
+  <script src="<?= e(asset('js/main.js')) ?>"></script>
+  <?php foreach ($pageScripts as $script): ?>
+    <script src="<?= e(asset($script)) ?>"></script>
+  <?php endforeach; ?>
 </body>
 </html>

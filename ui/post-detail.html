@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chi tiết bài viết cẩm nang nội thất và khu vực bình luận thành viên Decor E-Commerce.">
+  <title>Chi tiết bài viết | Decor E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/pages/posts.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="posts.html" class="brand-mark">
+        <img src="assets/images/brand/logo.svg" alt="Logo Decor" width="34" height="34">
+        <span>Decor</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="posts.html" class="nav-link is-active">Tin tức</a>
+        <a href="post-detail.html" class="nav-link" aria-current="page">Đọc bài mẫu</a>
+        <a href="admin/posts.html" class="nav-link">Quản trị Tin tức</a>
+        <a href="admin/comments.html" class="nav-link">Quản trị Bình luận</a>
+      </nav>
+
+      <div class="header-actions" id="headerAuthArea">
+        <a href="login.html" class="btn btn--outline btn--sm">Đăng nhập</a>
+        <a href="register.html" class="btn btn--primary btn--sm">Đăng ký</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-section">
+    <div class="container">
+      <div class="blog-layout">
+        <!-- Cột trái: Bài viết + Bài liên quan + Bình luận -->
+        <div>
+          <article class="article-card" id="articleContainer">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="posts.html">Trang chủ</a>
+              <span aria-hidden="true">/</span>
+              <a href="posts.html">Tin tức</a>
+              <span aria-hidden="true">/</span>
+              <span id="detailBreadcrumbTitle" class="breadcrumb-current" aria-current="page">Đang tải...</span>
+            </nav>
+
+            <h1 id="detailTitle" class="article-title"></h1>
+
+            <div class="post-meta-row">
+              <span class="post-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span id="detailAuthor"></span>
+              </span>
+              <span class="post-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <time id="detailDate" datetime=""></time>
+              </span>
+              <span class="post-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span id="detailViews"></span>
+              </span>
+            </div>
+
+            <img id="detailThumb" class="article-hero-image" src="assets/images/posts/post-1.svg" alt="Ảnh minh họa bài viết">
+
+            <div id="detailContent" class="article-prose"></div>
+          </article>
+
+          <!-- Bài viết liên quan -->
+          <section class="related-section" aria-label="Bài viết liên quan">
+            <h2 class="section-heading">Bài viết liên quan</h2>
+            <div id="relatedPostsGrid" class="posts-grid"></div>
+          </section>
+
+          <!-- Khu vực Bình luận -->
+          <section id="comments" class="comments-card" aria-label="Bình luận bài viết">
+            <div class="comments-header">
+              <h2 class="section-heading" style="margin-bottom:0;">
+                Bình luận (<span id="commentCount">0</span>)
+              </h2>
+              <div class="session-demo-switch">
+                <span>Xem thử vai trò:</span>
+                <button type="button" class="btn btn--outline btn--sm" data-demo-role="guest">Khách</button>
+                <button type="button" class="btn btn--outline btn--sm" data-demo-role="member">Thành viên</button>
+              </div>
+            </div>
+
+            <div id="commentList" class="comment-list"></div>
+
+            <!-- Trạng thái Khách (chưa đăng nhập) -->
+            <div id="guestCommentPrompt" class="guest-prompt" hidden>
+              <div>
+                <strong>Bạn cần đăng nhập để gửi bình luận</strong>
+                <p style="font-size:13.5px;color:#475569;margin-top:2px;">Chỉ tài khoản Thành viên hoặc Quản trị viên mới có quyền bình luận bài viết.</p>
+              </div>
+              <a href="login.html" class="btn btn--primary btn--sm">Đăng nhập ngay</a>
+            </div>
+
+            <!-- Trạng thái Thành viên / Admin (đã đăng nhập) -->
+            <div id="memberCommentBox" hidden>
+              <div id="commentErrorSummary" class="error-summary" role="alert" tabindex="-1" aria-labelledby="commentErrorTitle">
+                <div id="commentErrorTitle" class="error-summary-title">Vui lòng kiểm tra lại bình luận của bạn</div>
+                <ul id="commentErrorList"></ul>
+              </div>
+
+              <div id="commentSuccessBanner" class="success-banner" role="status" aria-live="polite"></div>
+
+              <form id="commentForm" action="#" method="post" novalidate>
+                <div class="comment-form-group">
+                  <label for="commentInput" class="comment-label">
+                    Viết bình luận với tên <strong id="commentAuthorLabel">Thành viên</strong>
+                  </label>
+                  <textarea
+                    id="commentInput"
+                    name="content"
+                    class="comment-textarea"
+                    maxlength="1000"
+                    aria-describedby="commentInputHint commentInputError"
+                    placeholder="Chia sẻ cảm nhận hoặc câu hỏi của bạn về bài viết này (từ 5 đến 1000 ký tự)..."
+                    required
+                  ></textarea>
+                  <div class="comment-form-meta">
+                    <span id="commentInputHint">Tối thiểu 5 ký tự, không nhập nội dung chỉ toàn khoảng trắng.</span>
+                    <span id="commentCharCount" aria-live="polite">0 / 1000</span>
+                  </div>
+                  <p id="commentInputError" class="field-error-text"></p>
+                </div>
+
+                <button type="submit" class="btn btn--primary">Gửi bình luận</button>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar" aria-label="Tìm kiếm và bài viết mới">
+          <section class="sidebar-widget">
+            <h2 class="widget-title">Tìm kiếm bài viết</h2>
+            <form action="posts.html" method="get" role="search">
+              <div class="search-input-wrap" style="margin-bottom:10px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <label for="sidebarSearchInput" class="sr-only">Nhập từ khóa tìm kiếm</label>
+                <input type="search" id="sidebarSearchInput" name="keyword" class="search-input" placeholder="Nhập từ khóa...">
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;">Tìm kiếm</button>
+            </form>
+          </section>
+
+          <section class="sidebar-widget">
+            <h2 class="widget-title">Bài viết mới nhất</h2>
+            <ul id="latestPostsList" class="mini-post-list"></ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 Decor E-Commerce.</span>
+      <a href="posts.html">&larr; Quay lại danh sách bài viết</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/pages/posts.js"></script>
+</body>
+</html>
