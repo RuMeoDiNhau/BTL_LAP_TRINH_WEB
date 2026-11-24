@@ -84,3 +84,93 @@ html {
 /* Hai class do JS toggle, build chỉ có dạng hover:/focus: nên khai báo thêm. */
 .border-brand-400 { border-color: var(--color-brand-400); }
 .border-red-400 { border-color: var(--color-red-400); }
+
+/* ===== #2 About/FAQ =====
+   Mobile shell theo TailAdmin app-layout (sidebar/index.html + header/index.html):
+   drawer trái, backdrop, breakpoint xl = 1280px, trạng thái sidebarToggle do Alpine giữ.
+   admin.css là unlayered nên thắng utility nằm trong @layer của build; khai báo lại
+   (unlayered, nạp sau) các giá trị Y HỆT template để drawer hoạt động thật. */
+@media (max-width: 1279.98px) {
+    .ta-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .ta-sidebar {
+        position: fixed; /* fixed */
+        top: 0; /* top-0 */
+        left: 0; /* left-0 */
+        z-index: 9999; /* z-9999 */
+        height: 100vh; /* h-screen */
+        width: 290px; /* w-72.5 */
+        max-width: 86vw;
+        transform: translateX(-100%); /* -translate-x-full */
+        transition: transform 300ms; /* transition-all duration-300 */
+        border-right: 1px solid var(--ta-gray-200);
+        border-bottom: 0;
+        box-shadow: 8px 0 24px rgba(0, 0, 0, .12);
+    }
+
+    /* Alpine thêm class này cùng translate-x-0 khi mở (utility bị admin.css chặn). */
+    .ta-sidebar.ta-sidebar-open {
+        transform: translateX(0);
+    }
+
+    .ta-backdrop {
+        position: fixed; /* fixed */
+        inset: 0; /* inset-0 */
+        z-index: 99; /* z-99 */
+        background: rgba(17, 24, 39, .5); /* bg-gray-900/50 */
+        backdrop-filter: blur(4px); /* backdrop-blur-xs */
+    }
+}
+
+@media (min-width: 1280px) {
+    /* xl:static + xl:translate-x-0: sidebar lại là cột cố định như cũ. */
+    .ta-sidebar {
+        width: 260px;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .ta-backdrop,
+    .ta-sidebar-toggle {
+        display: none !important;
+    }
+}
+
+/* Nhóm trái của topbar: toggle + breadcrumb (template gộp trong một flex row). */
+.ta-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* Topbar gọn trên phone: vẫn sticky như admin.css, chỉ giảm padding và cắt breadcrumb. */
+@media (max-width: 639.98px) {
+    .ta-topbar {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .ta-topbar-left {
+        gap: 8px;
+    }
+
+    .ta-breadcrumb {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 12px;
+    }
+
+    .ta-topbar-actions {
+        gap: 8px;
+    }
+
+    .ta-topbar-actions .ta-btn {
+        padding-inline: 10px;
+        font-size: 12px;
+    }
+}
