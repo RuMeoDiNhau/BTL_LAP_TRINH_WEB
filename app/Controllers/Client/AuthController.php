@@ -6,17 +6,22 @@ require_once dirname(__DIR__, 2) . '/Models/User.php';
 
 class AuthController
 {
-    private User $userModel;
+    private ?User $userModel;
 
     public function __construct(?User $userModel = null)
     {
         $this->ensureSession();
-        $this->userModel = $userModel ?? new User();
+        $this->userModel = $userModel;
     }
 
-    public function showLogin(): void
+    private function users(): User
     {
-        if (!empty($_SESSION['user'])) {
+        return $this->userModel ??= new User();
+    }
+
+    public function showLogin(bool $redirectSignedIn = true): void
+    {
+        if ($redirectSignedIn && is_logged_in()) {
             $role = $_SESSION['user']['role'] ?? 'member';
             $this->redirect($role === 'admin' ? '/admin' : '/');
             return;
@@ -79,7 +84,7 @@ class AuthController
             return;
         }
 
-        $user = $this->userModel->findByEmail($email);
+        $user = $this->users()->findByEmail($email);
 
         if ($user === null || !password_verify($password, (string) $user['password_hash'])) {
             $this->render('client/auth/login', [
@@ -113,23 +118,15 @@ class AuthController
             return;
         }
 
-        session_regenerate_id(true);
-
-        $_SESSION['user'] = [
-            'id'        => (int) $user['id'],
-            'full_name' => (string) $user['full_name'],
-            'email'     => (string) $user['email'],
-            'role'      => (string) $user['role'],
-            'avatar'    => $user['avatar'] ?? null,
-        ];
+        sign_in($user);
 
         $this->setFlash('success', 'Đăng nhập thành công! Chào mừng ' . $user['full_name'] . '.');
         $this->redirect($user['role'] === 'admin' ? '/admin' : '/');
     }
 
-    public function showRegister(): void
+    public function showRegister(bool $redirectSignedIn = true): void
     {
-        if (!empty($_SESSION['user'])) {
+        if ($redirectSignedIn && is_logged_in()) {
             $role = $_SESSION['user']['role'] ?? 'member';
             $this->redirect($role === 'admin' ? '/admin' : '/');
             return;
@@ -179,22 +176,11 @@ class AuthController
             $errors['email'] = 'Vui lòng nhập địa chỉ email hợp lệ.';
         } elseif (mb_strlen($email, 'UTF-8') > 150) {
             $errors['email'] = 'Địa chỉ email tối đa 150 ký tự.';
-        } elseif ($this->userModel->emailExists($email)) {
+        } elseif ($this->users()->emailExists($email)) {
             $errors['email'] = 'Địa chỉ email này đã được đăng ký.';
         }
 
-        $isStrongPassword = strlen($password) >= 8
-            && preg_match('/[a-z]/', $password) === 1
-            && preg_match('/[A-Z]/', $password) === 1
-            && preg_match('/\d/', $password) === 1;
-
-        if (!$isStrongPassword) {
-            $errors['password'] = 'Mật khẩu cần ít nhất 8 ký tự, gồm chữ hoa, chữ thường và số.';
-        }
-
-        if ($passwordConfirm === '' || $passwordConfirm !== $password) {
-            $errors['password_confirmation'] = 'Mật khẩu nhập lại chưa khớp. Vui lòng nhập lại.';
-        }
+        $errors += AccountValidation::password($password, $passwordConfirm);
 
         if (!$terms) {
             $errors['terms'] = 'Bạn cần đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư.';
@@ -217,7 +203,7 @@ class AuthController
         }
 
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-        $this->userModel->createMember($fullName, $email, $passwordHash);
+        $this->users()->createMember($fullName, $email, $passwordHash);
 
         $this->setFlash('success', 'Đăng ký tài khoản Thành viên thành công! Vui lòng đăng nhập.');
         $this->redirect('/login');
@@ -225,14 +211,13 @@ class AuthController
 
     public function logout(): void
     {
-        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && !$this->isValidCsrf($_POST['_csrf'] ?? null)) {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || !$this->isValidCsrf($_POST['_csrf'] ?? null)) {
             $this->setFlash('error', 'Yêu cầu đăng xuất không hợp lệ.');
             $this->redirect('/');
             return;
         }
 
-        unset($_SESSION['user']);
-        session_regenerate_id(true);
+        sign_out();
         $this->setFlash('success', 'Bạn đã đăng xuất thành công.');
         $this->redirect('/login');
     }
@@ -255,13 +240,9 @@ class AuthController
         return (string) $_SESSION['csrf_token'];
     }
 
-    private function isValidCsrf(?string $token): bool
+    private function isValidCsrf($token): bool
     {
-        if (function_exists('verify_csrf')) {
-            return (bool) verify_csrf($token);
-        }
-        $sessionToken = $_SESSION['csrf_token'] ?? '';
-        return is_string($token) && $sessionToken !== '' && hash_equals($sessionToken, $token);
+        return is_string($token) && verify_csrf($token);
     }
 
     private function setFlash(string $type, string $message): void

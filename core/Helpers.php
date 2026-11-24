@@ -131,6 +131,70 @@ function current_user(): ?array
     return is_array($user) ? $user : null;
 }
 
+/** Giữ cấu trúc session của nhóm và không đưa password_hash vào dữ liệu giao diện. */
+function sync_session_user(array $user): void
+{
+    $_SESSION['user'] = [
+        'id' => (int) $user['id'],
+        'full_name' => (string) $user['full_name'],
+        'email' => (string) $user['email'],
+        'role' => (string) $user['role'],
+        'avatar' => $user['avatar'] ?? null,
+    ];
+}
+
+function sign_in(array $user): void
+{
+    session_regenerate_id(true);
+    sync_session_user($user);
+    $_SESSION['password_version'] = hash('sha256', $user['password_hash']);
+    unset($_SESSION['csrf_token']);
+}
+
+function sign_out(): void
+{
+    unset($_SESSION['user'], $_SESSION['password_version'], $_SESSION['csrf_token']);
+    session_regenerate_id(true);
+}
+
+/** Kiểm tra phiên một lần trước khi xử lý route, kể cả route admin. */
+function refresh_session_user(): void
+{
+    $sessionUser = current_user();
+    if ($sessionUser === null) {
+        return;
+    }
+
+    $user = (new User())->findForAuthenticationById((int) ($sessionUser['id'] ?? 0));
+    $version = $_SESSION['password_version'] ?? '';
+    if ($user === null || $user['status'] !== 'active'
+        || !is_string($version) || !hash_equals($version, hash('sha256', $user['password_hash']))) {
+        sign_out();
+        return;
+    }
+
+    sync_session_user($user);
+}
+
+function initials(string $name): string
+{
+    $words = preg_split('/\s+/u', trim($name), -1, PREG_SPLIT_NO_EMPTY);
+    if (!$words) {
+        return 'TV';
+    }
+    $initials = mb_substr($words[0], 0, 1);
+    if (count($words) > 1) {
+        $initials .= mb_substr(end($words), 0, 1);
+    }
+    return mb_strtoupper($initials, 'UTF-8');
+}
+
+function avatar_url(?string $path): ?string
+{
+    return $path && preg_match('~^uploads/avatars/[a-f0-9]{32}\.(jpg|png|webp)$~D', $path)
+        ? base_url($path) : null;
+}
+
 function is_logged_in(): bool
 {
     return current_user() !== null;

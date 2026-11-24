@@ -11,7 +11,7 @@ $pageScripts  = $pageScripts ?? [];
 $headExtra    = $headExtra ?? '';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +33,7 @@ $headExtra    = $headExtra ?? '';
         <li><a href="<?= e(base_url('/faq')) ?>">FAQs</a></li>
         <li><a href="<?= e(base_url('/contact')) ?>">Contact</a></li>
         <?php if (is_logged_in()): ?>
+          <li><a href="<?= e(base_url('/account/profile')) ?>">Tài khoản</a></li>
           <?php if (is_admin()): ?>
             <li><a href="<?= e(base_url('/admin')) ?>">Admin</a></li>
           <?php endif; ?>
@@ -44,6 +45,7 @@ $headExtra    = $headExtra ?? '';
           </li>
         <?php else: ?>
           <li><a href="<?= e(base_url('/login')) ?>">Login</a></li>
+          <li><a href="<?= e(base_url('/register')) ?>">Đăng ký</a></li>
         <?php endif; ?>
       </ul>
     </nav>

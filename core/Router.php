@@ -126,7 +126,7 @@ class Router
         $this->notFound();
     }
 
-    private function currentPath(): string
+    public function currentPath(): string
     {
         $raw = parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH);
         $path = rawurldecode(is_string($raw) ? $raw : '/');

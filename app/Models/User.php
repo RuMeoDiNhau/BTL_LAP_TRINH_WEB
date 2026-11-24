@@ -52,7 +52,17 @@ class User
         return $row !== false ? $row : null;
     }
 
-    public function emailExists(string $email): bool
+    /** Bản ghi dành cho xác thực. findById() vẫn loại trừ password_hash. */
+    public function findForAuthenticationById(int $id): ?array
+    {
+        $stmt = $this->db->prepare('SELECT id, full_name, email, password_hash, phone, avatar, role, status FROM users WHERE id = :id LIMIT 1');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row !== false ? $row : null;
+    }
+
+    public function emailExists(string $email, ?int $exceptId = null): bool
     {
         $email = mb_strtolower(trim($email), 'UTF-8');
         if ($email === '') {
@@ -60,8 +70,14 @@ class User
         }
 
         $sql = "SELECT COUNT(*) FROM `users` WHERE `email` = :email";
+        if ($exceptId !== null) {
+            $sql .= ' AND id <> :except_id';
+        }
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        if ($exceptId !== null) {
+            $stmt->bindValue(':except_id', $exceptId, PDO::PARAM_INT);
+        }
         $stmt->execute();
 
         return (int) $stmt->fetchColumn() > 0;
@@ -101,5 +117,37 @@ class User
         }
 
         return $counts;
+    }
+
+    /** Hồ sơ cá nhân chỉ cập nhật các cột được phép. */
+    public function updateProfile(int $id, array $data): void
+    {
+        $stmt = $this->db->prepare('UPDATE users SET full_name = :full_name, email = :email, phone = :phone WHERE id = :id');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':full_name', $data['full_name'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $data['email'], PDO::PARAM_STR);
+        $phone = $data['phone'] === '' ? null : $data['phone'];
+        $stmt->bindValue(':phone', $phone, $phone === null ? PDO::PARAM_NULL : PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function updatePassword(int $id, string $oldHash, string $newHash): bool
+    {
+        $stmt = $this->db->prepare('UPDATE users SET password_hash = :new_hash WHERE id = :id AND password_hash = :old_hash');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':old_hash', $oldHash, PDO::PARAM_STR);
+        $stmt->bindValue(':new_hash', $newHash, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->rowCount() === 1;
+    }
+
+    public function updateAvatar(int $id, ?string $previous, ?string $path): bool
+    {
+        $stmt = $this->db->prepare('UPDATE users SET avatar = :avatar WHERE id = :id AND avatar <=> :previous');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':avatar', $path, $path === null ? PDO::PARAM_NULL : PDO::PARAM_STR);
+        $stmt->bindValue(':previous', $previous, $previous === null ? PDO::PARAM_NULL : PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->rowCount() === 1;
     }
 }
