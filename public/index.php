@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Front controller (PHP >= 7.1 cho core; code của Thiện dùng 7.4/8.0: fn, mixed).
+ * Front controller (PHP >= 7.1 cho core; code của Thien dùng 7.4/8.0: fn, mixed).
  *
  * THÊM ROUTE CHO MODULE MỚI: tạo file routes/<ten-module>.php rồi dùng biến $router:
  *     $router->get('/about', [PageController::class, 'about']);
@@ -83,14 +83,14 @@ spl_autoload_register(static function (string $class): void {
 // 4) Đăng ký route cho controller ĐÃ CÓ CODE.
 $router = new Router();
 
-// Auth (mục 3.1)
+// Auth
 $router->get('/login', [AuthController::class, 'showLogin']);
 $router->post('/login', [AuthController::class, 'login']);
 $router->get('/register', [AuthController::class, 'showRegister']);
 $router->post('/register', [AuthController::class, 'register']);
 $router->post('/logout', [AuthController::class, 'logout']);
 
-// Admin đã có code (mục 3.3)
+// Admin )
 $router->get('/admin', [DashboardController::class, 'index']);
 $router->get('/admin/roles', [DashboardController::class, 'roles']);
 

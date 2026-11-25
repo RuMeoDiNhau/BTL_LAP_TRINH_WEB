@@ -13,7 +13,6 @@ function e(?string $str): string
     return htmlspecialchars($str ?? '', ENT_QUOTES, 'UTF-8');
 }
 
-/** Alias ngắn theo AGENTS.md (url()/asset()); nội dung vẫn dùng base_url(). */
 function url(string $path = ''): string
 {
     return base_url($path);

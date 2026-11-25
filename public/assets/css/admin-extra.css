@@ -1,0 +1,175 @@
+/* File này được nạp SAU assets/admin/style.css qua slot $pageStyles. */
+
+.ta-sidebar,
+.ta-topbar {
+    font-family: "Inter", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ta-content {
+    font-family: "Outfit", "Inter", system-ui, sans-serif;
+}
+
+/* TailAdmin để margin mặc định của heading về 0; khôi phục cho nội dung tĩnh trong view. */
+.ta-content p {
+    line-height: 1.6;
+}
+
+/* ===== #2 About/FAQ =====
+   css/admin.css là CSS unlayered: *, a, html/body ở đó thắng mọi utility nằm trong
+   @layer của build TailAdmin dù nạp trước. Khai báo lại (unlayered, nạp sau) các
+   utility spacing/color mà view #2 dùng để khôi phục giao diện. */
+html {
+    font-size: 16px;
+}
+
+.gap-1 { gap: var(--spacing); }
+.gap-1\.5 { gap: calc(var(--spacing) * 1.5); }
+.gap-2 { gap: calc(var(--spacing) * 2); }
+.gap-3 { gap: calc(var(--spacing) * 3); }
+.gap-4 { gap: calc(var(--spacing) * 4); }
+.gap-6 { gap: calc(var(--spacing) * 6); }
+.mb-1\.5 { margin-bottom: calc(var(--spacing) * 1.5); }
+.mb-2 { margin-bottom: calc(var(--spacing) * 2); }
+.mt-0\.5 { margin-top: calc(var(--spacing) * 0.5); }
+.mt-1 { margin-top: var(--spacing); }
+.mt-1\.5 { margin-top: calc(var(--spacing) * 1.5); }
+.mt-2 { margin-top: calc(var(--spacing) * 2); }
+.mt-4 { margin-top: calc(var(--spacing) * 4); }
+.mt-5 { margin-top: calc(var(--spacing) * 5); }
+.mt-6 { margin-top: calc(var(--spacing) * 6); }
+.p-3 { padding: calc(var(--spacing) * 3); }
+.p-4 { padding: calc(var(--spacing) * 4); }
+.p-6 { padding: calc(var(--spacing) * 6); }
+.p-7 { padding: calc(var(--spacing) * 7); }
+.pl-11 { padding-left: calc(var(--spacing) * 11); }
+.pr-4 { padding-right: calc(var(--spacing) * 4); }
+.pt-6 { padding-top: calc(var(--spacing) * 6); }
+.px-2 { padding-inline: calc(var(--spacing) * 2); }
+.px-2\.5 { padding-inline: calc(var(--spacing) * 2.5); }
+.px-3 { padding-inline: calc(var(--spacing) * 3); }
+.px-4 { padding-inline: calc(var(--spacing) * 4); }
+.px-5 { padding-inline: calc(var(--spacing) * 5); }
+.px-6 { padding-inline: calc(var(--spacing) * 6); }
+.py-0\.5 { padding-block: calc(var(--spacing) * 0.5); }
+.py-1\.5 { padding-block: calc(var(--spacing) * 1.5); }
+.py-16 { padding-block: calc(var(--spacing) * 16); }
+.py-2\.5 { padding-block: calc(var(--spacing) * 2.5); }
+.py-3 { padding-block: calc(var(--spacing) * 3); }
+.py-4 { padding-block: calc(var(--spacing) * 4); }
+.py-5 { padding-block: calc(var(--spacing) * 5); }
+:where(.space-y-3 > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse))); }
+:where(.space-y-4 > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse))); }
+:where(.space-y-5 > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse))); }
+:where(.space-y-6 > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse))); }
+.text-2xl { font-size: var(--text-2xl); line-height: var(--tw-leading, var(--text-2xl--line-height)); }
+.text-amber-600 { color: var(--color-amber-600); }
+.text-base { font-size: var(--text-base); line-height: var(--tw-leading, var(--text-base--line-height)); }
+.text-brand-600 { color: var(--color-brand-600); }
+.text-center { text-align: center; }
+.text-end { text-align: end; }
+.text-gray-400 { color: var(--color-gray-400); }
+.text-gray-500 { color: var(--color-gray-500); }
+.text-gray-600 { color: var(--color-gray-600); }
+.text-gray-700 { color: var(--color-gray-700); }
+.text-gray-800 { color: var(--color-gray-800); }
+.text-lg { font-size: var(--text-lg); line-height: var(--tw-leading, var(--text-lg--line-height)); }
+.text-red-500 { color: var(--color-red-500); }
+.text-red-600 { color: var(--color-red-600); }
+.text-sm { font-size: var(--text-sm); line-height: var(--tw-leading, var(--text-sm--line-height)); }
+.text-start { text-align: start; }
+.text-white { color: var(--color-white); }
+.text-xs { font-size: var(--text-xs); line-height: var(--tw-leading, var(--text-xs--line-height)); }
+
+/* Hai class do JS toggle, build chỉ có dạng hover:/focus: nên khai báo thêm. */
+.border-brand-400 { border-color: var(--color-brand-400); }
+.border-red-400 { border-color: var(--color-red-400); }
+
+/* ===== #2 About/FAQ =====
+   Mobile shell theo TailAdmin app-layout (sidebar/index.html + header/index.html):
+   drawer trái, backdrop, breakpoint xl = 1280px, trạng thái sidebarToggle do Alpine giữ.
+   admin.css là unlayered nên thắng utility nằm trong @layer của build; khai báo lại
+   (unlayered, nạp sau) các giá trị Y HỆT template để drawer hoạt động thật. */
+@media (max-width: 1279.98px) {
+    .ta-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .ta-sidebar {
+        position: fixed; /* fixed */
+        top: 0; /* top-0 */
+        left: 0; /* left-0 */
+        z-index: 9999; /* z-9999 */
+        height: 100vh; /* h-screen */
+        width: 290px; /* w-72.5 */
+        max-width: 86vw;
+        transform: translateX(-100%); /* -translate-x-full */
+        transition: transform 300ms; /* transition-all duration-300 */
+        border-right: 1px solid var(--ta-gray-200);
+        border-bottom: 0;
+        box-shadow: 8px 0 24px rgba(0, 0, 0, .12);
+    }
+
+    /* Alpine thêm class này cùng translate-x-0 khi mở (utility bị admin.css chặn). */
+    .ta-sidebar.ta-sidebar-open {
+        transform: translateX(0);
+    }
+
+    .ta-backdrop {
+        position: fixed; /* fixed */
+        inset: 0; /* inset-0 */
+        z-index: 99; /* z-99 */
+        background: rgba(17, 24, 39, .5); /* bg-gray-900/50 */
+        backdrop-filter: blur(4px); /* backdrop-blur-xs */
+    }
+}
+
+@media (min-width: 1280px) {
+    /* xl:static + xl:translate-x-0: sidebar lại là cột cố định như cũ. */
+    .ta-sidebar {
+        width: 260px;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .ta-backdrop,
+    .ta-sidebar-toggle {
+        display: none !important;
+    }
+}
+
+/* Nhóm trái của topbar: toggle + breadcrumb (template gộp trong một flex row). */
+.ta-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* Topbar gọn trên phone: vẫn sticky như admin.css, chỉ giảm padding và cắt breadcrumb. */
+@media (max-width: 639.98px) {
+    .ta-topbar {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .ta-topbar-left {
+        gap: 8px;
+    }
+
+    .ta-breadcrumb {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 12px;
+    }
+
+    .ta-topbar-actions {
+        gap: 8px;
+    }
+
+    .ta-topbar-actions .ta-btn {
+        padding-inline: 10px;
+        font-size: 12px;
+    }
+}
