@@ -1,8 +1,8 @@
 /*
- * Client-side validation for the FAQ inquiry form.
- * The form uses the HTML5 attributes (required, type, pattern, maxlength) but
- * has novalidate so we can show messages under each field instead of bubbles.
- * The server validation in PageController@ask remains authoritative.
+ * Validate biểu mẫu FAQ phía client.
+ * Form dùng thuộc tính HTML5 (required, type, pattern, maxlength) nhưng
+ * có novalidate để tự hiển thị lỗi dưới từng trường thay vì bubble.
+ * Validate ở server trong AboutFaqController::ask() mới là chuẩn cuối cùng.
  */
 (function () {
     'use strict';

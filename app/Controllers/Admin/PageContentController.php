@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/** Quản lý nội dung About/FAQ theo khối cố định (không đụng PageController của client). */
+/** Quản lý nội dung About/FAQ theo khối cố định. */
 final class PageContentController extends Controller
 {
     /** Cấu hình khối: label/hint/group/default chỉ phục vụ giao diện admin. */
@@ -220,7 +220,7 @@ final class PageContentController extends Controller
             return;
         }
 
-        foreach ($config['sections'] as $section) {
+        foreach ($config['sections'] as $index => $section) {
             $key = $section['key'];
             $fields = $section['fields'];
             $oldImage = (string) (($rows[$key] ?? [])['image'] ?? '');
@@ -331,7 +331,7 @@ final class PageContentController extends Controller
         try {
             return FaqQuestion::countUnread();
         } catch (PDOException $exception) {
-            // Cột source do nhóm #1 thêm; nếu DB cũ chưa migrate thì vẫn cho sửa nội dung.
+            // Cột source do #1 thêm; nếu DB cũ chưa migrate thì vẫn cho sửa nội dung.
             return 0;
         }
     }

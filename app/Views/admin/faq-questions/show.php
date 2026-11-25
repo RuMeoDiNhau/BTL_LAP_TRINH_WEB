@@ -1,5 +1,9 @@
 <?php
 /** Chi tiết câu hỏi FAQ: nội dung, thông tin liên hệ, đổi trạng thái, xoá. */
+/**
+ * @var array<string, mixed> $row
+ */
+
 ?>
 <div class="space-y-6">
     <div class="flex flex-wrap items-end justify-between gap-4">

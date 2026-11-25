@@ -13,7 +13,6 @@ final class AboutFaqController extends Controller
         $sections = PageContent::getByPage('about');
         $seo = $sections['seo'] ?? [];
 
-        // Dùng lại model Post của nhóm #1: chỉ đọc, không ghi đè model.
         $postModel = new Post();
         $latest = [];
         foreach ($postModel->getPublished('', 3, 0) as $post) {
@@ -23,8 +22,7 @@ final class AboutFaqController extends Controller
                 'thumbnail'     => (string) ($post['thumbnail'] ?? ''),
                 'excerpt'       => (string) ($post['summary'] ?? ''),
                 'published_at'  => (string) ($post['created_at'] ?? ''),
-                // Nhãn cố định theo AGENTS.md; Post::getPublished() không trả category_name.
-                'category_name' => 'TIN TỨC',
+                'category_name' => 'NEWS',
             ];
         }
 
@@ -35,11 +33,11 @@ final class AboutFaqController extends Controller
             'metaDesc'     => $this->seoDesc($seo, 'Tìm hiểu về DECOR, người bạn đồng hành trong trang trí và nội thất nhà ở.'),
             'metaKeywords' => 'DECOR, giới thiệu, nội thất, trang trí nhà',
             'activeMenu'   => 'about',
-            // ===== #2 About/FAQ: bật header/footer riêng, không ảnh hưởng account.
+
             'useShell'     => true,
             'headExtra'    => $this->headExtra(
                 '/about',
-                'assets/images/post-thumbnail-1.jpg',
+                'images/post-thumbnail-1.jpg',
                 $this->seoTitle($seo, 'Giới thiệu | DECOR'),
                 $this->seoDesc($seo, 'Tìm hiểu về DECOR, người bạn đồng hành trong trang trí và nội thất nhà ở.')
             ),
@@ -171,7 +169,7 @@ final class AboutFaqController extends Controller
             'useShell'     => true,
             'headExtra'    => $this->headExtra(
                 '/faq',
-                'assets/images/post-thumbnail-2.jpg',
+                'images/post-thumbnail-2.jpg',
                 $this->seoTitle($seo, 'Câu hỏi thường gặp | DECOR'),
                 $this->seoDesc($seo, 'Giải đáp các câu hỏi thường gặp về sản phẩm và dịch vụ của DECOR.')
             ),
@@ -228,7 +226,7 @@ final class AboutFaqController extends Controller
         return $html;
     }
 
-    /** Đọc phone/email/address bằng private query, không sửa model Setting của nhóm #1. */
+    /** Đọc phone/email/address bằng private query. */
     private function settings(): array
     {
         $result = ['phone' => '', 'email' => '', 'address' => ''];

@@ -1,5 +1,12 @@
 <?php
 /** Form sửa nội dung About/FAQ: giữ nguyên mọi name/action/CSRF, chỉ đổi giao diện. */
+/**
+ * @var string $page
+ * @var array  $config
+ * @var array  $values
+ * @var array  $errors
+ */
+
 $pageLabel = (string)($config['label'] ?? 'Trang');
 $sections = $config['sections'] ?? [];
 $tabs = $config['tabs'] ?? [];
@@ -140,7 +147,7 @@ $renderCard = static function (string $key, array $section, array $val, array $e
             <h1 class="text-2xl font-semibold text-gray-800"><?= e($pageLabel) ?></h1>
             <p class="mt-1 text-sm text-gray-500">Chỉnh sửa các khối nội dung. Khối chưa có dữ liệu sẽ được điền nội dung mặc định và tạo khi bạn lưu.</p>
         </div>
-        <a href="<?= e(url('admin/faqs')) ?>"
+        <a href="<?= e(url('admin')) ?>"
            class="inline-flex h-11 items-center justify-center gap-2 rounded-[10px] border border-gray-300 bg-white px-5 text-sm font-medium text-gray-700 shadow-theme-xs transition hover:bg-gray-50 focus-visible:ring-3 focus-visible:ring-brand-500/20 focus-visible:outline-hidden">
             <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m15 6-6 6 6 6"/>

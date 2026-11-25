@@ -1,5 +1,14 @@
 <?php
 /** Customer Questions: search/filter, table, pagination, empty state, delete dialog. */
+/**
+ * @var array<int, array<string, mixed>> $rows
+ * @var string $keyword
+ * @var string $status
+ * @var int    $page
+ * @var int    $totalPages
+ * @var int    $total
+ * @var int    $perPage
+ */
 $pageLink = static function (int $number) use ($keyword, $status): string {
     $query = http_build_query(['q' => $keyword, 'status' => $status, 'page' => $number]);
 

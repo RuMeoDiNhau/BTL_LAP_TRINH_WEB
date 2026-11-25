@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 // ===== #2 About/FAQ =====
-// Khối route liền nhau của phần #2. Không sửa thứ tự các file routes/ khác.
 $router->get('/about', [AboutFaqController::class, 'about']);
 $router->get('/faq', [AboutFaqController::class, 'faq']);
 $router->post('/faq/ask', [AboutFaqController::class, 'ask']);

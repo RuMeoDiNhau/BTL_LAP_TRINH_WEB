@@ -14,10 +14,6 @@ class Router
     /** @var string|null */
     private static $basePath = null;
 
-    /**
-     * Base path không có dấu / cuối: '' (docroot) hoặc '/btl' (thư mục con XAMPP).
-     * Apache root .htaccess rewrite vào public/: SCRIPT_NAME có /public nhưng URI thì không.
-     */
     public static function basePath(): string
     {
         if (self::$basePath !== null) {

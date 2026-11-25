@@ -1,5 +1,11 @@
 <?php
 /** Form thêm/sửa FAQ: giữ nguyên name/action/CSRF, chỉ đổi giao diện. */
+
+/**
+ * @var array<string, mixed>  $row     Rỗng khi thêm mới
+ * @var array<string, string> $errors  Rỗng khi chưa có lỗi
+ */
+
 $isEdit = !empty($row['id']);
 $action = $isEdit ? url('admin/faqs/' . (int)$row['id'] . '/update') : url('admin/faqs/store');
 $question = (string)($row['question'] ?? '');
