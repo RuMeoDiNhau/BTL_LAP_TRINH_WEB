@@ -41,7 +41,8 @@ class PostController extends Controller
             'pageTitle'    => $pageTitle,
             'metaDesc'     => 'Tin tức, xu hướng thiết kế nội thất và cẩm nang trang trí không gian sống từ Decor E-Commerce.',
             'metaKeywords' => 'tin tức nội thất, trang trí phòng khách, decor nhà đẹp, xu hướng nội thất',
-            'headExtra'    => '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">',
+            'headExtra'    => '<link rel="stylesheet" href="' . e(asset('css/fonts.css')) . '">' . "\n"
+                . '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">',
             'pageScripts'  => ['js/posts.js'],
             'posts'        => $posts,
             'latestPosts'  => $latestPosts,
@@ -97,7 +98,8 @@ class PostController extends Controller
             ? (string) $post['meta_keywords']
             : 'Decor, tin tức nội thất';
 
-        $ogTags = '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">' . "\n"
+        $ogTags = '<link rel="stylesheet" href="' . e(asset('css/fonts.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">' . "\n"
             . '<meta property="og:type" content="article">' . "\n"
             . '<meta property="og:title" content="' . e($metaTitle) . '">' . "\n"
             . '<meta property="og:description" content="' . e($metaDesc) . '">';

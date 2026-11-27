@@ -3,67 +3,22 @@
 
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  function initRolePreviewSwitcher() {
-    const roleButtons = document.querySelectorAll("[data-role-preview]");
-    if (!roleButtons.length) return;
-
-    const avatarEl = document.getElementById("previewAvatar");
-    const nameEl = document.getElementById("previewName");
-    const emailEl = document.getElementById("previewEmail");
-    const permPills = document.querySelectorAll("[data-perm-pill]");
-
-    const roleProfiles = {
-      admin: {
-        initials: "MA",
-        name: "Nguyễn Minh Anh",
-        email: "admin@decor.vn",
-        allowed: ["view", "create", "edit", "delete"],
-      },
-      member: {
-        initials: "TH",
-        name: "Lê Thu Hà",
-        email: "customer@decor.vn",
-        allowed: ["view", "create"],
-      },
-    };
-
-    roleButtons.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const profile = roleProfiles[this.getAttribute("data-role-preview")];
-        if (!profile) return;
-
-        roleButtons.forEach((b) => {
-          b.classList.toggle("is-active", b === this);
-          b.setAttribute("aria-pressed", b === this ? "true" : "false");
-        });
-
-        if (avatarEl) avatarEl.textContent = profile.initials;
-        if (nameEl) nameEl.textContent = profile.name;
-        if (emailEl) emailEl.textContent = profile.email;
-
-        permPills.forEach((pill) => {
-          const perm = pill.getAttribute("data-perm-pill");
-          pill.classList.toggle("is-disabled", !profile.allowed.includes(perm));
-        });
-      });
-    });
-  }
-
   function initPasswordToggles() {
     document.querySelectorAll("[data-toggle-password]").forEach((btn) => {
       btn.addEventListener("click", function () {
         const input = document.getElementById(this.getAttribute("data-toggle-password"));
         if (!input) return;
 
-        const isPassword = input.getAttribute("type") === "password";
-        input.setAttribute("type", isPassword ? "text" : "password");
-        this.setAttribute("aria-label", isPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu");
+        const reveal = input.getAttribute("type") === "password";
+        input.setAttribute("type", reveal ? "text" : "password");
+        this.setAttribute("aria-label", reveal ? "Ẩn mật khẩu" : "Hiện mật khẩu");
+        this.setAttribute("aria-pressed", reveal ? "true" : "false");
 
         const eyeOpen = this.querySelector(".icon-eye-open");
         const eyeClosed = this.querySelector(".icon-eye-closed");
         if (eyeOpen && eyeClosed) {
-          eyeOpen.style.display = isPassword ? "none" : "block";
-          eyeClosed.style.display = isPassword ? "block" : "none";
+          eyeOpen.style.display = reveal ? "block" : "none";
+          eyeClosed.style.display = reveal ? "none" : "block";
         }
       });
     });
@@ -74,12 +29,14 @@
     if (message) {
       input.classList.add("is-invalid");
       input.classList.remove("is-valid");
+      input.setAttribute("aria-invalid", "true");
       if (errorEl) {
         errorEl.textContent = message;
         errorEl.classList.add("is-visible");
       }
     } else {
       input.classList.remove("is-invalid");
+      input.setAttribute("aria-invalid", "false");
       if (errorEl) {
         errorEl.textContent = "";
         errorEl.classList.remove("is-visible");
@@ -93,6 +50,7 @@
     const textEl = alertBox.querySelector("[data-alert-text]");
     if (textEl) textEl.textContent = message;
     alertBox.classList.add("is-visible");
+    alertBox.focus();
   }
 
   function isStrongPassword(password) {
@@ -225,7 +183,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initRolePreviewSwitcher();
     initPasswordToggles();
     initLoginValidation();
     initRegisterValidation();

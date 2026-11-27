@@ -16,8 +16,8 @@ $welcome = $sections['welcome'] ?? [];
 $about = $sections['about'] ?? [];
 
 $html = str_replace(
-    ['../cdn/', 'href="css/', 'href="style.css"', 'src="images/', 'src="js/', 'href="index.html"', 'href="contact.html"', 'href="about.html"', 'href="shop-four-column-wide.html"', 'href="shop.html"'],
-    [$templateBase . '/cdn/', 'href="' . $templateBase . '/decor/css/', 'href="' . $templateBase . '/decor/style.css"', 'src="' . $templateBase . '/decor/images/', 'src="' . $templateBase . '/decor/js/', 'href="' . base_url('/') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/#about') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/products') . '"'],
+    ['../cdn/', 'href="css/', 'href="style.css"', 'src="images/', 'src="js/', 'href="index.html"', 'href="contact.html"', 'href="about.html"', 'href="shop-four-column-wide.html"', 'href="shop.html"', 'href="../../public/login"', 'href="../../public/register"'],
+    [$templateBase . '/cdn/', 'href="' . $templateBase . '/decor/css/', 'href="' . $templateBase . '/decor/style.css"', 'src="' . $templateBase . '/decor/images/', 'src="' . $templateBase . '/decor/js/', 'href="' . base_url('/') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/#about') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/products') . '"', 'href="' . e(base_url('/login')) . '"', 'href="' . e(base_url('/register')) . '"'],
     $html
 );
 $html = str_replace('<title>Decor</title>', '<title>' . $escape($settings['site_name'] ?? 'Decor') . '</title>', $html);

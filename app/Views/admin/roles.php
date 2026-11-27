@@ -23,7 +23,11 @@ $memberCount = (int) ($roleCounts['member'] ?? 0);
   <button type="button" class="ta-role-card is-selected" data-role-card="admin" aria-pressed="true">
     <div class="ta-role-card-top">
       <div class="ta-role-card-title-wrap">
-        <span class="ta-stat-icon" aria-hidden="true">&#128737;</span>
+        <span class="ta-stat-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </span>
         <div>
           <div class="ta-role-name">Quản trị viên (admin)</div>
           <div class="ta-role-user-count"><?= $adminCount ?> tài khoản</div>
@@ -40,7 +44,12 @@ $memberCount = (int) ($roleCounts['member'] ?? 0);
   <button type="button" class="ta-role-card" data-role-card="member" aria-pressed="false">
     <div class="ta-role-card-top">
       <div class="ta-role-card-title-wrap">
-        <span class="ta-stat-icon" aria-hidden="true">&#128100;</span>
+        <span class="ta-stat-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
         <div>
           <div class="ta-role-name">Thành viên (member)</div>
           <div class="ta-role-user-count"><?= $memberCount ?> tài khoản</div>
@@ -95,6 +104,13 @@ $memberCount = (int) ($roleCounts['member'] ?? 0);
   </div>
 
   <div class="ta-card-footer">
-    <span>&#9432; Chỉ tài khoản có <code>role = 'admin'</code> mới được phép truy cập các đường dẫn <code>/admin/*</code>.</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      Chỉ tài khoản có <code>role = 'admin'</code> mới được phép truy cập các đường dẫn <code>/admin/*</code>.
+    </span>
   </div>
 </section>
