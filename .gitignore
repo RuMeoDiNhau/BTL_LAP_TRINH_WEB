@@ -53,3 +53,7 @@ database/backup/
 *.bak
 *.orig
 *.rej
+
+references/
+AGENTS.md
+tailadmin-free-tailwind-dashboard-template/
