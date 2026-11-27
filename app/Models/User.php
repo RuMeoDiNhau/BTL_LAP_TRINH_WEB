@@ -8,13 +8,7 @@ class User
 
     public function __construct(?PDO $db = null)
     {
-        if ($db instanceof PDO) {
-            $this->db = $db;
-            return;
-        }
-
-        $instance = Database::getInstance();
-        $this->db = $instance instanceof PDO ? $instance : $instance->getConnection();
+        $this->db = $db ?? Database::getInstance()->getConnection();
     }
 
     public function findByEmail(string $email): ?array

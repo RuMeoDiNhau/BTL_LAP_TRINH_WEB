@@ -1049,3 +1049,28 @@ a {
     justify-content: center;
   }
 }
+
+/* WCAG 2.2 AA Accessibility: Focus Visible, Scroll Padding & Reduced Motion */
+html {
+  scroll-padding-top: 80px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 2.5px solid var(--ta-brand-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
