@@ -1,33 +1,20 @@
-<?php
-$esc = static fn (?string $s): string => function_exists('e')
-    ? (string) e($s)
-    : htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
-
-$url = static fn (string $path): string => function_exists('base_url')
-    ? (string) base_url($path)
-    : $path;
-
-$assetUrl = static fn (string $path): string => function_exists('asset')
-    ? (string) asset($path)
-    : '/assets/' . ltrim($path, '/');
-?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="<?= $esc($metaDesc ?? 'Hệ thống xác thực Decor E-Commerce') ?>">
-  <title><?= $esc($pageTitle ?? 'Decor E-Commerce') ?></title>
+  <meta name="description" content="<?= e($metaDesc ?? 'Hệ thống xác thực Decor E-Commerce') ?>">
+  <title><?= e($pageTitle ?? 'Decor E-Commerce') ?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="<?= $esc($assetUrl('css/auth.css')) ?>">
+  <link rel="stylesheet" href="<?= e(asset('css/auth.css')) ?>">
 </head>
 <body>
   <div class="auth-layout">
     <aside class="auth-aside" aria-label="Giới thiệu hệ thống phân quyền Decor">
-      <a href="<?= $esc($url('/')) ?>" class="brand-logo">
-        <img src="<?= $esc($assetUrl('images/brand/logo.svg')) ?>" alt="Logo Decor" width="38" height="38">
+      <a href="<?= e(base_url('/')) ?>" class="brand-logo">
+        <img src="<?= e(asset('images/brand/logo.svg')) ?>" alt="Logo Decor" width="38" height="38">
         <span>Decor</span>
         <span class="brand-logo-sub">Studio</span>
       </a>
@@ -94,13 +81,13 @@ $assetUrl = static fn (string $path): string => function_exists('asset')
 
     <main class="auth-main">
       <div class="auth-topbar">
-        <a href="<?= $esc($url('/')) ?>" class="brand-logo auth-topbar-mobile-logo">
-          <img src="<?= $esc($assetUrl('images/brand/logo.svg')) ?>" alt="Logo Decor" width="32" height="32">
+        <a href="<?= e(base_url('/')) ?>" class="brand-logo auth-topbar-mobile-logo">
+          <img src="<?= e(asset('images/brand/logo.svg')) ?>" alt="Logo Decor" width="32" height="32">
           <span>Decor</span>
         </a>
         <div>
-          <span><?= $esc($topbarPrompt ?? '') ?></span>
-          <a href="<?= $esc($url($topbarLink ?? '/login')) ?>"><?= $esc($topbarText ?? '') ?></a>
+          <span><?= e($topbarPrompt ?? '') ?></span>
+          <a href="<?= e(base_url($topbarLink ?? '/login')) ?>"><?= e($topbarText ?? '') ?></a>
         </div>
       </div>
 
@@ -110,11 +97,11 @@ $assetUrl = static fn (string $path): string => function_exists('asset')
 
       <footer class="auth-bottombar">
         <span>Hệ thống xác thực bảo mật Decor</span>
-        <a href="<?= $esc($url('/')) ?>">Quay về trang chủ &#8599;</a>
+        <a href="<?= e(base_url('/')) ?>">Quay về trang chủ &#8599;</a>
       </footer>
     </main>
   </div>
 
-  <script src="<?= $esc($assetUrl('js/auth.js')) ?>"></script>
+  <script src="<?= e(asset('js/auth.js')) ?>"></script>
 </body>
 </html>

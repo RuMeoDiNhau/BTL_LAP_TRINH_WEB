@@ -1,8 +1,4 @@
 <?php
-$esc = static fn (?string $s): string => function_exists('e')
-    ? (string) e($s)
-    : htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
-
 $adminCount = (int) ($roleCounts['admin'] ?? 0);
 $memberCount = (int) ($roleCounts['member'] ?? 0);
 ?>
@@ -13,7 +9,7 @@ $memberCount = (int) ($roleCounts['member'] ?? 0);
   </div>
   <div class="ta-header-buttons">
     <span class="ta-badge ta-badge--admin">
-      Đang đăng nhập: <?= $esc($currentUser['full_name'] ?? 'Quản trị viên') ?> (admin)
+      Đang đăng nhập: <?= e($currentUser['full_name'] ?? 'Quản trị viên') ?> (admin)
     </span>
   </div>
 </div>

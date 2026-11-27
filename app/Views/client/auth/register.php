@@ -1,12 +1,4 @@
 <?php
-$esc = static fn (?string $s): string => function_exists('e')
-    ? (string) e($s)
-    : htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
-
-$url = static fn (string $path): string => function_exists('base_url')
-    ? (string) base_url($path)
-    : $path;
-
 $errors = $errors ?? [];
 $old = $old ?? [];
 ?>
@@ -19,11 +11,11 @@ $old = $old ?? [];
     <line x1="12" y1="8" x2="12" y2="12"/>
     <line x1="12" y1="16" x2="12.01" y2="16"/>
   </svg>
-  <div data-alert-text><?= $esc($flashError ?? '') ?></div>
+  <div data-alert-text><?= e($flashError ?? '') ?></div>
 </div>
 
-<form id="registerForm" class="auth-form" action="<?= $esc($url('/register')) ?>" method="post" novalidate>
-  <input type="hidden" name="_csrf" value="<?= $esc($csrfToken ?? '') ?>">
+<form id="registerForm" class="auth-form" action="<?= e(base_url('/register')) ?>" method="post" novalidate>
+  <?= csrf_field() ?>
 
   <div class="form-group">
     <label for="regFullName" class="form-label">Họ và tên</label>
@@ -33,14 +25,14 @@ $old = $old ?? [];
         id="regFullName"
         name="full_name"
         class="form-control<?= isset($errors['full_name']) ? ' is-invalid' : '' ?>"
-        value="<?= $esc($old['full_name'] ?? '') ?>"
+        value="<?= e($old['full_name'] ?? '') ?>"
         placeholder="Ví dụ: Lê Thu Hà"
         autocomplete="name"
         required
       >
     </div>
     <p id="regFullNameError" class="field-error<?= isset($errors['full_name']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['full_name'] ?? '') ?>
+      <?= e($errors['full_name'] ?? '') ?>
     </p>
   </div>
 
@@ -52,14 +44,14 @@ $old = $old ?? [];
         id="regEmail"
         name="email"
         class="form-control<?= isset($errors['email']) ? ' is-invalid' : '' ?>"
-        value="<?= $esc($old['email'] ?? '') ?>"
+        value="<?= e($old['email'] ?? '') ?>"
         placeholder="thuha@decor.vn"
         autocomplete="email"
         required
       >
     </div>
     <p id="regEmailError" class="field-error<?= isset($errors['email']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['email'] ?? '') ?>
+      <?= e($errors['email'] ?? '') ?>
     </p>
   </div>
 
@@ -96,7 +88,7 @@ $old = $old ?? [];
       <span>Ít nhất 8 ký tự, gồm chữ hoa, chữ thường và số.</span>
     </div>
     <p id="regPasswordError" class="field-error<?= isset($errors['password']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['password'] ?? '') ?>
+      <?= e($errors['password'] ?? '') ?>
     </p>
   </div>
 
@@ -129,7 +121,7 @@ $old = $old ?? [];
       </button>
     </div>
     <p id="regPasswordConfirmError" class="field-error<?= isset($errors['password_confirmation']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['password_confirmation'] ?? '') ?>
+      <?= e($errors['password_confirmation'] ?? '') ?>
     </p>
   </div>
 
@@ -139,7 +131,7 @@ $old = $old ?? [];
       <span>Tôi đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư của Decor.</span>
     </label>
     <p id="regTermsError" class="field-error<?= isset($errors['terms']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['terms'] ?? '') ?>
+      <?= e($errors['terms'] ?? '') ?>
     </p>
   </div>
 

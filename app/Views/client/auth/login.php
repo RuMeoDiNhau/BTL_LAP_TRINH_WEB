@@ -1,12 +1,4 @@
 <?php
-$esc = static fn (?string $s): string => function_exists('e')
-    ? (string) e($s)
-    : htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
-
-$url = static fn (string $path): string => function_exists('base_url')
-    ? (string) base_url($path)
-    : $path;
-
 $errors = $errors ?? [];
 $old = $old ?? [];
 ?>
@@ -27,7 +19,7 @@ $old = $old ?? [];
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
       <polyline points="22 4 12 14.01 9 11.01"/>
     </svg>
-    <div><?= $esc($flashSuccess) ?></div>
+    <div><?= e($flashSuccess) ?></div>
   </div>
 <?php endif; ?>
 
@@ -37,11 +29,11 @@ $old = $old ?? [];
     <line x1="12" y1="8" x2="12" y2="12"/>
     <line x1="12" y1="16" x2="12.01" y2="16"/>
   </svg>
-  <div data-alert-text><?= $esc($flashError ?? '') ?></div>
+  <div data-alert-text><?= e($flashError ?? '') ?></div>
 </div>
 
-<form id="loginForm" class="auth-form" action="<?= $esc($url('/login')) ?>" method="post" novalidate>
-  <input type="hidden" name="_csrf" value="<?= $esc($csrfToken ?? '') ?>">
+<form id="loginForm" class="auth-form" action="<?= e(base_url('/login')) ?>" method="post" novalidate>
+  <?= csrf_field() ?>
 
   <div class="form-group">
     <label for="loginEmail" class="form-label">Địa chỉ email</label>
@@ -51,14 +43,14 @@ $old = $old ?? [];
         id="loginEmail"
         name="email"
         class="form-control<?= isset($errors['email']) ? ' is-invalid' : '' ?>"
-        value="<?= $esc($old['email'] ?? '') ?>"
+        value="<?= e($old['email'] ?? '') ?>"
         placeholder="minhanh@decor.vn"
         autocomplete="email"
         required
       >
     </div>
     <p id="loginEmailError" class="field-error<?= isset($errors['email']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['email'] ?? '') ?>
+      <?= e($errors['email'] ?? '') ?>
     </p>
   </div>
 
@@ -91,7 +83,7 @@ $old = $old ?? [];
       </button>
     </div>
     <p id="loginPasswordError" class="field-error<?= isset($errors['password']) ? ' is-visible' : '' ?>">
-      <?= $esc($errors['password'] ?? '') ?>
+      <?= e($errors['password'] ?? '') ?>
     </p>
   </div>
 
