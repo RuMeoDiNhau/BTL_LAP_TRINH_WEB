@@ -107,7 +107,7 @@ final class PageContent
 
     private static function pageKey(string $pageKey): string
     {
-        if (!in_array($pageKey, ['about', 'faq'], true)) {
+        if (!in_array($pageKey, ['home', 'about', 'faq'], true)) {
             throw new InvalidArgumentException('page_key không hợp lệ: ' . $pageKey);
         }
 

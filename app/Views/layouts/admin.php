@@ -120,7 +120,12 @@ $pageScripts = array_values(array_unique(array_merge(
           </li>
           <li>
             <a href="<?= $esc($url('/admin/settings')) ?>" class="ta-nav-link<?= $activeMenu === 'settings' ? ' is-active' : '' ?>">
-              <span class="ta-nav-link-left"><span>Cấu hình &amp; Liên hệ</span></span>
+              <span class="ta-nav-link-left"><span>Nội dung trang</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $esc($url('/admin/contacts')) ?>" class="ta-nav-link<?= $activeMenu === 'contacts' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>Liên hệ khách hàng</span></span>
             </a>
           </li>
         </ul>
