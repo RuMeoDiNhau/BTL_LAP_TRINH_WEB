@@ -1,56 +1,39 @@
 <?php
-/** ===== #2 About/FAQ ===== Footer riêng, chỉ render khi $useShell = true. */
-// Chỉ link route có thật; các mục null hiện chữ, không tự thêm route.
 $dcFooterColumns = [
-    'Company' => [
-        ['Home', '/'],
-        ['About', '/about'],
-        ['News', null],
+    'Về Decor' => [
+        ['Trang chủ', '/'],
+        ['Giới thiệu', '/about'],
+        ['Tin tức', '/posts'],
     ],
-    'Explore' => [
-        ['Products', null],
-        ['Pricing', null],
-        ['Contact', null],
+    'Mua sắm' => [
+        ['Sản phẩm', '/products'],
+        ['Giỏ hàng', '/cart'],
     ],
-    'Help' => [
-        ['FAQs', '/faq'],
+    'Hỗ trợ' => [
+        ['Câu hỏi thường gặp', '/faq'],
+        ['Liên hệ', '/contact'],
     ],
-];
-$dcFooterItem = static function (array $item): string {
-    $label = (string) $item[0];
-    $path = $item[1] === null ? null : (string) $item[1];
-    if ($path === null) {
-        return '<li><span class="dc-shell-footer__text">' . e($label) . '</span></li>';
-    }
-
-    return '<li><a href="' . e(url($path)) . '">' . e($label) . '</a></li>';
-};
-$dcSocialLabels = [
-    'facebook'  => 'Facebook',
-    'instagram' => 'Instagram',
-    'twitter-x' => 'X (Twitter)',
-    'youtube'   => 'YouTube',
-    'pinterest' => 'Pinterest',
 ];
 ?>
 <footer class="dc-shell-footer">
   <div class="dc-shell-footer__inner">
     <div class="dc-shell-footer__grid">
       <div class="dc-shell-footer__brand">
-        <a class="dc-shell-footer__logo" href="<?= e(base_url('/')) ?>">Decor</a>
-        <ul class="dc-shell-social">
-          <?php foreach ($dcSocialLabels as $dcId => $dcLabel): ?>
-            <li><a href="#" aria-label="<?= e($dcLabel) ?>"><?= $dcIcon($dcId, 14) ?></a></li>
-          <?php endforeach; ?>
-        </ul>
+        <a class="dc-shell-footer__logo" href="<?= e(base_url('/')) ?>" aria-label="Decor – Trang chủ">
+          <?php if (!empty($brandLogo)): ?>
+            <img src="<?= e($brandLogo) ?>" alt="" width="150" height="60">
+          <?php else: ?>
+            Decor
+          <?php endif; ?>
+        </a>
       </div>
 
       <?php foreach ($dcFooterColumns as $dcTitle => $dcItems): ?>
         <div>
           <h2 class="dc-shell-footer__title"><?= e($dcTitle) ?></h2>
           <ul class="dc-shell-footer__links">
-            <?php foreach ($dcItems as $dcItem): ?>
-              <?= $dcFooterItem($dcItem) ?>
+            <?php foreach ($dcItems as [$dcLabel, $dcPath]): ?>
+              <li><a href="<?= e(base_url($dcPath)) ?>"><?= e($dcLabel) ?></a></li>
             <?php endforeach; ?>
           </ul>
         </div>
@@ -69,19 +52,6 @@ $dcSocialLabels = [
     </div>
 
     <div class="dc-shell-footer__bottom">
-      <div class="dc-shell-footer__logos">
-        <div class="dc-shell-footer__shipping">
-          <span class="dc-shell-footer__label">Đơn vị vận chuyển:</span>
-          <img src="<?= e(asset('images/arct-icon.png')) ?>" alt="Arctic Shipping" width="38" height="24">
-          <img src="<?= e(asset('images/dhl-logo.png')) ?>" alt="DHL" width="60" height="24">
-        </div>
-        <div class="dc-shell-footer__payments">
-          <span class="dc-shell-footer__label">Phương thức thanh toán:</span>
-          <img src="<?= e(asset('images/visa-card.png')) ?>" alt="Visa" width="30" height="24">
-          <img src="<?= e(asset('images/paypal-card.png')) ?>" alt="PayPal" width="29" height="24">
-          <img src="<?= e(asset('images/master-card.png')) ?>" alt="MasterCard" width="30" height="24">
-        </div>
-      </div>
       <p class="dc-shell-footer__copyright">&copy; Bản quyền 2026 DECOR E-COMMERCE. Bảo lưu mọi quyền.</p>
     </div>
   </div>

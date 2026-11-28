@@ -8,11 +8,15 @@ class HomeController extends Controller
     {
         $sections = PageContent::getByPage('home');
         $settings = (new Setting())->all();
+        $logo = trim((string) ($settings['logo'] ?? ''));
+        $layout = ShopView::storefront('home');
+        $layout['headExtra'] .= '<link rel="stylesheet" href="' . e(asset('css/pages/home.css')) . '">' . "\n";
 
-        $this->view('client/home/index', [
+        $this->view('client/home/index', $layout + [
             'pageTitle' => (string) ($settings['site_name'] ?? 'Decor'),
+            'brandLogo' => $logo === '' ? null : base_url('/' . ltrim($logo, '/')),
             'sections' => $sections,
-            'settings' => $settings,
-        ], null);
+            'products' => (new Product())->paginate('', 0, 'active', 1, 4)['rows'],
+        ]);
     }
 }

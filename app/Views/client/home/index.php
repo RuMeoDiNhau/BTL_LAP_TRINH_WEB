@@ -1,63 +1,63 @@
 <?php
-declare(strict_types=1);
-
-$templatePath = dirname(__DIR__, 4) . '/decor-template/decor/index.html';
-$html = is_file($templatePath) ? file_get_contents($templatePath) : false;
-if ($html === false) {
-    http_response_code(500);
-    echo 'Không tải được giao diện trang chủ.';
-    return;
-}
-
-$escape = static fn ($value): string => e((string) $value);
-$templateBase = rtrim(base_url('/decor-template'), '/');
 $hero = $sections['hero'] ?? [];
 $welcome = $sections['welcome'] ?? [];
 $about = $sections['about'] ?? [];
 
-$html = str_replace(
-    ['../cdn/', 'href="css/', 'href="style.css"', 'src="images/', 'src="js/', 'href="index.html"', 'href="contact.html"', 'href="about.html"', 'href="shop-four-column-wide.html"', 'href="shop.html"', 'href="../../public/login"', 'href="../../public/register"'],
-    [$templateBase . '/cdn/', 'href="' . $templateBase . '/decor/css/', 'href="' . $templateBase . '/decor/style.css"', 'src="' . $templateBase . '/decor/images/', 'src="' . $templateBase . '/decor/js/', 'href="' . base_url('/') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/#about') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/products') . '"', 'href="' . e(base_url('/login')) . '"', 'href="' . e(base_url('/register')) . '"'],
-    $html
-);
-$html = str_replace('<title>Decor</title>', '<title>' . $escape($settings['site_name'] ?? 'Decor') . '</title>', $html);
-$html = str_replace('<a class="nav-link" href="#">Blog</a>', '<a class="nav-link" href="' . e(base_url('/contact')) . '">Contact</a>', $html);
-$html = str_replace('href="shop.html"', 'href="' . e(base_url('/products')) . '"', $html);
-
-$html = str_replace('Room Decors', $escape($hero['title'] ?? 'Room Decors'), $html);
-$html = str_replace('Cozy Furnitures for your personal spaces', nl2br($escape($hero['content'] ?? 'Cozy Furnitures for your personal spaces')), $html);
-$html = str_replace('contact@yourcompany.com', $escape($settings['email'] ?? ''), $html);
-$html = str_replace('<h6 class="text-center text-uppercase">Welcome</h6>', '<h6 class="text-center text-uppercase">' . $escape($welcome['title'] ?? 'Welcome') . '</h6>', $html);
-
-$replaceFirst = static function (string $pattern, string $replacement, string $source): string {
-    $result = preg_replace_callback($pattern, static function (array $matches) use ($replacement): string {
-        return ($matches[1] ?? '') . $replacement . ($matches[2] ?? '');
-    }, $source, 1);
-    return is_string($result) ? $result : $source;
+$sectionImage = static function (array $section, ?string $fallback = null): ?string {
+    $path = trim((string) ($section['image'] ?? ''));
+    return $path === '' ? $fallback : base_url('/' . ltrim($path, '/'));
 };
-$welcomeText = $escape($welcome['content'] ?? 'Our lives happen around our furniture. Every day, our bed frames, dining tables, dressers, and coffee tables support us, often without thanks and appreciation.');
-$html = $replaceFirst('~(<section[^>]*id="welcome".*?<h2 class="fs-2 text-center">).*?(</h2>)~s', '$1' . $welcomeText . '$2', $html);
-$aboutTitle = $escape($about['title'] ?? 'Add life to your personal space with Decor');
-$html = $replaceFirst('~(<section[^>]*id="about".*?<h2[^>]*>).*?(</h2>)~s', '$1' . $aboutTitle . '$2', $html);
-$aboutContent = nl2br($escape($about['content'] ?? ''));
-$html = $replaceFirst('~(<section[^>]*id="about".*?<p>).*?(</p>)~s', '$1' . $aboutContent . '$2', $html);
 
-foreach ([
-    ['/decor-template/decor/images/banner-large-1.jpg', $hero['image'] ?? null],
-    ['/decor-template/decor/images/about.jpg', $about['image'] ?? null],
-    ['/decor-template/decor/images/logo.png', $settings['logo'] ?? null],
-    ['/decor-template/decor/images/logo-footer.png', $settings['logo'] ?? null],
-] as [$oldPath, $storedPath]) {
-    if (is_string($storedPath) && $storedPath !== '') {
-        $html = str_replace($oldPath, base_url('/' . ltrim($storedPath, '/')), $html);
-    }
-}
+$heroTitle = trim((string) ($hero['title'] ?? ''));
+$heroContent = trim((string) ($hero['content'] ?? 'Chọn nội thất và đồ trang trí phù hợp cho từng căn phòng.'));
+$heroImage = $sectionImage($hero, base_url('/decor-template/decor/images/banner-large-1.jpg'));
+$welcomeTitle = trim((string) ($welcome['title'] ?? ''));
+$welcomeContent = trim((string) ($welcome['content'] ?? ''));
+$welcomeImage = $sectionImage($welcome);
+$aboutTitle = trim((string) ($about['title'] ?? ''));
+$aboutContent = trim((string) ($about['content'] ?? ''));
+$aboutImage = $sectionImage($about, base_url('/decor-template/decor/images/about.jpg'));
+?>
+<div class="shop-front shop-shell home-page">
+  <section class="home-hero" id="billboard" aria-labelledby="home-title">
+    <div class="home-hero__copy">
+      <h1 id="home-title"><?= e($heroTitle === '' ? 'Nội thất cho không gian sống' : $heroTitle) ?></h1>
+      <?php if ($heroContent !== ''): ?><p><?= nl2br(e($heroContent)) ?></p><?php endif; ?>
+      <a class="shop-btn" href="<?= e(base_url('/products')) ?>">Xem sản phẩm</a>
+    </div>
+    <div class="home-hero__picture">
+      <img src="<?= e($heroImage) ?>" alt="" fetchpriority="high">
+    </div>
+  </section>
 
-if (!empty($welcome['image'])) {
-    $image = '<div class="container text-center mb-4"><img class="img-fluid" src="' . e(base_url('/' . ltrim((string) $welcome['image'], '/'))) . '" alt=""></div>';
-    $html = str_replace('<section class="padding-medium" id="welcome">', '<section class="padding-medium" id="welcome">' . $image, $html);
-}
+  <?php if ($welcomeTitle !== '' || $welcomeContent !== '' || $welcomeImage !== null): ?>
+    <section class="home-welcome" id="welcome" aria-labelledby="home-welcome-title">
+      <h2 id="home-welcome-title"><?= e($welcomeTitle === '' ? 'Chào mừng đến với Decor' : $welcomeTitle) ?></h2>
+      <?php if ($welcomeContent !== ''): ?><p><?= nl2br(e($welcomeContent)) ?></p><?php endif; ?>
+      <?php if ($welcomeImage !== null): ?><img src="<?= e($welcomeImage) ?>" alt="" loading="lazy"><?php endif; ?>
+    </section>
+  <?php endif; ?>
 
-$html = str_replace('</body>', '<script>document.querySelectorAll("a[href=\"cart.html\"],a[href=\"wishlist.html\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));</script></body>', $html);
-$html = str_replace('</head>', '<style>#billboard .swiper-slide{isolation:isolate}#billboard .jarallax-img{z-index:0!important;object-fit:cover}#billboard .banner-content{z-index:1}</style></head>', $html);
-echo $html;
+  <?php if ($products): ?>
+    <section class="home-products" id="collections" aria-labelledby="home-products-title">
+      <div class="shop-section-head">
+        <h2 id="home-products-title">Sản phẩm mới</h2>
+        <a class="shop-link" href="<?= e(base_url('/products')) ?>">Xem tất cả sản phẩm</a>
+      </div>
+      <div class="shop-product-grid home-products__grid">
+        <?php foreach ($products as $product): ?>
+          <?php require dirname(__DIR__, 2) . '/partials/shop_product_card.php'; ?>
+        <?php endforeach; ?>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <section class="home-about" id="about" aria-labelledby="home-about-title">
+    <img class="home-about__picture" src="<?= e($aboutImage) ?>" alt="" loading="lazy">
+    <div class="home-about__copy">
+      <h2 id="home-about-title"><?= e($aboutTitle === '' ? 'Về Decor' : $aboutTitle) ?></h2>
+      <?php if ($aboutContent !== ''): ?><p><?= nl2br(e($aboutContent)) ?></p><?php endif; ?>
+      <a class="shop-link" href="<?= e(base_url('/about')) ?>">Tìm hiểu về Decor</a>
+    </div>
+  </section>
+</div>

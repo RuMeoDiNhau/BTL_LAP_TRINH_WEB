@@ -25,6 +25,15 @@
     if (!toggle || !panel) {
         return;
     }
+    var menus = root.querySelectorAll('.dc-shell-menu');
+
+    function closeMenus(except) {
+        menus.forEach(function (menu) {
+            if (menu !== except) {
+                menu.open = false;
+            }
+        });
+    }
 
     function setOpen(open) {
         panel.hidden = !open;
@@ -34,13 +43,28 @@
         }
         if (root) {
             root.classList.toggle('dc-shell-menu-open', open);
-            // Đóng dropdown search/account để không chồng lên drawer.
-            var details = root.querySelectorAll('.dc-shell-menu[open]');
-            for (var i = 0; i < details.length; i++) {
-                details[i].open = false;
-            }
+        }
+        if (open) {
+            closeMenus(null);
         }
     }
+
+    menus.forEach(function (menu) {
+        menu.addEventListener('toggle', function () {
+            if (menu.open) {
+                setOpen(false);
+                closeMenus(menu);
+            }
+        });
+    });
+
+    document.addEventListener('click', function (event) {
+        menus.forEach(function (menu) {
+            if (menu.open && !menu.contains(event.target)) {
+                menu.open = false;
+            }
+        });
+    });
 
     toggle.addEventListener('click', function () {
         setOpen(panel.hidden);
@@ -60,9 +84,18 @@
     }
 
     document.addEventListener('keydown', function (event) {
-        if (!panel.hidden && (event.key === 'Escape' || event.keyCode === 27)) {
+        if (event.key !== 'Escape') {
+            return;
+        }
+        if (!panel.hidden) {
             setOpen(false);
             toggle.focus();
+            return;
+        }
+        var openMenu = root.querySelector('.dc-shell-menu[open]');
+        if (openMenu) {
+            openMenu.open = false;
+            openMenu.querySelector('summary').focus();
         }
     });
 

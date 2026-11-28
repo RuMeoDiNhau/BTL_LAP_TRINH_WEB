@@ -11,7 +11,7 @@ $pageScripts  = $pageScripts ?? [];
 $headExtra    = $headExtra ?? '';
 
 // ===== #2 About/FAQ =====
-// Chỉ bật shell mới cho about/faq; các trang dùng chung layout (account...) giữ nguyên bản gốc.
+// Các module chọn shell qua tham số useShell của view.
 $useShell = !empty($useShell ?? false);
 if ($useShell) {
     // Sprite icon local, kích thước cố định để CSS không làm SVG phình to.
@@ -66,11 +66,13 @@ if ($useShell) {
         <li><a href="<?= e(base_url('/')) ?>">Home</a></li>
         <li><a href="<?= e(base_url('/about')) ?>">About</a></li>
         <li><a href="<?= e(base_url('/products')) ?>">Products</a></li>
+        <li><a href="<?= e(base_url('/cart')) ?>">Giỏ hàng</a></li>
         <li><a href="<?= e(base_url('/posts')) ?>">News</a></li>
         <li><a href="<?= e(base_url('/faq')) ?>">FAQs</a></li>
         <li><a href="<?= e(base_url('/contact')) ?>">Contact</a></li>
         <?php if (is_logged_in()): ?>
           <li><a href="<?= e(base_url('/account/profile')) ?>">Tài khoản</a></li>
+          <li><a href="<?= e(base_url('/orders')) ?>">Đơn hàng của tôi</a></li>
           <?php if (is_admin()): ?>
             <li><a href="<?= e(base_url('/admin')) ?>">Admin</a></li>
           <?php endif; ?>

@@ -102,7 +102,9 @@ try {
     check(row($id)['role'] === 'member' && row($id)['status'] === 'active', 'Không thể tự cấp quyền admin khi đăng ký');
     check(password_verify($password, row($id)['password_hash']), 'Mật khẩu được lưu bằng hash');
     $login = $browser->post('/login', ['email' => $email, 'password' => $password]);
-    check(str_contains($login['headers'], "Location: /\r\n"), 'Auth của nhóm chuyển thành viên tới trang chủ');
+    check(str_contains($login['headers'], "Location: /account/profile\r\n"), 'Đăng nhập chuyển thành viên tới hồ sơ');
+    check(str_contains($browser->request('/login')['headers'], "Location: /account/profile\r\n"), 'Thành viên đã đăng nhập mở lại trang đăng nhập sẽ về hồ sơ');
+    check(str_contains($browser->request('/register')['headers'], "Location: /account/profile\r\n"), 'Thành viên đã đăng nhập mở trang đăng ký sẽ về hồ sơ');
     $profile = $browser->request('/account/profile');
     check($profile['status'] === 200 && str_contains($profile['body'], 'Nguyễn An'), 'Đọc hồ sơ sau khi đăng ký');
     check($browser->request('/admin/roles')['status'] === 403, 'Thành viên không vào được trang quản trị');

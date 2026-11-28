@@ -2,7 +2,7 @@
 
 Website Thương mại Điện tử / Doanh nghiệp Đồ trang trí & Nội thất.
 
-- **Kiến trúc:** MVC tự viết bằng **PHP thuần** (không dùng framework/CMS).
+- **Kiến trúc:** MVC tự viết bằng **PHP thuần**, không dùng PHP Framework, CMF hay CMS.
 - **Cơ sở dữ liệu:** MySQL 8.0 hoặc MariaDB 10.4+.
 - **Frontend:** HTML / CSS / JavaScript thuần.
 - **Zero dependency:** không Composer, không npm, không ORM, không template engine.
@@ -19,16 +19,13 @@ Website Thương mại Điện tử / Doanh nghiệp Đồ trang trí & Nội th
 - Bộ nền MVC chung gồm `core/`, `public/index.php`, các route theo module trong `routes/` và rewrite Apache.
 - Tài khoản cá nhân: đăng ký/đăng nhập bằng phiên PHP; sửa họ tên, email, điện thoại; đổi mật khẩu; upload/thay/xóa avatar lưu trên server.
 - Giao diện tài khoản responsive tại `app/Views/client/account/`, CSS/JS tại `public/assets/`.
+- Phần riêng #3 có danh mục và chi tiết sản phẩm, giỏ hàng, đặt hàng COD và các màn hình quản trị sản phẩm, giỏ hàng, đơn hàng.
 - Đã kiểm thử thực tế trên **XAMPP MariaDB 10.4.32 + PHP 8.2.12**:
   - Kết nối PDO thành công tới `decor_db`.
   - Đủ 14 bảng, 2 user.
   - Hash bcrypt của `admin123` và `123456` kiểm tra bằng `password_verify()` đều đúng.
 
-### Chưa triển khai
-
-Các phân hệ sản phẩm, giỏ hàng, quản trị và trang nội dung còn nhiều placeholder. `Post.php` đã có các truy vấn dữ liệu. Các trang xác thực cũ trong `ui/` vẫn là bản demo bằng localStorage; tài khoản của tính năng PHP mới được lưu trong MySQL và dùng phiên PHP.
-
-Trang mặc định của ứng dụng PHP hiện chuyển đến hồ sơ cá nhân; khách chưa đăng nhập được chuyển đến đăng nhập. Trang chủ Decor gốc vẫn nằm tại `decor-template/decor/index.html`.
+Trang chủ PHP tại `/` sử dụng giao diện Decor. Xác thực chạy qua `/login` và `/register`, với tài khoản trong MySQL và phiên PHP.
 
 ---
 
@@ -72,10 +69,12 @@ E:\xampp\mysql\bin\mysql.exe -u root -p -e "SELECT VERSION();"
 
 ### Bước 2: Import cơ sở dữ liệu
 
-Import **lần lượt** 2 file (không cần tạo database trước):
+Import hai file nền theo thứ tự dưới đây. Schema tự tạo database.
 
 1. `database/schema.sql` — tạo CSDL `decor_db` (charset `utf8mb4`, collation `utf8mb4_unicode_ci`) và 14 bảng.
 2. `database/seed.sql` — thêm dữ liệu mẫu.
+
+Để thêm chín sản phẩm mẫu cho Phần riêng #3, chọn database `decor_db` rồi import `database/seed_task3.sql`.
 
 **Bằng phpMyAdmin:** mở [http://localhost/phpmyadmin](http://localhost/phpmyadmin) → **Import** → chọn từng file theo thứ tự.
 
@@ -307,3 +306,30 @@ php tests/account-smoke.php
 ```
 
 Kiểm tra bao gồm: đăng ký/đăng nhập; lưu và từ chối dữ liệu lỗi; email trùng; yêu cầu mật khẩu khi đổi email; CSRF; XSS; giả mạo ID/quyền; upload/thay/xóa ảnh; file sai định dạng/dung lượng/kích thước; đổi mật khẩu; vô hiệu phiên cũ; khóa tài khoản; đăng xuất.
+
+## Phần riêng #3 · Sản phẩm, giỏ hàng và đơn hàng
+
+Giỏ hàng lưu các mặt hàng trong bảng `cart_items` của `database/schema.sql`. Admin có thể đánh dấu giỏ **Đã xem**. Dấu xem được lưu theo tài khoản trong `settings` với khóa `cart_review:<user_id>` và áp dụng cho các mặt hàng, số lượng và giá tại thời điểm xem. Khách có thể mua hàng bình thường ở cả hai trạng thái. [Dữ liệu sản phẩm mẫu](database/seed_task3.sql) dùng ba danh mục từ `database/seed.sql`.
+
+| Đường dẫn | Cách thử |
+| :--- | :--- |
+| `/products` | Tìm sản phẩm theo tên hoặc mô tả, lọc danh mục và mở trang chi tiết. |
+| `/cart`, `/checkout` | Đăng nhập tài khoản khách, thêm sản phẩm, cập nhật số lượng và đặt hàng COD. |
+| `/orders` | Xem danh sách và chi tiết đơn hàng của tài khoản đang đăng nhập. |
+| `/admin/products` | Tìm, thêm, sửa, tải ảnh và xóa sản phẩm. Sản phẩm đã có trong đơn hàng sẽ được ẩn khi xóa. |
+| `/admin/carts` | Tìm khách hàng, xem nội dung giỏ và đánh dấu **Đã xem**. |
+| `/admin/orders` | Tìm đơn, xem thông tin giao hàng và cập nhật trạng thái. |
+
+Đơn hàng đi từ **Chờ xác nhận** → **Đã xác nhận** → **Đang giao** → **Hoàn tất**. Quản trị viên có thể hủy đơn ở hai trạng thái đầu. Đặt hàng trừ tồn kho và hủy đơn hoàn tồn trong giao dịch MySQL. Đơn lưu tên và đơn giá tại thời điểm đặt.
+
+```text
+routes/shop.php                         # Route khách và quản trị
+app/Controllers/Client/                 # Product, Cart, Checkout và Order
+app/Controllers/Admin/                  # ProductAdmin, CartAdmin và OrderAdmin
+app/Models/                             # Category, Product, Cart và Order
+app/Views/client/{products,cart,orders}/ # Các màn hình mua sắm
+app/Views/admin/{products,carts,orders}/ # Các màn hình quản trị
+public/assets/{css,js}/pages/shop.*      # Giao diện và tương tác
+public/uploads/products/                # Ảnh do admin tải lên
+database/seed_task3.sql                  # Sản phẩm mẫu
+```

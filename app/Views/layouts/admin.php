@@ -150,6 +150,11 @@ $pageScripts = array_values(array_unique(array_merge(
             </a>
           </li>
           <li>
+            <a href="<?= e(base_url('/admin/carts')) ?>" class="ta-nav-link<?= $activeMenu === 'carts' ? ' is-active' : '' ?>">
+              <span class="ta-nav-link-left"><span>Giỏ hàng</span></span>
+            </a>
+          </li>
+          <li>
             <a href="<?= e(base_url('/admin/orders')) ?>" class="ta-nav-link<?= $activeMenu === 'orders' ? ' is-active' : '' ?>">
               <span class="ta-nav-link-left">
                 <svg class="ta-nav-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
