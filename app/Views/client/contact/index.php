@@ -1,51 +1,97 @@
 <?php
 declare(strict_types=1);
 
-$templatePath = dirname(__DIR__, 4) . '/decor-template/decor/contact.html';
-$html = is_file($templatePath) ? file_get_contents($templatePath) : false;
-if ($html === false) {
-    http_response_code(500);
-    echo 'Không tải được giao diện liên hệ.';
-    return;
-}
+$address = trim((string) ($settings['address'] ?? ''));
+$phone = trim((string) ($settings['phone'] ?? ''));
+$email = trim((string) ($settings['email'] ?? ''));
+?>
+<section class="shop-front shop-shell dc-contact-page" aria-labelledby="contact-title">
+  <header class="dc-contact-heading">
+    <p class="dc-contact-eyebrow">Hỗ trợ khách hàng</p>
+    <h1 id="contact-title">Liên hệ với chúng tôi</h1>
+    <p>Gửi câu hỏi hoặc lời nhắn cho Decor. Chúng tôi sẽ phản hồi bạn sớm nhất có thể.</p>
+  </header>
 
-$escape = static fn ($value): string => e((string) $value);
-$templateBase = rtrim(base_url('/decor-template'), '/');
-$html = str_replace(
-    ['../cdn/', 'href="css/', 'href="style.css"', 'src="images/', 'src="js/', 'href="index.html"', 'href="contact.html"', 'href="about.html"'],
-    [$templateBase . '/cdn/', 'href="' . $templateBase . '/decor/css/', 'href="' . $templateBase . '/decor/style.css"', 'src="' . $templateBase . '/decor/images/', 'src="' . $templateBase . '/decor/js/', 'href="' . base_url('/') . '"', 'href="' . base_url('/contact') . '"', 'href="' . base_url('/#about') . '"'],
-    $html
-);
-$html = str_replace('<title>Decor</title>', '<title>' . $escape($settings['site_name'] ?? 'Decor') . ' | Liên hệ</title>', $html);
-$html = str_replace('<a class="nav-link" href="#">Blog</a>', '<a class="nav-link" href="' . e(base_url('/contact')) . '">Contact</a>', $html);
+  <div class="dc-contact-grid">
+    <aside class="dc-contact-info" aria-labelledby="contact-info-title">
+      <h2 id="contact-info-title">Thông tin liên hệ</h2>
+      <p class="dc-contact-info__intro">Bạn có thể liên hệ với chúng tôi qua các thông tin dưới đây.</p>
 
-$errorMarkup = '';
-foreach ($errors as $message) {
-    $errorMarkup .= '<div class="alert alert-danger" role="alert">' . $escape($message) . '</div>';
-}
-$notice = !empty($flashSuccess)
-    ? '<div class="alert alert-success" role="status">' . $escape($flashSuccess) . '</div>'
-    : '';
-$form = '<form action="' . e(base_url('/contact')) . '" class="form-group flex-wrap" id="contact-form" method="post">'
-    . csrf_field()
-    . '<div class="form-input col-lg-12 d-flex mb-3"><input class="form-control ps-3 me-3" name="name" placeholder="Họ và tên" maxlength="100" required value="' . $escape($old['name'] ?? '') . '"><input class="form-control ps-3" name="email" type="email" placeholder="Email" maxlength="150" required value="' . $escape($old['email'] ?? '') . '"></div>'
-    . '<div class="col-lg-12 mb-3"><input class="form-control ps-3" name="phone" placeholder="Số điện thoại" maxlength="20" value="' . $escape($old['phone'] ?? '') . '"></div>'
-    . '<div class="col-lg-12 mb-3"><input class="form-control ps-3" name="subject" placeholder="Chủ đề" maxlength="200" value="' . $escape($old['subject'] ?? '') . '"></div>'
-    . '<div class="col-lg-12 mb-3"><textarea class="form-control ps-3" name="message" placeholder="Nội dung liên hệ" rows="8" maxlength="5000" required>' . $escape($old['message'] ?? '') . '</textarea></div>'
-    . '<div class="d-grid"><button class="btn btn-primary btn-lg text-uppercase btn-rounded-none" type="submit">Gửi liên hệ</button></div></form>';
-$html = preg_replace('~<form action="contact_form\.php".*?</form>~s', $form, $html, 1) ?? $html;
-$html = str_replace('<h2>Got any questions?</h2>', $notice . $errorMarkup . '<h2>Got any questions?</h2>', $html);
+      <dl class="dc-contact-details">
+        <div>
+          <dt>Địa chỉ</dt>
+          <dd><?= e($address === '' ? 'Đang cập nhật' : $address) ?></dd>
+        </div>
+        <div>
+          <dt>Điện thoại</dt>
+          <dd>
+            <?php if ($phone !== ''): ?>
+              <a href="tel:<?= e(preg_replace('/[^0-9+]/', '', $phone) ?? '') ?>"><?= e($phone) ?></a>
+            <?php else: ?>
+              Đang cập nhật
+            <?php endif; ?>
+          </dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd>
+            <?php if ($email !== ''): ?>
+              <a href="mailto:<?= e($email) ?>"><?= e($email) ?></a>
+            <?php else: ?>
+              Đang cập nhật
+            <?php endif; ?>
+          </dd>
+        </div>
+      </dl>
+    </aside>
 
-$address = $escape($settings['address'] ?? 'Địa chỉ đang cập nhật');
-$phone = $escape($settings['phone'] ?? '');
-$email = $escape($settings['email'] ?? '');
-$html = str_replace('730 Glenstone Ave 65802, Springfield, US', $address, $html);
-$html = str_replace('+123 987 321', $phone, $html);
-$html = str_replace('+123 123 654', '', $html);
-$html = str_replace('info@yourcompany.com', $email, $html);
-if (!empty($settings['logo'])) {
-    $logoUrl = e(base_url('/' . ltrim((string) $settings['logo'], '/')));
-    $html = str_replace('/decor-template/decor/images/logo.png', $logoUrl, $html);
-    $html = str_replace('/decor-template/decor/images/logo-footer.png', $logoUrl, $html);
-}
-echo $html;
+    <div class="dc-contact-form-panel">
+      <h2>Gửi lời nhắn</h2>
+      <p class="dc-contact-form-panel__intro">Các trường có dấu <span aria-hidden="true">*</span> là bắt buộc.</p>
+
+      <?php if (!empty($errors['_form'])): ?>
+        <div class="dc-contact-alert" role="alert"><?= e($errors['_form']) ?></div>
+      <?php endif; ?>
+
+      <form action="<?= e(base_url('/contact')) ?>" method="post" class="dc-contact-form">
+        <?= csrf_field() ?>
+
+        <div class="dc-contact-form__row">
+          <div class="shop-field">
+            <label for="contact-name">Họ và tên <span aria-hidden="true">*</span></label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" minlength="2" required value="<?= e($old['name'] ?? '') ?>"<?= isset($errors['name']) ? ' aria-invalid="true" aria-describedby="contact-name-error"' : '' ?>>
+            <?php if (isset($errors['name'])): ?><small class="dc-contact-field-error" id="contact-name-error"><?= e($errors['name']) ?></small><?php endif; ?>
+          </div>
+
+          <div class="shop-field">
+            <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="150" required value="<?= e($old['email'] ?? '') ?>"<?= isset($errors['email']) ? ' aria-invalid="true" aria-describedby="contact-email-error"' : '' ?>>
+            <?php if (isset($errors['email'])): ?><small class="dc-contact-field-error" id="contact-email-error"><?= e($errors['email']) ?></small><?php endif; ?>
+          </div>
+        </div>
+
+        <div class="dc-contact-form__row">
+          <div class="shop-field">
+            <label for="contact-phone">Số điện thoại</label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" value="<?= e($old['phone'] ?? '') ?>"<?= isset($errors['phone']) ? ' aria-invalid="true" aria-describedby="contact-phone-error"' : '' ?>>
+            <?php if (isset($errors['phone'])): ?><small class="dc-contact-field-error" id="contact-phone-error"><?= e($errors['phone']) ?></small><?php endif; ?>
+          </div>
+
+          <div class="shop-field">
+            <label for="contact-subject">Chủ đề</label>
+            <input id="contact-subject" name="subject" type="text" maxlength="200" value="<?= e($old['subject'] ?? '') ?>"<?= isset($errors['subject']) ? ' aria-invalid="true" aria-describedby="contact-subject-error"' : '' ?>>
+            <?php if (isset($errors['subject'])): ?><small class="dc-contact-field-error" id="contact-subject-error"><?= e($errors['subject']) ?></small><?php endif; ?>
+          </div>
+        </div>
+
+        <div class="shop-field">
+          <label for="contact-message">Nội dung <span aria-hidden="true">*</span></label>
+          <textarea id="contact-message" name="message" rows="6" maxlength="5000" required<?= isset($errors['message']) ? ' aria-invalid="true" aria-describedby="contact-message-error"' : '' ?>><?= e($old['message'] ?? '') ?></textarea>
+          <?php if (isset($errors['message'])): ?><small class="dc-contact-field-error" id="contact-message-error"><?= e($errors['message']) ?></small><?php endif; ?>
+        </div>
+
+        <button class="shop-btn dc-contact-submit" type="submit">Gửi liên hệ</button>
+      </form>
+    </div>
+  </div>
+</section>

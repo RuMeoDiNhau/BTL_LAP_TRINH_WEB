@@ -56,12 +56,16 @@ class PageController extends Controller
             }
         }
 
-        $this->view('client/contact/index', [
+        $layout = ShopView::storefront('contact');
+        $layout['headExtra'] .= '<link rel="stylesheet" href="' . e(asset('css/pages/contact.css')) . '">' . "\n";
+        $logo = trim((string) ($settings['logo'] ?? ''));
+
+        $this->view('client/contact/index', $layout + [
             'pageTitle' => 'Liên hệ | ' . (string) ($settings['site_name'] ?? 'Decor'),
             'settings' => $settings,
             'errors' => $errors,
             'old' => $old,
-            'flashSuccess' => get_flash('success'),
-        ], null);
+            'brandLogo' => $logo === '' ? null : base_url('/' . ltrim($logo, '/')),
+        ], 'layouts/client');
     }
 }
