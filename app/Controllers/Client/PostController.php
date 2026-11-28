@@ -37,13 +37,20 @@ class PostController extends Controller
             ? 'Tìm kiếm bài viết: ' . $keyword . ' | Decor E-Commerce'
             : 'Tin tức & Cẩm nang Nội thất | Decor E-Commerce';
 
+        // CHANGED: Bật dc-shell và nạp CSS/JS chung để đồng bộ header/footer tiếng Việt với /products
+        $headExtra = '<link rel="stylesheet" href="' . e(asset('css/fonts.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/site.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/about-faq.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">';
+
         $this->view('client/posts/index', [
+            'useShell'     => true,
+            'activeMenu'   => 'posts',
             'pageTitle'    => $pageTitle,
             'metaDesc'     => 'Tin tức, xu hướng thiết kế nội thất và cẩm nang trang trí không gian sống từ Decor E-Commerce.',
             'metaKeywords' => 'tin tức nội thất, trang trí phòng khách, decor nhà đẹp, xu hướng nội thất',
-            'headExtra'    => '<link rel="stylesheet" href="' . e(asset('css/fonts.css')) . '">' . "\n"
-                . '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">',
-            'pageScripts'  => ['js/posts.js'],
+            'headExtra'    => $headExtra,
+            'pageScripts'  => ['js/about-faq.js', 'js/posts.js'],
             'posts'        => $posts,
             'latestPosts'  => $latestPosts,
             'keyword'      => $keyword,
@@ -98,18 +105,23 @@ class PostController extends Controller
             ? (string) $post['meta_keywords']
             : 'Decor, tin tức nội thất';
 
+        // CHANGED: Bật dc-shell và nạp CSS/JS chung cho trang chi tiết bài viết
         $ogTags = '<link rel="stylesheet" href="' . e(asset('css/fonts.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/site.css')) . '">' . "\n"
+            . '<link rel="stylesheet" href="' . e(asset('css/about-faq.css')) . '">' . "\n"
             . '<link rel="stylesheet" href="' . e(asset('css/posts.css')) . '">' . "\n"
             . '<meta property="og:type" content="article">' . "\n"
             . '<meta property="og:title" content="' . e($metaTitle) . '">' . "\n"
             . '<meta property="og:description" content="' . e($metaDesc) . '">';
 
         $this->view('client/posts/show', [
+            'useShell'          => true,
+            'activeMenu'        => 'posts',
             'pageTitle'         => $metaTitle . ' | Decor E-Commerce',
             'metaDesc'          => $metaDesc,
             'metaKeywords'      => $metaKeywords,
             'headExtra'         => $ogTags,
-            'pageScripts'       => ['js/posts.js'],
+            'pageScripts'       => ['js/about-faq.js', 'js/posts.js'],
             'post'              => $post,
             'comments'          => $comments,
             'totalComments'     => $totalComments,

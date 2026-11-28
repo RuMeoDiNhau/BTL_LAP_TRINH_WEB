@@ -3,7 +3,7 @@ $dcHeaderNav = [
     ['Trang chủ', '/', 'home'],
     ['Sản phẩm', '/products', 'products'],
     ['Giới thiệu', '/about', 'about'],
-    ['Tin tức', '/posts', 'posts'],
+    ['Bài viết', '/posts', 'posts'],
     ['FAQ', '/faq', 'faq'],
     ['Liên hệ', '/contact', 'contact'],
 ];
