@@ -23,6 +23,9 @@ $html = str_replace(
 $html = str_replace('<title>Decor</title>', '<title>' . $escape($settings['site_name'] ?? 'Decor') . '</title>', $html);
 $html = str_replace('<a class="nav-link" href="#">Blog</a>', '<a class="nav-link" href="' . e(base_url('/contact')) . '">Contact</a>', $html);
 $html = str_replace('href="shop.html"', 'href="' . e(base_url('/products')) . '"', $html);
+$html = str_replace('aria-controls="offcanvasCart" ', 'aria-label="Giỏ hàng" ', $html);
+$html = str_replace('data-bs-target="#offcanvasCart" data-bs-toggle="offcanvas" ', '', $html);
+$html = str_replace('href="cart.html"', 'href="' . e(base_url('/cart')) . '"', $html);
 
 $html = str_replace('Room Decors', $escape($hero['title'] ?? 'Room Decors'), $html);
 $html = str_replace('Cozy Furnitures for your personal spaces', nl2br($escape($hero['content'] ?? 'Cozy Furnitures for your personal spaces')), $html);
@@ -58,6 +61,6 @@ if (!empty($welcome['image'])) {
     $html = str_replace('<section class="padding-medium" id="welcome">', '<section class="padding-medium" id="welcome">' . $image, $html);
 }
 
-$html = str_replace('</body>', '<script>document.querySelectorAll("a[href=\"cart.html\"],a[href=\"wishlist.html\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));</script></body>', $html);
+$html = str_replace('</body>', '<script>document.querySelectorAll("a[href=\"wishlist.html\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));</script></body>', $html);
 $html = str_replace('</head>', '<style>#billboard .swiper-slide{isolation:isolate}#billboard .jarallax-img{z-index:0!important;object-fit:cover}#billboard .banner-content{z-index:1}</style></head>', $html);
 echo $html;

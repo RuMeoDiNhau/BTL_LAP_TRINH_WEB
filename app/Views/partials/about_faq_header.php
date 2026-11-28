@@ -5,13 +5,14 @@
 $dcHeaderNav = [
     ['Home', '/'],
     ['About', '/about'],
-    ['Products', null],
+    ['Products', '/products'],
     ['Pricing', null],
     ['News', null],
     ['FAQs', '/faq'],
     ['Contact', null],
 ];
-$dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
+$dcNavKey = ['/' => 'home', '/about' => 'about', '/products' => 'products', '/faq' => 'faq'];
+$dcShopSearch = in_array($activeMenu, ['products', 'cart', 'orders'], true);
 ?>
 <header class="dc-shell-header">
   <a class="dc-shell-logo" href="<?= e(base_url('/')) ?>">Decor</a>
@@ -40,13 +41,15 @@ $dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
     <details class="dc-shell-menu">
       <summary class="dc-shell-icon" aria-label="Mở tìm kiếm"><?= $dcIcon('search', 18) ?></summary>
       <div class="dc-shell-dropdown dc-shell-search">
-        <form role="search" method="get" action="<?= e(url('faq')) ?>">
+        <form role="search" method="get" action="<?= e(url($dcShopSearch ? 'products' : 'faq')) ?>">
           <label class="dc-shell-visually-hidden" for="dcShellSearch">Tìm kiếm</label>
-          <input id="dcShellSearch" type="search" name="s" placeholder="Nhập và nhấn Enter" autocomplete="off">
+          <input id="dcShellSearch" type="search" name="<?= $dcShopSearch ? 'keyword' : 's' ?>" placeholder="<?= $dcShopSearch ? 'Tìm sản phẩm' : 'Nhập và nhấn Enter' ?>" autocomplete="off">
           <button type="submit" aria-label="Gửi tìm kiếm"><?= $dcIcon('search', 16) ?></button>
         </form>
       </div>
     </details>
+
+    <a class="dc-shell-icon" href="<?= e(base_url('/cart')) ?>" aria-label="Giỏ hàng"<?= $activeMenu === 'cart' ? ' aria-current="page"' : '' ?>><?= $dcIcon('bag', 18) ?></a>
 
     <details class="dc-shell-menu">
       <summary class="dc-shell-icon" aria-label="Menu tài khoản">
@@ -55,6 +58,7 @@ $dcNavKey = ['/' => 'home', '/about' => 'about', '/faq' => 'faq'];
       <div class="dc-shell-dropdown dc-shell-account">
         <?php if (is_logged_in()): ?>
           <a href="<?= e(base_url('/account/profile')) ?>">Tài khoản</a>
+          <a href="<?= e(base_url('/orders')) ?>"<?= $activeMenu === 'orders' ? ' aria-current="page"' : '' ?>>Đơn hàng của tôi</a>
           <?php if (is_admin()): ?>
             <a href="<?= e(base_url('/admin')) ?>">Admin</a>
           <?php endif; ?>

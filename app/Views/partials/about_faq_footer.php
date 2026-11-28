@@ -8,7 +8,7 @@ $dcFooterColumns = [
         ['News', null],
     ],
     'Explore' => [
-        ['Products', null],
+        ['Products', '/products'],
         ['Pricing', null],
         ['Contact', null],
     ],
