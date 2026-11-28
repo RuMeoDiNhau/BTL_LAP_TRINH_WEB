@@ -62,15 +62,8 @@ class AuthController extends Controller
             return;
         }
 
-        session_regenerate_id(true);
-
-        $_SESSION['user'] = [
-            'id'        => (int) $user['id'],
-            'full_name' => (string) $user['full_name'],
-            'email'     => (string) $user['email'],
-            'role'      => (string) $user['role'],
-            'avatar'    => $user['avatar'] ?? null,
-        ];
+        // CHANGED: Dùng helper sign_in() để lưu luôn $_SESSION['password_version'] cho refresh_session_user()
+        sign_in($user);
 
         set_flash('success', 'Đăng nhập thành công! Chào mừng ' . $user['full_name'] . '.');
         $this->redirect($user['role'] === 'admin' ? '/admin' : '/');
@@ -157,8 +150,8 @@ class AuthController extends Controller
             $this->redirect('/');
         }
 
-        unset($_SESSION['user']);
-        session_regenerate_id(true);
+        // CHANGED: Dùng helper sign_out() để dọn sạch user, password_version và csrf_token
+        sign_out();
         set_flash('success', 'Bạn đã đăng xuất thành công.');
         $this->redirect('/login');
     }
