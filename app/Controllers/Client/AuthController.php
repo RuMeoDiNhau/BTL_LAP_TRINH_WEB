@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function showLogin(): void
     {
         if (is_logged_in()) {
-            $this->redirect(is_admin() ? '/admin' : '/');
+            $this->redirectSignedInUser();
         }
 
         $this->renderLogin([], '', get_flash('error'), get_flash('success'));
@@ -66,13 +66,13 @@ class AuthController extends Controller
         sign_in($user);
 
         set_flash('success', 'Đăng nhập thành công! Chào mừng ' . $user['full_name'] . '.');
-        $this->redirect($user['role'] === 'admin' ? '/admin' : '/');
+        $this->redirectSignedInUser();
     }
 
     public function showRegister(): void
     {
         if (is_logged_in()) {
-            $this->redirect(is_admin() ? '/admin' : '/');
+            $this->redirectSignedInUser();
         }
 
         $this->renderRegister([], ['full_name' => '', 'email' => ''], get_flash('error'), get_flash('success'));
@@ -154,6 +154,11 @@ class AuthController extends Controller
         sign_out();
         set_flash('success', 'Bạn đã đăng xuất thành công.');
         $this->redirect('/login');
+    }
+
+    private function redirectSignedInUser(): void
+    {
+        $this->redirect(is_admin() ? '/admin' : '/account/profile');
     }
 
     private function renderLogin(array $errors, string $email, ?string $flashError = null, ?string $flashSuccess = null): void

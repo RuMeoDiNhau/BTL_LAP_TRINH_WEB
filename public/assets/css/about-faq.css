@@ -209,6 +209,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    box-sizing: border-box;
     width: 100%;
     min-height: 60px;
     padding: 0 12px;
@@ -226,6 +227,14 @@
     letter-spacing: -.04em;
     line-height: 1;
     text-decoration: none;
+}
+
+.dc-shell .dc-shell-logo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 40px;
 }
 
 .dc-shell .dc-shell-nav {
@@ -250,8 +259,7 @@
     list-style: none;
 }
 
-.dc-shell .dc-shell-nav a,
-.dc-shell .dc-shell-nav__text {
+.dc-shell .dc-shell-nav a {
     color: #000;
     font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 13px;
@@ -286,14 +294,19 @@
     flex: none;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     border: 0;
     background: transparent;
     color: #000;
     cursor: pointer;
     list-style: none;
+}
+
+.dc-shell .dc-shell-header :is(a, button, summary, input):focus-visible {
+    outline: 2px solid #536249;
+    outline-offset: 2px;
 }
 
 .dc-shell .dc-shell-icon::-webkit-details-marker {
@@ -308,8 +321,44 @@
     fill: currentColor;
 }
 
-.dc-shell .dc-shell-chevron {
-    margin-left: 2px;
+.dc-shell .dc-shell-account-trigger {
+    gap: 6px;
+    width: auto;
+    padding-inline: 8px;
+    border-radius: 6px;
+}
+
+.dc-shell .dc-shell-account-trigger:hover,
+.dc-shell .dc-shell-menu[open] .dc-shell-account-trigger {
+    background: #f1f1ef;
+}
+
+.dc-shell .dc-shell-account-avatar {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #eceee5;
+    color: #34452e;
+    font-size: 11px;
+    font-weight: 700;
+    object-fit: cover;
+}
+
+.dc-shell .dc-shell-account-label {
+    overflow: hidden;
+    max-width: 15ch;
+    font-size: 12px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dc-shell .dc-shell-icon .dc-shell-chevron {
+    width: 12px;
+    height: 12px;
 }
 
 .dc-shell .dc-shell-dropdown {
@@ -318,7 +367,9 @@
     right: 0;
     z-index: 30;
     display: none;
+    box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 6px;
     background: #fff;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08);
 }
@@ -337,6 +388,7 @@
 }
 
 .dc-shell .dc-shell-search input {
+    box-sizing: border-box;
     width: 100%;
     padding: 8px 30px 8px 0;
     border: 0;
@@ -377,6 +429,7 @@
 .dc-shell .dc-shell-account a,
 .dc-shell .dc-shell-account button {
     display: block;
+    box-sizing: border-box;
     width: 100%;
     padding: 8px 10px;
     border: 0;
@@ -419,9 +472,8 @@
 }
 
 .dc-shell .dc-shell-footer__inner {
-    max-width: var(--dc-container-max, 1800px);
+    width: min(100% - 3rem, 76rem);
     margin-inline: auto;
-    padding-inline: 12px;
 }
 
 .dc-shell .dc-shell-footer__grid {
@@ -443,47 +495,12 @@
     text-decoration: none;
 }
 
-.dc-shell .dc-shell-social {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 8px;
-    margin: 16px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.dc-shell .dc-shell-social li {
-    flex: none;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.dc-shell .dc-shell-social a {
-    display: inline-flex;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 50%;
-    color: #000;
-}
-
-.dc-shell .dc-shell-social a:hover {
-    border-color: #000;
-    background: #000;
-    color: #fff;
-}
-
-.dc-shell .dc-shell-social svg {
+.dc-shell .dc-shell-footer__logo img {
     display: block;
-    flex: none;
-    width: 14px;
-    height: 14px;
-    fill: currentColor;
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    max-height: 60px;
 }
 
 .dc-shell .dc-shell-footer__title {
@@ -506,8 +523,7 @@
     list-style: none;
 }
 
-.dc-shell .dc-shell-footer__links a,
-.dc-shell .dc-shell-footer__text {
+.dc-shell .dc-shell-footer__links a {
     display: block;
     margin-bottom: 10px;
     color: #000;
@@ -516,8 +532,8 @@
     text-decoration: none;
 }
 
-.dc-shell .dc-shell-footer__text {
-    cursor: default;
+.dc-shell .dc-shell-footer__links a:hover {
+    text-decoration: underline;
 }
 
 .dc-shell .dc-shell-footer__contact {
@@ -543,44 +559,13 @@
 }
 
 .dc-shell .dc-shell-footer__bottom {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px 24px;
     margin-top: 32px;
     padding-top: 20px;
     border-top: 1px solid rgba(0, 0, 0, .12);
 }
 
-.dc-shell .dc-shell-footer__logos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 24px;
-}
-
-.dc-shell .dc-shell-footer__shipping,
-.dc-shell .dc-shell-footer__payments {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-}
-
-.dc-shell .dc-shell-footer__shipping img,
-.dc-shell .dc-shell-footer__payments img {
-    display: block;
-    flex: none;
-    width: auto;
-    height: 24px;
-    max-height: 24px;
-    filter: grayscale(1);
-    opacity: .75;
-}
-
 .dc-shell .dc-shell-footer__copyright {
-    margin: 0 0 0 auto;
+    margin: 0;
     color: #777;
     font-family: 'Montserrat', system-ui, 'Segoe UI', Arial, sans-serif;
     font-size: 12px;
@@ -637,8 +622,7 @@
     text-underline-offset: 3px;
 }
 
-.dc-shell .dc-shell-nav a,
-.dc-shell .dc-shell-nav__text {
+.dc-shell .dc-shell-nav a {
     font-size: 12px;
     letter-spacing: .01em;
 }
@@ -648,7 +632,6 @@
 }
 
 .dc-shell .dc-shell-footer__links a,
-.dc-shell .dc-shell-footer__text,
 .dc-shell .dc-shell-footer__contact p,
 .dc-shell .dc-shell-footer__contact a,
 .dc-shell .dc-shell-search input,
@@ -664,6 +647,11 @@
 }
 
 @media (min-width: 992px) {
+    .dc-shell .dc-shell-header {
+        min-height: 72px;
+        padding-inline: max(1.5rem, calc((100% - 76rem) / 2));
+    }
+
     /* Desktop luôn hiện nav dù thuộc tính hidden còn lại từ lúc thu nhỏ màn hình. */
     .dc-shell .dc-shell-nav[hidden] {
         display: block !important;
@@ -680,8 +668,7 @@
         gap: 12px;
     }
 
-    .dc-shell .dc-shell-nav a,
-    .dc-shell .dc-shell-nav__text {
+    .dc-shell .dc-shell-nav a {
         font-size: 11px;
     }
 }
@@ -696,6 +683,21 @@
 
     .dc-shell .dc-shell-actions {
         margin-left: auto;
+        gap: 4px;
+    }
+
+    .dc-shell .dc-shell-menu {
+        position: static;
+    }
+
+    .dc-shell .dc-shell-dropdown {
+        top: calc(100% + 4px);
+        right: 12px;
+        max-width: calc(100vw - 24px);
+    }
+
+    .dc-shell .dc-shell-account-label {
+        display: none;
     }
 
     .dc-shell .dc-shell-toggle {
@@ -711,6 +713,7 @@
         width: min(320px, 86vw);
         margin: 0;
         padding: 16px;
+        box-sizing: border-box;
         overflow-y: auto;
         background: #fff;
         box-shadow: -8px 0 24px rgba(0, 0, 0, .12);
@@ -722,17 +725,21 @@
         gap: 12px;
     }
 
+    .dc-shell .dc-shell-nav li {
+        width: 100%;
+    }
+
+    .dc-shell .dc-shell-nav a {
+        display: block;
+        padding: .55rem .4rem;
+        font-size: .9rem;
+    }
+
     .dc-shell .dc-shell-footer__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .dc-shell .dc-shell-footer__bottom {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .dc-shell .dc-shell-footer__copyright {
-        margin-left: 0;
         text-align: left;
     }
 }
@@ -759,8 +766,20 @@
 }
 
 @media (max-width: 575.98px) {
+    .dc-shell .dc-shell-header {
+        gap: 8px;
+    }
+
     .dc-shell .dc-shell-logo {
         font-size: 32px;
+    }
+
+    .dc-shell .dc-shell-logo img {
+        max-width: 86px;
+    }
+
+    .dc-shell .dc-shell-account-trigger {
+        padding-inline: 4px;
     }
 
     .dc-shell .dc-shell-nav ul {
